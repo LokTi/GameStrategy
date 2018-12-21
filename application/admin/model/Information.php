@@ -18,6 +18,7 @@ class Information extends Model
         $information->infoDate=date("Y-m-d");
         $information->infoClick=0;
         $information->infoContent=$infoContent;
+        $information->infoStatusReason=0;
         return $information->save();
     }
     function changeInformation($infoID,$infoTitle,$infoKey,$infoContent){                   //修改资讯
@@ -30,6 +31,11 @@ class Information extends Model
     function clickInformation($infoID){                                                     //点击资讯
         $information=Information::get($infoID);
         $information->infoClick++;
+        return $information->save();
+    }
+    function changeInfoStatus($infoID,$SorR){
+        $information=Information::get($infoID);
+        $information->infoStatusReason=$SorR;
         return $information->save();
     }
     function deleteInformation($infoID){                                                    //删除资讯
