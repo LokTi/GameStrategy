@@ -12,11 +12,12 @@ class Index  extends Controller
     {
         $user=new User;
         echo $user->where('userID',1)->find();
-        #$user->addOne(2,2,2,2,2);
+        $user->addUser(2,2,2,2,2);
+        $user->changUser(2, 3, 3, 3, 3);
         $date=Db::table('user')->select();
         $this->assign('data',$date);
-       
-        
+        $user->deleteUser(2);
+        echo $user->count();
         return view();
     }
 }

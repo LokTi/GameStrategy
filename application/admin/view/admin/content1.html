@@ -60,62 +60,23 @@
 			                          </tr>
 			                      </thead>
 			                      <tbody>
-			                          <tr >                       
-				                          <td>9821</td>
-				                          <td>DNF</td>
-				                          <td>150级史诗装备抢先看</td>
-									      <td>048</td>	
-									      <td>2018/12/20</td>
-									      <td>16</td>	
-		                                  <td class="text-center">		       
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >详细内容</button>	     
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModa2" >修改</button> 
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#" >删除</button>
-
-		                                 </td>
-			                          </tr>
-			                          <tr >                       
-				                          <td>9822</td>
-				                          <td>DNF</td>
-				                          <td>150级史诗装备抢先看</td>
-									      <td>048</td>	
-									      <td>2018/12/20</td>
-									      <td>16</td>	
-		                                  <td class="text-center">		       
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >详细内容</button>	     
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModa2" >修改</button> 
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#" >删除</button>
-
-		                                 </td>
-			                          </tr>
-			                          <tr >                       
-				                          <td>9823</td>
-				                          <td>DNF</td>
-				                          <td>150级史诗装备抢先看</td>
-									      <td>048</td>	
-									      <td>2018/12/20</td>
-									      <td>16</td>	
-		                                  <td class="text-center">		       
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >详细内容</button>	     
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModa2" >修改</button> 
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#" >删除</button>
-
-		                                 </td>
-			                          </tr>
-			                          <tr >                       
-				                          <td>9824</td>
-				                          <td>DNF</td>
-				                          <td>150级史诗装备抢先看</td>
-									      <td>048</td>	
-									      <td>2018/12/20</td>
-									      <td>16</td>	
-		                                  <td class="text-center">		       
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >详细内容</button>	     
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModa2" >修改</button> 
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#" >删除</button>
-
-		                                 </td>
-			                          </tr>
+			                          
+			                          		{volist name="infos" id="info"}
+			                          		<tr >
+												<td>{$info.infoID}</td>
+						                        <td>{$info.gameID}</td>
+						                        <td>{$info.infoTitle}</td>
+											    <td>{$info.userID}</td>	
+											    <td>{$info.infoDate}</td>
+											    <td>{$info.infoClick}</td>
+												<td class="text-center">
+													<button type='button' class='btn bg-olive btn-xs' data-toggle='modal' data-target='#editModal{$info.infoID}' >详细内容</button>
+													<button type='button' class='btn bg-olive btn-xs' data-toggle='modal' data-target='#editModa2{$info.infoID}' >修改</button>
+													<button type='button' class='btn bg-olive btn-xs' data-toggle='modal' data-target='#' >删除</button>
+			                                 	</td>
+		                                 	</tr>
+											{/volist}
+			                             
 
 
 									  
@@ -144,7 +105,10 @@
               
                                 
 <!-- 编辑窗口 -->
-	<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+{volist name="infos" id="info"}
+
+	<div class='modal fade' id='editModal{$info.infoID}' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+
 	  <div class="modal-dialog" >
 		<div class="modal-content">
 			<div class="modal-header">
@@ -154,7 +118,7 @@
 			<div class="modal-body">							
 				
 				<table class="table table-bordered table-striped"  width="800px">
-			      	<tr>三分拿到绿卡是南方两块大石你发了看到你费德勒咖啡那里咖啡哪里看到分厘卡安放了你打死了开发能力可达十年来福克纳奥利弗拿到绿卡是南方卢卡斯你发顺丰阿斯利康能否卢卡斯你离开发射能力开放
+			      	<tr>{$info.infoContent}
 			      	</tr>		  		      	
 				 </table>				
 				
@@ -163,7 +127,7 @@
 		</div>
 	</div>
 
-	<div class="modal fade" id="editModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class='modal fade' id='editModa2{$info.infoID}' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
 	  <div class="modal-dialog" >
 		<div class="modal-content">
 			<div class="modal-header">
@@ -175,19 +139,19 @@
 				<table class="table table-bordered table-striped"  width="800px">
 			      	<tr>
 			      		<td>资讯ID</td>
-			      		<td>987</td>
+			      		<td>{$info.infoID}</td>
 			      	</tr>		
 			      	<tr>
 			      		<td>相关游戏</td>
-			      		<td><input type="text" name="gameID" value="DNF"></td>
+			      		<td><input type="text" name="gameID" value="{$info.gameID}"></td>
 			      	</tr>
 			      	<tr>
 			      		<td>资讯标题</td>
-			      		<td><input type="text" name="gameID" value="150级史诗装备抢先看"></td>
+			      		<td><input type="text" name="gameID" value="{$info.infoTitle}"></td>
 			      	</tr>	  	
 			      	<tr>
 			      		<td>资讯内容</td>
-			      		<td><input type="text" name="gameID" value="事故的发生广东韶关的方式感到附属国是。"></td>
+			      		<td><input type="text" name="gameID" value="{$info.infoContent}"></td>
 			      	</tr>	
 				</table>				
 			</form>
@@ -199,7 +163,7 @@
 		  </div>
 		</div>
 	</div>
-
+{/volist}
 	<div class="modal fade" id="editModa3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" >
 		<div class="modal-content">
