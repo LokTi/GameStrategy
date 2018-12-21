@@ -15,6 +15,8 @@ class Index  extends Controller
         #$user->addOne(2,2,2,2,2);
         $date=Db::table('user')->select();
         $this->assign('data',$date);
+       
+        
         return view();
     }
 }

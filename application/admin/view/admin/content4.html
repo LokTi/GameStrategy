@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>用户管理</title>
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../../../public/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../public/plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="../../../public/plugins/adminLTE/css/skins/_all-skins.min.css">
+	
+	<script src="../../../public/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="../../../public/plugins/bootstrap/js/bootstrap.min.js"></script>
+    
+</head>
+
+<body class="hold-transition skin-red sidebar-mini" >
+  <!-- .box-body -->
+                
+                    <div class="box-header with-border">
+                        <h3 class="box-title">用户管理     
+                       	</h3>
+                    </div>
+
+                    <div class="box-body">
+                        <!-- 数据表格 -->
+                        <div class="table-box">
+                            <div class="pull-right">
+                            	<form class="form-inline definewidth m20" action="#" method="get">
+								    <font color="#777777"><strong>用户ID：</strong></font>
+								    <input type="text" name="menuname" id="menuname"class="abc input-default" placeholder="" value="">&nbsp;&nbsp; 
+								    <button type="submit" class="btn btn-default">查询</button>
+								</form>
+                            </div>                       
+                       		
+                        </div>
+			                <!--数据列表-->
+			                  <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
+			                      <thead>
+			                          <tr>
+										  <th class="sorting">用户ID</th>
+									      <th class="sorting">用户名称</th>									   
+									      <th class="sorting">是否被禁言</th>		
+					                      <th class="text-center">操作</th>
+			                          </tr>
+			                      </thead>
+			                      <tbody>
+			                          <tr >                       
+				                          <td>9821</td>
+				                          <td>张三</td>
+				                          <td>是</td>
+		                                  <td class="text-center">    
+		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModa2" >解禁</button> 
+		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModa3" >禁言</button>
+
+		                                 </td>
+			                          </tr>
+			                          <tr >                       
+				                          <td>9822</td>
+				                          <td>李四</td>
+				                          <td>否</td>
+		                                  <td class="text-center">		       	     
+		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModa2" >解禁</button> 
+		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModa3" >禁言</button>
+
+		                                 </td>
+			                          </tr>
+			                          <tr >                       
+				                          <td>9823</td>
+				                          <td>王五</td>
+				                          <td>否</td>
+		                                  <td class="text-center">		       	     
+		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModa2" >解禁</button> 
+		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModa3" >禁言</button>
+
+		                                 </td>
+			                          </tr>
+			                          <tr >                       
+				                          <td>9824</td>
+				                          <td>钟天乐</td>
+				                          <td>否</td>
+		                                  <td class="text-center">		            
+		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModa2" >解禁</button> 
+		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModa3" >禁言</button>
+
+		                                 </td>
+			                          </tr>
+
+
+									  
+			                      </tbody>
+			                  </table>
+			                  <!--数据列表/-->                      
+						
+							<ul class="pagination" style="float: right;">
+								<li><a href="#">&laquo;</a></li>
+								<li class="active disabled"><a href="#">1</a></li>
+								<li class=""><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">&raquo;</a></li>
+							</ul>
+
+                        </div>
+                        <!-- 数据表格 /-->
+                        
+                        
+                        
+                        
+                     </div>
+                    <!-- /.box-body -->
+              
+                                
+<!-- 编辑窗口 -->
+	<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="myModalLabel">资讯主要内容</h3>
+			</div>
+			<div class="modal-body">							
+				
+				<table class="table table-bordered table-striped"  width="800px">
+			      	<tr>三分拿到绿卡是南方两块大石你发了看到你费德勒咖啡那里咖啡哪里看到分厘卡安放了你打死了开发能力可达十年来福克纳奥利弗拿到绿卡是南方卢卡斯你发顺丰阿斯利康能否卢卡斯你离开发射能力开放
+			      	</tr>		  		      	
+				 </table>				
+				
+			</div>
+		  </div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="editModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="myModalLabel">是否通过该文章</h3>
+			</div>
+			<div class="modal-footer">						
+				<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">确定</button>
+				<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
+			</div>
+		  </div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="editModa3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="myModalLabel">驳回原因</h3>
+			</div>
+			<div class="modal-body">							
+			<form>
+				<table class="table table-bordered table-striped"  width="800px">
+			      	<tr>
+			      		<td>理由</td>
+			      		<td><input type="text" name="gameID"></td>
+			      	</tr>	
+				</table>				
+			</form>
+			</div>
+			<div class="modal-footer">						
+				<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">保存</button>
+				<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+			</div>
+		  </div>
+		</div>
+	</div>
+</body>
+</html>
