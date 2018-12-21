@@ -8,7 +8,7 @@ class Information extends Model
     // 设置当前模型对应的完整数据表名称
     protected $table = 'information';
     
-    function addInformation($infoID,$gameID,$infoTitle,$userID,$infoKey,$infoClick,$infoContent){       //增加新资讯
+    function addInformation($infoID,$gameID,$infoTitle,$userID,$infoKey,$infoContent){       //增加新资讯
         $information=new Information();
         $information->infoID=$infoID;
         $information->gameID=$gameID;
@@ -16,7 +16,7 @@ class Information extends Model
         $information->userID=$userID;
         $information->infoKey=$infoKey;
         $information->infoDate=date("Y-m-d");
-        $information->infoClick=$infoClick;
+        $information->infoClick=0;
         $information->infoContent=$infoContent;
         return $information->save();
     }
@@ -34,6 +34,6 @@ class Information extends Model
     }
     function deleteInformation($infoID){                                                    //删除资讯
         $information=new Information();
-        return $information->delete($infoID);
+        return $information->where('infoID',$infoID)->delete();
     }
 }

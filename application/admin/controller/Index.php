@@ -23,6 +23,7 @@ class Index extends Controller
         $information=new Information();
         $i=$information->addInformation(2, 2, 2, 2, 2, 2, 2);
         $this->assign('information',$i);
+        
         $comment=new Comment();
         $c=$comment->addComment(2, 2, 2, 2);
         $this->assign('comment',$c);
