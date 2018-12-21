@@ -2,7 +2,10 @@
 namespace app\admin\controller;
 
 
-class Admin
+use app\admin\model\Information;
+use think\Controller;
+
+class Admin extends Controller
 {
     public function index()
     {
@@ -13,6 +16,9 @@ class Admin
         return view();
     }
     public function content1(){
+        $info=new Information();
+        $infos=$info->select();
+        $this->assign('infos',$infos);
         return view();
     }
     public function content2(){
