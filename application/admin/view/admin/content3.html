@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>咨询管理</title>
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="../../../public/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../public/plugins/adminLTE/css/AdminLTE.css">
-    <link rel="stylesheet" href="../../../public/plugins/adminLTE/css/skins/_all-skins.min.css">
-	<script src="../../../public/plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="../../../public/plugins/bootstrap/js/bootstrap.min.js"></script>
-    
+    <link rel="stylesheet" href="../../../../public/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../public/plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="../../../../public/plugins/adminLTE/css/skins/_all-skins.min.css">
+	<script src="../../../../public/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="../../../../public/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script language="javascript" src="../../../../public/ckeditor/ckeditor.js" charset="utf-8"></script>
 </head>
 
 <body class="hold-transition skin-red sidebar-mini" >
@@ -38,9 +38,9 @@
                                 </div>
                             </div>   
                             <div class="pull-right">
-                            	<form class="form-inline definewidth m20" action="#" method="get">
+                            	<form class="form-inline definewidth m20" action="./content3?type=search" method="post">
 								    <font color="#777777"><strong>游戏名：</strong></font>
-								    <input type="text" name="menuname" id="menuname"class="abc input-default" placeholder="" value="">&nbsp;&nbsp; 
+								    <input type="text" name="gameName" id="gameName"class="abc input-default" placeholder="" value="">&nbsp;&nbsp; 
 								    <button type="submit" class="btn btn-default">查询</button>
 								</form>
                             </div>                       
@@ -52,39 +52,34 @@
 			                          <tr>
 										  <th class="sorting_asc">游戏ID</th>
 									      <th class="sorting">游戏名称</th>		
-									      <th class="sorting">游戏图标所在路径</th>
+									      <th class="sorting">游戏图集所在路径</th>
 									      <th class="sorting">游戏类型</th>
 									      <th class="sorting">游戏所在平台</th>				
 					                      <th class="text-center">操作</th>
 			                          </tr>
 			                      </thead>
 			                      <tbody>
-			                          <tr >                       
-				                          <td>9821</td>
-				                          <td>黑暗之坟3</td>
-									      <td>./img/1.png</td>	
-									      <td>RPG</td>
-									      <td>PC/XBOX/PS4</td>	
+			                      	{volist name='list' id='game'}
+			                  		<tr >                       
+				                          <td>{$game.gameID}</td>
+				                          <td>{$game.gameName}</td>
+									      <td>{$game.gameImg}</td>	
+									      <td>{$game.gameType}</td>
+									      <td>{$game.gamePlat}</td>	
 		                                  <td class="text-center">		       
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >游戏简介</button>	     
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModa2" >修改</button> 
-		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#" >删除</button>
+		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal{$game.gameID}" >游戏简介</button>	     
+		                                 	  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModa2{$game.gameID}" >修改</button> 
+		                                 	  <a href="./content3.html?type=delete&gameID={$game.gameID}"><button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#" >删除</button></a>
 
 		                                 </td>
-			                          </tr>			                      
+			                          </tr>	
+			                  		{/volist}
 			                      </tbody>
 			                  </table>
-			                  <!--数据列表/-->                      
-						
-							<ul class="pagination" style="float: right;">
-								<li><a href="#">&laquo;</a></li>
-								<li class="active disabled"><a href="#">1</a></li>
-								<li class=""><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&raquo;</a></li>
-							</ul>
+			                  <!--数据列表/-->  
+							<div class="pagination" style="float: right;">
+								{$list->render()}
+							</div>
 
                         </div>
                         <!-- 数据表格 /-->
@@ -97,7 +92,8 @@
               
                                 
 <!-- 编辑窗口 -->
-	<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+{volist name = "games" id="game"}
+	<div class="modal fade" id="editModal{$game.gameID}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" >
 		<div class="modal-content">
 			<div class="modal-header">
@@ -107,7 +103,7 @@
 			<div class="modal-body">							
 				
 				<table class="table table-bordered table-striped"  width="800px">
-			      	<tr>三分拿到绿卡是南方两块大石你发了看到你费德勒咖啡那里咖啡哪里看到分厘卡安放了你打死了开发能力可达十年来福克纳奥利弗拿到绿卡是南方卢卡斯你发顺丰阿斯利康能否卢卡斯你离开发射能力开放
+			      	<tr>{$game.gameInfo}
 			      	</tr>		  		      	
 				 </table>				
 				
@@ -116,88 +112,148 @@
 		</div>
 	</div>
 
-	<div class="modal fade" id="editModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade" id="editModa2{$game.gameID}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" >
-		<div class="modal-content">
+		<div class="modal-content" style="width: 1000px;right: 250px;bottom: 150px;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				<h3 id="myModalLabel">修改</h3>
 			</div>
-			<div class="modal-body">							
-			<form>
+										
+			<form action="{:url('admin/content3')}?type=change" method="post" id="form{$game.gameID}">
+				<div class="modal-body">
 				<table class="table table-bordered table-striped"  width="800px">
 			      	<tr>
 			      		<td>游戏ID</td>
-			      		<td>987</td>
+			      		<td><input type="text" name="gameID" value="{$game.gameID}"></td>
 			      	</tr>	
 			      	<tr>
 			      		<td>游戏名称</td>
-			      		<td>黑暗之坟3</td>
-			      	</tr>	
-			      	<tr>
-			      		<td>游戏类型</td>
-			      		<td><input type="text" name="gameID" value="RPG"></td>
+			      		<td><input type="text" name="gameName" value="{$game.gameName}"></td>
 			      	</tr>
 			      	<tr>
 			      		<td>游戏所在平台</td>
-			      		<td><input type="text" name="gameID" value="PSP"></td>
+			      		<td><input type="text" name="gamePlat" value="{$game.gamePlat}"></td>
 			      	</tr>
 			      	<tr>
-			      		<td>游戏图标所在路径</td>
-			      		<td><input type="text" name="gameID" value="150级史诗装备抢先看"></td>
+			      		<td>游戏类型</td>
+			      		<td><input type="text" name="gameType" value="{$game.gameType}"></td>
+			      	</tr>
+			      	<tr>
+			      		<td>游戏图集所在路径</td>
+			      		<td><input type="text" name="gameImg" value="{$game.gameImg}"></td>
 			      	</tr>	  	
 			      	<tr>
 			      		<td>游戏简介</td>
-			      		<td><input type="text" name="gameID" value="事故的发生广东韶关的方式感到附属国是。"></td>
+			      		<td><textarea name="gameInfo2" style="width:650px;height:200px">{$game.gameInfo}</textarea></td>
 			      	</tr>	
 				</table>				
-			</form>
+			
 			</div>
 			<div class="modal-footer">						
-				<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">保存</button>
+				<button type = "submit" class="btn btn-success" aria-hidden="true">保存</button>
 				<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
 			</div>
+			</form>
 		  </div>
 		</div>
 	</div>
-
 	<div class="modal fade" id="editModa3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" >
-		<div class="modal-content">
+		<div class="modal-content" style="width: 1000px;right: 250px;bottom: 150px;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				<h3 id="myModalLabel">请输入游戏的相关信息</h3>
 			</div>
-			<div class="modal-body">
+			<form action="{:url('admin/content3')}?type=add" method="post" id="form">
+				<div class="modal-body">
 				<table class="table table-bordered table-striped"  width="800px">
 			      	<tr>
-			      		<td>游戏名称</td>
+			      		<td>游戏ID</td>
 			      		<td><input type="text" name="gameID"></td>
 			      	</tr>	
 			      	<tr>
-			      		<td>游戏类型</td>
-			      		<td><input type="text" name="gameID"></td>
+			      		<td>游戏名称</td>
+			      		<td><input type="text" name="gameName"></td>
 			      	</tr>
 			      	<tr>
 			      		<td>游戏所在平台</td>
-			      		<td><input type="text" name="gameID"td>
+			      		<td><input type="text" name="gamePlat"></td>
 			      	</tr>
 			      	<tr>
-			      		<td>游戏图标所在路径</td>
-			      		<td><input type="text" name="gameID"></td>
+			      		<td>游戏类型</td>
+			      		<td><input type="text" name="gameType"></td>
+			      	</tr>
+			      	<tr>
+			      		<td>游戏图集所在路径</td>
+			      		<td><input type="text" name="gameImg"></td>
 			      	</tr>	  	
 			      	<tr>
 			      		<td>游戏简介</td>
-			      		<td><input type="text" name="gameID"></td>
+			      		<td><textarea name="gameInfo1" style="width:650px;height:200px"></textarea></td>
 			      	</tr>	
-			      </table>
+				</table>				
+			
 			</div>
 			<div class="modal-footer">						
-				<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">保存</button>
+				<button type = "submit" class="btn btn-success" aria-hidden="true">保存</button>
 				<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
 			</div>
+			</form>
 		  </div>
 		</div>
 	</div>
+{/volist}
 </body>
 </html>
+<script type="text/javascript">
+CKEDITOR.replace( 'gameInfo1',
+        {
+            toolbar :
+                    [
+                        //加粗     斜体，     下划线      穿过线      下标字        上标字
+                        ['Bold','Italic','Underline','Strike','Subscript','Superscript'],
+                        // 数字列表          实体列表            减小缩进    增大缩进
+                        ['NumberedList','BulletedList','-','Outdent','Indent'],
+                        //左对 齐             居中对齐          右对齐          两端对齐
+                        ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+                        //超链接  取消超链接 锚点
+                        ['Link','Unlink','Anchor'],
+                        //图片    flash    表格       水平线            表情       特殊字符        分页符
+                        ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+                        '/',
+                        // 样式       格式      字体    字体大小
+                        ['Styles','Format','Font','FontSize'],
+                        //文本颜色     背景颜色
+                        ['TextColor','BGColor'],
+                        //全屏           显示区块
+                        ['Maximize', 'ShowBlocks','-']
+                    ],height:350
+        	}
+		);
+CKEDITOR.replace( 'gameInfo2',
+        {
+            toolbar :
+                    [
+                        //加粗     斜体，     下划线      穿过线      下标字        上标字
+                        ['Bold','Italic','Underline','Strike','Subscript','Superscript'],
+                        // 数字列表          实体列表            减小缩进    增大缩进
+                        ['NumberedList','BulletedList','-','Outdent','Indent'],
+                        //左对 齐             居中对齐          右对齐          两端对齐
+                        ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+                        //超链接  取消超链接 锚点
+                        ['Link','Unlink','Anchor'],
+                        //图片    flash    表格       水平线            表情       特殊字符        分页符
+                        ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+                        '/',
+                        // 样式       格式      字体    字体大小
+                        ['Styles','Format','Font','FontSize'],
+                        //文本颜色     背景颜色
+                        ['TextColor','BGColor'],
+                        //全屏           显示区块
+                        ['Maximize', 'ShowBlocks','-']
+                    ],height:350
+        	}
+		);
+
+</script>
