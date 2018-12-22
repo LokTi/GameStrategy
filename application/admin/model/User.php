@@ -19,7 +19,8 @@ class User extends Model
         $user->userStatus=$userStatus;
         return $user->save();
     }
-    function changUser($userID,$userName,$password,$userType,$userStatus){                  //修改用户
+                  //修改用户
+    function changUser($userID,$userNamen,$userType,$userStatus){                  //修改用户普通信息
         $user=User::get($userID);
         $user->userName= $userName;
         $user->password=$password;
@@ -27,7 +28,11 @@ class User extends Model
         $user->userStatus=$userStatus;
         return $user->save();
     }
-    
+    function changePassword($userID,$newPassword){                                  //修改用户密码
+        $user=User::get($userID);
+        $user->password=$newPassword;
+        return $user->save();
+    }
     function commentOn($userID){
         $user=User::get($userID);
         $user->userStatus='1';

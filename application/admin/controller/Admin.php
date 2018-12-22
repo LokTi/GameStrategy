@@ -14,7 +14,43 @@ class Admin extends Controller
 {
     public function index()
     {
-        
+
+        $request = Request::instance();
+        $user=new User();
+        $userName=$request->cookie('administrator');
+
+        if(null==$userName){
+            $this->redirect("admin/login");
+        }else{
+            if($request->has("type","get")){
+                if($request->get("type")=="changePassword"){
+                    $old=$request->post("oldPassword");
+                    $new=$request->post("newPassword");
+                    $new2=$request->post("newPassword2");
+                    $userInfo=$user->where("userName",$userName)->find();
+                    if($userInfo["password"]===$old){
+                        if($new===$new2){
+                            $user->changePassword($userInfo["userID"], $new);
+                            Cookie::set("administrator",null);
+                            $this->redirect("admin/login");
+                        }else{
+                            echo "<script>
+                                     alert('请输入相同的密码！');
+                                    </script>";
+                        }
+                    }else{
+                        echo "<script>
+                                     alert('当前密码错误！');
+                                    </script>";
+                    }
+                }else if($request->get("type")=="logout"){
+                    Cookie::set("administrator",null);
+                    $this->redirect("admin/login");
+                }
+            }
+        }
+        $this->assign('userName',$userName);
+        $this->assign("loginTime",date('Y-m-d H:i:s',time()));
         return view();
     }
     public function home(){
@@ -26,7 +62,7 @@ class Admin extends Controller
         $a = 0;
         $b = 0;
         foreach($users as $value){
-            if($value->userType == 0){
+            if($value->userType == 3){
                 $a += $comment->where('userID',$value->userID)->count();
             }
             else if($value->userType == 1){
@@ -47,6 +83,9 @@ class Admin extends Controller
         return view();
     }
     public function content2(){
+        $info=new Information();
+        $infos=$info->select();
+        $this->assign('infos',$infos);
         return view();
     }
     
@@ -121,7 +160,7 @@ class Admin extends Controller
         
         
         $user = new User();
-        $users = $user->where('userType = 0')->select();
+        $users = $user->where('userType = 3')->select();
         
         $comment = new Comment();
         
@@ -178,6 +217,25 @@ class Admin extends Controller
         }
         
         $this->assign('comments',$comments);
+        return view();
+    }
+    public function login(){
+        $request = Request::instance();
+        
+        if(null!==$request->cookie('administrator')){
+            $this->redirect("admin/index");
+        }
+        $user=new User();
+        if($request->has("userName","post")&&$request->has("password","post")){
+            $userName=$request->post("userName");
+            $password=$request->post("password");
+            $userInfo=$user->where("userName",$userName)->find();
+            if($userInfo["password"]==$password&&$userInfo["userType"]==3){
+                Cookie::set("administrator",$userInfo["userName"]);
+                $this->redirect("admin/index");
+            }
+        }
+        
         return view();
     }
 }
