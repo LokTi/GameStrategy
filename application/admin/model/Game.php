@@ -38,6 +38,6 @@ class Game extends Model
     }
     function deleteGame($gameID){                   //删除游戏
         $game=new Game();
-        return $game->delete($gameID);
+        return $game->where('gameID',$gameID)->delete();
     }
 }

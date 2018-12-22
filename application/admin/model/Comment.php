@@ -27,6 +27,6 @@ class Comment extends Model
     }
     function deleteComment($commentID){                                             //删除评论
         $comment=new Comment();
-        return $comment->delete($commentID);
+        return $comment->where('commentID',$commentID)->delete();
     }
 }

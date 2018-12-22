@@ -7,12 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>咨询管理</title>
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-   <link rel="stylesheet" href="../../../../public/plugins/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../../../../public/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../../public/plugins/adminLTE/css/AdminLTE.css">
     <link rel="stylesheet" href="../../../../public/plugins/adminLTE/css/skins/_all-skins.min.css">
 	<script src="../../../../public/plugins/jQuery/jquery-2.2.3.min.js"></script>
     <script src="../../../../public/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script language="javascript" src="../../../../public/ckeditor/ckeditor.js" charset="utf-8"></script>
+
 
 </head>
 
@@ -62,7 +64,9 @@
 			                      </thead>
 			                      <tbody>
 
-			                          		{volist name="infos" id="info"}
+
+			                          		{volist name="list" id="info"}
+
 			                          		<tr >
 												<td>{$info.infoID}</td>
 						                        <td>{$info.infoKey}</td>
@@ -79,17 +83,13 @@
 											{/volist}
 			                      </tbody>
 			                  </table>
+
 			                  <!--数据列表/-->
 
-							<ul class="pagination" style="float: right;">
-								<li><a href="#">&laquo;</a></li>
-								<li class="active disabled"><a href="#">1</a></li>
-								<li class=""><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&raquo;</a></li>
-							</ul>
+							<div class="pagination" style="float: right;">
+								{$list->render()}
+							</div>
+
 
                         </div>
                         <!-- 数据表格 /-->
