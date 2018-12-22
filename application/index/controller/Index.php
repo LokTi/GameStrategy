@@ -19,7 +19,7 @@ class Index extends Controller
     {
         return view();
     }
-    public function singlegame_index()
+    public function onlinegame_index()
     {
         return view();
     }
@@ -27,7 +27,7 @@ class Index extends Controller
     {
         return view();
     }
-    public function onlinegame_index()
+    public function singlegame_index()
     {
         $game = new Game();
         $info = new Information();
