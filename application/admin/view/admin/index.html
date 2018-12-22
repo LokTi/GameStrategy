@@ -8,26 +8,26 @@
     <title>运营商后台管理系统</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-  
 
 
-   	<link rel="stylesheet" href="../../../public/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../public/plugins/adminLTE/css/AdminLTE.css">
-    <link rel="stylesheet" href="../../../public/plugins/adminLTE/css/skins/_all-skins.min.css">
-    <script src="../../../public/plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="../../../public/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../../public/plugins/adminLTE/js/app.min.js"></script> 
-    
-    <script type="text/javascript">   
+
+   	<link rel="stylesheet" href="../../../../public/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../public/plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="../../../../public/plugins/adminLTE/css/skins/_all-skins.min.css">
+    <script src="../../../../public/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="../../../../public/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../../public/plugins/adminLTE/js/app.min.js"></script>
+
+    <script type="text/javascript">
 		 function SetIFrameHeight(){
 		  	  var iframeid=document.getElementById("iframe"); //iframe id
 		  	  if (document.getElementById){
-		  		iframeid.height =document.documentElement.clientHeight;			   	   
+		  		iframeid.height =document.documentElement.clientHeight;
 			  }
 		 }
-    
-	</script>    
- 
+
+	</script>
+
 </head>
 
 <body class="hold-transition skin-green sidebar-mini" >
@@ -54,20 +54,20 @@
                     <ul class="nav navbar-nav">
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="../../../public/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <img src="../../../../public/img/user2-160x160.jpg" class="user-image" alt="User Image">
                                 <span class="hidden-xs">{$userName}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="../../../public/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                    <img src="../../../../public/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                     <p>
-                                       {$userName} 
+                                       {$userName}
                                         <small>{$loginTime}</small>
                                     </p>
                                 </li>
-                                
+
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
@@ -94,14 +94,14 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="../../../public/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="../../../../public/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
                         <p>{$userName}</p>
                         <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
                     </div>
                 </div>
-              
+
                 <!-- /.search form -->
 
 
@@ -111,35 +111,35 @@
                     <li id="admin-index"><a href="index.html"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
 				    <!-- 菜单 -->
-                        
-                    <!-- 课程概况 --> 
+
+                    <!-- 课程概况 -->
 				    <li class="treeview">
 				        <a href="#">
-				            <i class="fa fa-folder"></i> 
+				            <i class="fa fa-folder"></i>
 				            <span>资讯管理</span>
 				            <span class="pull-right-container">
 				       			<i class="fa fa-angle-left pull-right"></i>
 				   		 	</span>
 				        </a>
 				        <ul class="treeview-menu">
-				
+
 				            <li id="admin-login">
 				                <a href="content1.html" target="iframe">
 				                    <i class="fa fa-circle-o"></i>咨询增删改
 				                </a>
 				            </li>
-				        </ul>                        
+				        </ul>
 				    </li>
 					<li class="treeview">
 				        <a href="#">
-				            <i class="fa fa-folder"></i> 
+				            <i class="fa fa-folder"></i>
 				            <span>游戏管理</span>
 				            <span class="pull-right-container">
 				       			<i class="fa fa-angle-left pull-right"></i>
 				   		 	</span>
 				        </a>
 				        <ul class="treeview-menu">
-				        
+
 				            <li id="admin-login">
 				                <a href="content3.html" target="iframe">
 				                    <i class="fa fa-circle-o"></i>游戏信息增删改
@@ -150,35 +150,35 @@
                                                                 <i class="fa fa-circle-o"></i>课程教学团队
                                                             </a>
                                                         </li>     -->
-				        </ul>                        
+				        </ul>
 				    </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-folder"></i> 
+                            <i class="fa fa-folder"></i>
                             <span>用户管理</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                
+
                             <li id="admin-login">
                                 <a href="content4.html" target="iframe">
                                     <i class="fa fa-circle-o"></i>用户禁言
                                 </a>
                             </li>
-                        </ul>                        
+                        </ul>
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-folder"></i> 
+                            <i class="fa fa-folder"></i>
                             <span>审核</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                
+
                             <li id="admin-login">
                                 <a href="content2.html" target="iframe">
                                     <i class="fa fa-circle-o"></i>用户上传文章审核
@@ -189,7 +189,7 @@
                                    <i class="fa fa-circle-o"></i>用户上传文章审核
                                </a>
                            </li> -->
-                        </ul>                        
+                        </ul>
                     </li>
 
 				    <!-- 菜单 /-->
@@ -202,9 +202,9 @@
 
         <!-- 内容区域 -->
         <div class="content-wrapper">
-			<iframe width="100%" id="iframe" name="iframe"	onload="SetIFrameHeight()" 
+			<iframe width="100%" id="iframe" name="iframe"	onload="SetIFrameHeight()"
 					frameborder="0" src="home.html"></iframe>
- 
+
         </div>
         <!-- 内容区域 /-->
 
@@ -231,7 +231,7 @@
 			      	<tr>
 			      		<td>当前密码</td>
 			      		<td><input type="text" name="oldPassword"></td>
-			      	</tr>		
+			      	</tr>
 			      	<tr>
 			      		<td>新密码</td>
 			      		<td><input type="password" name="newPassword" ></td>
@@ -239,10 +239,10 @@
 			      	<tr>
 			      		<td>再次输入</td>
 			      		<td><input type="password" name="newPassword2" ></td>
-			      	</tr>	
+			      	</tr>
 			      </table>
 			</div>
-			<div class="modal-footer">						
+			<div class="modal-footer">
 				<button type="submit" class="btn btn-success" aria-hidden="true">提交</button>
 				<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
 			</div>
