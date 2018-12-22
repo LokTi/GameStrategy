@@ -38,9 +38,9 @@
                                 </div>
                             </div>   
                             <div class="pull-right">
-                            	<form class="form-inline definewidth m20" action="#" method="get">
+                            	<form class="form-inline definewidth m20" action="./content3?type=search" method="post">
 								    <font color="#777777"><strong>游戏名：</strong></font>
-								    <input type="text" name="menuname" id="menuname"class="abc input-default" placeholder="" value="">&nbsp;&nbsp; 
+								    <input type="text" name="gameName" id="gameName"class="abc input-default" placeholder="" value="">&nbsp;&nbsp; 
 								    <button type="submit" class="btn btn-default">查询</button>
 								</form>
                             </div>                       
@@ -145,7 +145,7 @@
 			      	</tr>	  	
 			      	<tr>
 			      		<td>游戏简介</td>
-			      		<td><textarea name="gameInfo" style="width:650px;height:200px">{$game.gameInfo}</textarea></td>
+			      		<td><textarea name="gameInfo2" style="width:650px;height:200px">{$game.gameInfo}</textarea></td>
 			      	</tr>	
 				</table>				
 			
@@ -190,7 +190,7 @@
 			      	</tr>	  	
 			      	<tr>
 			      		<td>游戏简介</td>
-			      		<td><textarea name="gameInfo" style="width:650px;height:200px"></textarea></td>
+			      		<td><textarea name="gameInfo1" style="width:650px;height:200px"></textarea></td>
 			      	</tr>	
 				</table>				
 			
@@ -207,7 +207,31 @@
 </body>
 </html>
 <script type="text/javascript">
-CKEDITOR.replace( 'gameInfo',
+CKEDITOR.replace( 'gameInfo1',
+        {
+            toolbar :
+                    [
+                        //加粗     斜体，     下划线      穿过线      下标字        上标字
+                        ['Bold','Italic','Underline','Strike','Subscript','Superscript'],
+                        // 数字列表          实体列表            减小缩进    增大缩进
+                        ['NumberedList','BulletedList','-','Outdent','Indent'],
+                        //左对 齐             居中对齐          右对齐          两端对齐
+                        ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+                        //超链接  取消超链接 锚点
+                        ['Link','Unlink','Anchor'],
+                        //图片    flash    表格       水平线            表情       特殊字符        分页符
+                        ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+                        '/',
+                        // 样式       格式      字体    字体大小
+                        ['Styles','Format','Font','FontSize'],
+                        //文本颜色     背景颜色
+                        ['TextColor','BGColor'],
+                        //全屏           显示区块
+                        ['Maximize', 'ShowBlocks','-']
+                    ],height:350
+        	}
+		);
+CKEDITOR.replace( 'gameInfo2',
         {
             toolbar :
                     [

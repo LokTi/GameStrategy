@@ -8,6 +8,7 @@ use app\admin\model\User;
 use app\admin\model\Comment;
 use think\Controller;
 use think\Request;
+use think\Cookie;
 
 class Admin extends Controller
 {
