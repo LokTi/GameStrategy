@@ -158,6 +158,7 @@
 		  </div>
 		</div>
 	</div>
+{/volist}
 	<div class="modal fade" id="editModa3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" >
 		<div class="modal-content" style="width: 1000px;right: 250px;bottom: 150px;">
@@ -165,7 +166,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				<h3 id="myModalLabel">请输入游戏的相关信息</h3>
 			</div>
-			<form action="{:url('admin/content3')}?type=add" method="post" id="form">
+			<form action="{:url('admin/content3')}?type=add" method="post" id="form" enctype = "multipart/form-data">
 				<div class="modal-body">
 				<table class="table table-bordered table-striped"  width="800px">
 			      	<tr>
@@ -185,9 +186,29 @@
 			      		<td><input type="text" name="gameType"></td>
 			      	</tr>
 			      	<tr>
-			      		<td>游戏图集所在路径</td>
-			      		<td><input type="text" name="gameImg"></td>
-			      	</tr>	  	
+			      		<td>上传游戏图片</td>
+			      		<td></td>
+			      	</tr>	 
+			      	 <tr>
+			      		<td>bg.png</td>
+			      		<td><input type="file" name="img[]"></td>
+			      	</tr>	
+			      	<tr>
+			      		<td>0.png</td>
+			      		<td><input type="file" name="img[]"></td>
+			      	</tr>
+			      	<tr>
+			      		<td>1.png</td>
+			      		<td><input type="file" name="img[]"></td>
+			      	</tr>
+			      	<tr>
+			      		<td>2.png</td>
+			      		<td><input type="file" name="img[]"></td>
+			      	</tr>
+			      	<tr>
+			      		<td>3.png</td>
+			      		<td><input type="file" name="img[]"></td>
+			      	</tr>
 			      	<tr>
 			      		<td>游戏简介</td>
 			      		<td><textarea name="gameInfo1" style="width:650px;height:200px"></textarea></td>
@@ -203,7 +224,7 @@
 		  </div>
 		</div>
 	</div>
-{/volist}
+
 </body>
 </html>
 <script type="text/javascript">

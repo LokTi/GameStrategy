@@ -94,11 +94,7 @@ class Admin extends Controller
         if($request->has('type','get')){
             
             $type=$request->get('type');
-            
-            
-            
             if($type==="add"){
-                
                 $info->addInformation($request->post('infoID'), $request->post('gameID'), $request->post('infoTitle'), $request->cookie('userID'), $request->post('infoKey'), $request->post('infoContent1'));
                 
             }else if($type==="change"){
@@ -122,7 +118,7 @@ class Admin extends Controller
         }
         
         $info = new Information();
-        $list = $info->paginate(3);
+        $list = $info->where('infoStatusReason',1)->paginate(3);
         $this->assign('list',$list);
         
         $infos=$info->where('infoStatusReason',1)->select();
@@ -204,10 +200,24 @@ class Admin extends Controller
         if($request->has('type','get')){
             $type = $request->get('type');
             if($type == "add"){
-                $game->addGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo'),$request->post('gameImg'),$request->post('gameType'),$request->post('gamePlat'));
+                
+                
+                $files = request()->file('img');
+                foreach ($files as $file){
+                    $imgInfo = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+                    if($imgInfo){
+                        echo  $imgInfo->getExtension();
+                        echo  $imgInfo->getFilename();
+                    }
+                    else {
+                        echo $file->getError();
+                    }
+                }
+                $game->addGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo1'),$request->post('gameType'),$request->post('gameType'),$request->post('gamePlat'));
+                
             }
             else if($type == "change"){
-                $game->changeGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo'),$request->post('gameImg'),$request->post('gameType'),$request->post('gamePlat'));
+                $game->changeGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo2'),$request->post('gameImg'),$request->post('gameType'),$request->post('gamePlat'));
             }else if($type == "delete"){
                 $game->deleteGame($request->get('gameID'));
             }
