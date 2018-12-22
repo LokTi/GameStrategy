@@ -11,6 +11,10 @@ class Index extends Controller
     {
         return view();
     }
+    public function contact()
+    {
+        return view();
+    }
     public function intgame_index()
     {
         return view();
@@ -31,8 +35,8 @@ class Index extends Controller
     {
         $game = new Game();
         $info = new Information();
-        
-        
+
+
         $infosh1 = $info->limit(1)->select();
         $infosh2 = $info->order('infoClick desc')->limit(1)->select();
         $infos1 = $info->limit(2,4)->select();
@@ -41,9 +45,9 @@ class Index extends Controller
         $this->assign('infosh2',$infosh2);
         $this->assign('infos1',$infos1);
         $this->assign('infos2',$infos2);
-        
-        
-        
+
+
+
         //热门游戏
         $hotgames = $game->limit(1,5)->select();
         $this->assign('hotgames',$hotgames);
@@ -68,7 +72,7 @@ class Index extends Controller
         //体育游戏
         $spggames = $game->where("gameType = 'SPG'")->limit(5)->select();
         $this->assign('spggames',$spggames);
-     
+
         return view();
     }
 }
