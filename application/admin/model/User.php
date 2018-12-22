@@ -19,9 +19,11 @@ class User extends Model
         $user->userStatus=$userStatus;
         return $user->save();
     }
+                  //修改用户
     function changUser($userID,$userNamen,$userType,$userStatus){                  //修改用户普通信息
         $user=User::get($userID);
-        $user->userName= $userNamen;
+        $user->userName= $userName;
+        $user->password=$password;
         $user->userType=$userType;
         $user->userStatus=$userStatus;
         return $user->save();
@@ -31,8 +33,20 @@ class User extends Model
         $user->password=$newPassword;
         return $user->save();
     }
+    function commentOn($userID){
+        $user=User::get($userID);
+        $user->userStatus='1';
+        return $user->save();
+    }
+    
+    function commentOff($userID){
+        $user=User::get($userID);
+        $user->userStatus='0';
+        return $user->save();
+    }
+    
     function deleteUser($userID){                                                            //删除用户
-        $user = User::get($userID);
-        return $user->delete();
+        $user = new User();
+        return $user->where('userID',$userID)->delete();
     }
 }
