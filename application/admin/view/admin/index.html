@@ -8,7 +8,7 @@
     <title>运营商后台管理系统</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-  
+
 
 
    	<link rel="stylesheet" href="../../../../public/plugins/bootstrap/css/bootstrap.min.css">
@@ -16,18 +16,18 @@
     <link rel="stylesheet" href="../../../../public/plugins/adminLTE/css/skins/_all-skins.min.css">
     <script src="../../../../public/plugins/jQuery/jquery-2.2.3.min.js"></script>
     <script src="../../../../public/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../../../public/plugins/adminLTE/js/app.min.js"></script> 
-    
-    <script type="text/javascript">   
+    <script src="../../../../public/plugins/adminLTE/js/app.min.js"></script>
+
+    <script type="text/javascript">
 		 function SetIFrameHeight(){
 		  	  var iframeid=document.getElementById("iframe"); //iframe id
 		  	  if (document.getElementById){
-		  		iframeid.height =document.documentElement.clientHeight;			   	   
+		  		iframeid.height =document.documentElement.clientHeight;
 			  }
 		 }
-    
-	</script>    
- 
+
+	</script>
+
 </head>
 
 <body class="hold-transition skin-green sidebar-mini" >
@@ -63,11 +63,12 @@
                                     <img src="../../../../public/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                     <p>
-                                       {$userName} 
-                                        <small>{$loginTime}</small>     
+
+                                       {$userName}
+                                        <small>{$loginTime}</small>
                                     </p>
                                 </li>
-                                
+
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
@@ -100,7 +101,7 @@
                         <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
                     </div>
                 </div>
-              
+
                 <!-- /.search form -->
 
 
@@ -110,35 +111,35 @@
                     <li id="admin-index"><a href="index.html"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
 				    <!-- 菜单 -->
-                        
-                    <!-- 课程概况 --> 
+
+                    <!-- 课程概况 -->
 				    <li class="treeview">
 				        <a href="#">
-				            <i class="fa fa-folder"></i> 
+				            <i class="fa fa-folder"></i>
 				            <span>资讯管理</span>
 				            <span class="pull-right-container">
 				       			<i class="fa fa-angle-left pull-right"></i>
 				   		 	</span>
 				        </a>
 				        <ul class="treeview-menu">
-				
+
 				            <li id="admin-login">
 				                <a href="content1.html" target="iframe">
 				                    <i class="fa fa-circle-o"></i>咨询增删改
 				                </a>
 				            </li>
-				        </ul>                        
+				        </ul>
 				    </li>
 					<li class="treeview">
 				        <a href="#">
-				            <i class="fa fa-folder"></i> 
+				            <i class="fa fa-folder"></i>
 				            <span>游戏管理</span>
 				            <span class="pull-right-container">
 				       			<i class="fa fa-angle-left pull-right"></i>
 				   		 	</span>
 				        </a>
 				        <ul class="treeview-menu">
-				        
+
 				            <li id="admin-login">
 				                <a href="content3.html" target="iframe">
 				                    <i class="fa fa-circle-o"></i>游戏信息增删改
@@ -149,35 +150,35 @@
                                                                 <i class="fa fa-circle-o"></i>课程教学团队
                                                             </a>
                                                         </li>     -->
-				        </ul>                        
+				        </ul>
 				    </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-folder"></i> 
+                            <i class="fa fa-folder"></i>
                             <span>用户管理</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                
+
                             <li id="admin-login">
                                 <a href="content4.html" target="iframe">
                                     <i class="fa fa-circle-o"></i>用户禁言
                                 </a>
                             </li>
-                        </ul>                        
+                        </ul>
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-folder"></i> 
+                            <i class="fa fa-folder"></i>
                             <span>审核</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                
+
                             <li id="admin-login">
                                 <a href="content2.html" target="iframe">
                                     <i class="fa fa-circle-o"></i>用户上传文章审核
@@ -188,7 +189,7 @@
                                    <i class="fa fa-circle-o"></i>用户上传文章审核
                                </a>
                            </li> -->
-                        </ul>                        
+                        </ul>
                     </li>
 
 				    <!-- 菜单 /-->
@@ -201,9 +202,9 @@
 
         <!-- 内容区域 -->
         <div class="content-wrapper">
-			<iframe width="100%" id="iframe" name="iframe"	onload="SetIFrameHeight()" 
+			<iframe width="100%" id="iframe" name="iframe"	onload="SetIFrameHeight()"
 					frameborder="0" src="home.html"></iframe>
- 
+
         </div>
         <!-- 内容区域 /-->
 
@@ -243,7 +244,8 @@
 
 			      		<td><input type="text" name="oldPassword"></td>
 
-			      	</tr>		
+
+			      	</tr>
 
 			      	<tr>
 
@@ -259,13 +261,14 @@
 
 			      		<td><input type="password" name="newPassword2" ></td>
 
-			      	</tr>	
+			      	</tr>
 
 			      </table>
 
 			</div>
 
-			<div class="modal-footer">						
+
+			<div class="modal-footer">
 
 				<button type="submit" class="btn btn-success" aria-hidden="true">提交</button>
 
