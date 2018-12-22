@@ -56,9 +56,9 @@ class Admin extends Controller
     public function home(){
         $user = new User();
         $users = $user->select();
-        
+
         $comment = new Comment();
-        
+
         $a = 0;
         $b = 0;
         foreach($users as $value){
@@ -67,7 +67,7 @@ class Admin extends Controller
             }
             else if($value->userType == 1){
                 $b += $comment->where('userID',$value->userID)->count();
-                
+
             }
         }
 
@@ -78,154 +78,152 @@ class Admin extends Controller
     }
     public function content1(){
         $request = Request::instance();
-        
+
         if(null==$request->cookie('administrator')){
-            
+
             $this->redirect("admin/login");
-            
+
         }
-        
+
         $info=new Information();
-        
+
         $request = Request::instance();
-        
+
         #setcookie('userID',1);//测试使用
-        
+
         if($request->has('type','get')){
-            
+
             $type=$request->get('type');
-            
-            
-            
+
+
+
             if($type==="add"){
-                
-                $info->addInformation($request->post('infoID'), $request->post('gameID'), $request->post('infoTitle'), $request->cookie('userID'), $request->post('infoKey'), $request->post('infoContent1'));
-                
+
+                $info->addInformation($request->post('infoID'), $request->post('gameID'), $request->post('infoTitle'), $request->cookie('userID'), $request->post('infoKey'), $request->post('infoContent'));
+
             }else if($type==="change"){
-                
-                $info->changeInformation($request->post('infoID'), $request->post('infoTitle'), $request->post('infoKey'), $request->post('infoContent'));
-                
+
+                $info->changeInformation($request->post('infoID'), $request->post('infoTitle'), $request->post('infoKey'), $request->post('infoContent1'));
+
             }else if($type==="delete"){
-                
+
                 $info->deleteInformation($request->get('infoID'));
-                
+
             }else if($type==="search"){
-                
+
                 $infos=$info->where('infoStatusReason',1)->where("infoTitle",$request->post('infoTitle'))->select();
-                
+
                 $this->assign('infos',$infos);
-                
+
                 return view();
-                
+
             }
-            
+
         }
-        
-        $info = new Information();
-        $list = $info->paginate(3);
+
+        $list = $info->where('infoStatusReason',1)->paginate(3);
         $this->assign('list',$list);
-        
+
         $infos=$info->where('infoStatusReason',1)->select();
-        
+
         $this->assign('infos',$infos);
-        
+
         return view();
     }
     public function content2(){
         $request = Request::instance();
-        
+
         if(null==$request->cookie('administrator')){
-            
+
             $this->redirect("admin/login");
-            
+
         }
-        
-        
-        
+
+
+
         $info=new Information();
-        
+
         $request = Request::instance();
-        
-        
-        
+
+
+
         if($request->has('type','get')){
-            
+
             $type=$request->get('type');
-            
+
             if($request->has('infoID','get')){
-                
+
                 $infoID=$request->get('infoID');
-                
+
                 if($type==="allow"){
-                    
+
                     $info->changeInfoStatus($infoID, 1);
-                    
+
                 }else if($type==="reject"){
-                    
+
                     $info->changeInfoStatus($infoID, $request->post('reason'));
-                    
+
                 }
-                
+
             }
-            
+
             else if($type==="search"){
-                
+
                 $infos=$info->where('infoStatusReason',0)->where("infoTitle",$request->post('infoTitle'))->select();
-                
+
                 $this->assign('infos',$infos);
-                
+
                 return view();
-                
+
             }
-            
+
         }
-        
-        $info = new Information();
+
         $list = $info->where('infoStatusReason',0)->paginate(3);
         $this->assign('list',$list);
-        
+
         $infos=$info->where('infoStatusReason',0)->select();
-        
+
         $this->assign('infos',$infos);
-        
+
         return view();
     }
-    
-    
-    
+
+
+
     public function content3(){
-        
-        
-        
+
+
+
         //按钮选择
         $game = new Game();
         $request = Request::instance();
-        
+
         if($request->has('type','get')){
             $type = $request->get('type');
             if($type == "add"){
-                $game->addGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo'),$request->post('gameImg'),$request->post('gameType'),$request->post('gamePlat'));
+                $game->addGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo1'),$request->post('gameImg'),$request->post('gameType'),$request->post('gamePlat'));
             }
             else if($type == "change"){
-                $game->changeGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo'),$request->post('gameImg'),$request->post('gameType'),$request->post('gamePlat'));
+                $game->changeGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo2'),$request->post('gameImg'),$request->post('gameType'),$request->post('gamePlat'));
             }else if($type == "delete"){
                 $game->deleteGame($request->get('gameID'));
             }
         }
-        
+
         //分页
         $game = new Game();
         $list = $game->paginate(3);
         $this->assign('list',$list);
-        
+
         //输出内容
         $game = new Game();
         $games = $game->select();
         $this->assign('games',$games);
         return view();
     }
-    
-    
+
+
     public function content4(){
         $user = new User();
         $request = Request::instance();
@@ -238,13 +236,13 @@ class Admin extends Controller
                 $user->commentOff($request->get('userID'));
             }
         }
-        
+
         //分页
         $user = new User();
         $list = $user->where('userType = 1')->paginate(3);
         $this->assign('list',$list);
-        
-        
+
+
         $user = new User();
         $users = $user->where('userType = 1')->select();
         $this->assign('users',$users);
@@ -259,13 +257,13 @@ class Admin extends Controller
                 $comment->deleteComment($request->get('commentID'));
             }
         }
-        
-        
+
+
         $user = new User();
         $users = $user->where('userType = 3')->select();
-        
+
         $comment = new Comment();
-        
+
         $flag = 0;
         foreach($users as $value){
             if($flag == 0){
@@ -276,18 +274,18 @@ class Admin extends Controller
                 $commentx = $comment->where('userID',$value->userID)->select();
                 $comments = array_merge($comments,$commentx);
             }
-            
+
         }
-        
+
         //分页
-        
+
         /* foreach ($comments as $comment){
             $list = $comment->paginate(3);
         }
-        
+
         $this->assign('list',$list); */
         $this->assign('comments',$comments);
-        
+
         return view();
     }
     public function admin_msg2(){
@@ -299,12 +297,12 @@ class Admin extends Controller
                 $comment->deleteComment($request->get('commentID'));
             }
         }
-        
+
         $user = new User();
         $users = $user->where('userType = 1')->select();
-        
+
         $comment = new Comment();
-        
+
         $flag = 0;
         foreach($users as $value){
             if($flag == 0){
@@ -315,15 +313,15 @@ class Admin extends Controller
                 $commentx = $comment->where('userID',$value->userID)->select();
                 $comments = array_merge($comments,$commentx);
             }
-            
+
         }
-        
+
         $this->assign('comments',$comments);
         return view();
     }
     public function login(){
         $request = Request::instance();
-        
+
         if(null!==$request->cookie('administrator')){
             $this->redirect("admin/index");
         }
@@ -334,10 +332,11 @@ class Admin extends Controller
             $userInfo=$user->where("userName",$userName)->find();
             if($userInfo["password"]==$password&&$userInfo["userType"]==3){
                 Cookie::set("administrator",$userInfo["userName"]);
+                Cookie::set("userID",$userInfo["userID"]);
                 $this->redirect("admin/index");
             }
         }
-        
+
         return view();
     }
 }
