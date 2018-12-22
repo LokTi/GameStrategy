@@ -95,9 +95,8 @@ class Admin extends Controller
 
             $type=$request->get('type');
 
-
-
             if($type==="add"){
+
 
                 $info->addInformation($request->post('infoID'), $request->post('gameID'), $request->post('infoTitle'), $request->cookie('userID'), $request->post('infoKey'), $request->post('infoContent'));
 
@@ -120,6 +119,7 @@ class Admin extends Controller
             }
 
         }
+
 
         $list = $info->where('infoStatusReason',1)->paginate(3);
         $this->assign('list',$list);
@@ -189,7 +189,7 @@ class Admin extends Controller
         return view();
     }
 
-
+    
 
     public function content3(){
 
@@ -202,7 +202,16 @@ class Admin extends Controller
         if($request->has('type','get')){
             $type = $request->get('type');
             if($type == "add"){
-                $game->addGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo1'),$request->post('gameImg'),$request->post('gameType'),$request->post('gamePlat'));
+                $flag = 0;
+                $files = request()->file('img');
+                foreach ($files as $file){
+                    echo $request->post('gameID');
+                    $imgInfo = $file->move(ROOT_PATH . 'public' . DS . 'uploads' . DS . $request->post('gameID'),$flag);
+                    $flag = $flag + 1;
+                }
+                $game->addGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo1'),$request->post('gameType'),$request->post('gameType'),$request->post('gamePlat'));
+                
+
             }
             else if($type == "change"){
                 $game->changeGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo2'),$request->post('gameImg'),$request->post('gameType'),$request->post('gamePlat'));
