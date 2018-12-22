@@ -28,8 +28,8 @@ class Admin extends Controller
                     $new=$request->post("newPassword");
                     $new2=$request->post("newPassword2");
                     $userInfo=$user->where("userName",$userName)->find();
-                    if($userInfo["password"]===$old){
-                        if($new===$new2){
+                    if($userInfo["password"] == $old){
+                        if($new == $new2){
                             $user->changePassword($userInfo["userID"], $new);
                             Cookie::set("administrator",null);
                             $this->redirect("admin/login");
@@ -77,15 +77,117 @@ class Admin extends Controller
         return view();
     }
     public function content1(){
+        $request = Request::instance();
+        
+        if(null==$request->cookie('administrator')){
+            
+            $this->redirect("admin/login");
+            
+        }
+        
         $info=new Information();
-        $infos=$info->select();
+        
+        $request = Request::instance();
+        
+        #setcookie('userID',1);//测试使用
+        
+        if($request->has('type','get')){
+            
+            $type=$request->get('type');
+            
+            
+            
+            if($type==="add"){
+                
+                $info->addInformation($request->post('infoID'), $request->post('gameID'), $request->post('infoTitle'), $request->cookie('userID'), $request->post('infoKey'), $request->post('infoContent1'));
+                
+            }else if($type==="change"){
+                
+                $info->changeInformation($request->post('infoID'), $request->post('infoTitle'), $request->post('infoKey'), $request->post('infoContent'));
+                
+            }else if($type==="delete"){
+                
+                $info->deleteInformation($request->get('infoID'));
+                
+            }else if($type==="search"){
+                
+                $infos=$info->where('infoStatusReason',1)->where("infoTitle",$request->post('infoTitle'))->select();
+                
+                $this->assign('infos',$infos);
+                
+                return view();
+                
+            }
+            
+        }
+        
+        $info = new Information();
+        $list = $info->paginate(3);
+        $this->assign('list',$list);
+        
+        $infos=$info->where('infoStatusReason',1)->select();
+        
         $this->assign('infos',$infos);
+        
         return view();
     }
     public function content2(){
+        $request = Request::instance();
+        
+        if(null==$request->cookie('administrator')){
+            
+            $this->redirect("admin/login");
+            
+        }
+        
+        
+        
         $info=new Information();
-        $infos=$info->select();
+        
+        $request = Request::instance();
+        
+        
+        
+        if($request->has('type','get')){
+            
+            $type=$request->get('type');
+            
+            if($request->has('infoID','get')){
+                
+                $infoID=$request->get('infoID');
+                
+                if($type==="allow"){
+                    
+                    $info->changeInfoStatus($infoID, 1);
+                    
+                }else if($type==="reject"){
+                    
+                    $info->changeInfoStatus($infoID, $request->post('reason'));
+                    
+                }
+                
+            }
+            
+            else if($type==="search"){
+                
+                $infos=$info->where('infoStatusReason',0)->where("infoTitle",$request->post('infoTitle'))->select();
+                
+                $this->assign('infos',$infos);
+                
+                return view();
+                
+            }
+            
+        }
+        
+        $info = new Information();
+        $list = $info->where('infoStatusReason',0)->paginate(3);
+        $this->assign('list',$list);
+        
+        $infos=$info->where('infoStatusReason',0)->select();
+        
         $this->assign('infos',$infos);
+        
         return view();
     }
     
