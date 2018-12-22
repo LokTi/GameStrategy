@@ -128,12 +128,12 @@ img {
 
 /* :: 3.3.0 Section Padding */
 .section-padding-100 {
-  padding-top: 100px;
-  padding-bottom: 100px; }
+  padding-top: 25px;
+  padding-bottom: 25px; }
 
 .section-padding-100-0 {
-  padding-top: 100px;
-  padding-bottom: 0; }
+  padding-top: 25px;
+  padding-bottom: 25px; }
 
 .section-padding-0-100 {
   padding-top: 0;
@@ -1551,6 +1551,7 @@ img {
     @media only screen and (max-width: 767px) {
       .map-area iframe {
         height: 300px; } }
+
 
 /* ====== The End ====== */
 

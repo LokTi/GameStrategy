@@ -13,7 +13,7 @@ return [
     // 数据库类型
     'type'            => 'mysql',
     // 服务器地址
-    'hostname'        => '120.48.178.54',
+    'hostname'        => '120.78.148.54',
     // 数据库名
     'database'        => 'lczgame',
     // 用户名
