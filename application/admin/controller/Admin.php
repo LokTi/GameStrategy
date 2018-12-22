@@ -13,11 +13,41 @@ class Admin extends Controller
     public function index()
     {
         $request = Request::instance();
-        if(null==$request->cookie('administrator')){
+        $user=new User();
+        $userName=$request->cookie('administrator');
+
+        if(null==$userName){
             $this->redirect("admin/login");
+        }else{
+            if($request->has("type","get")){
+                if($request->get("type")=="changePassword"){
+                    $old=$request->post("oldPassword");
+                    $new=$request->post("newPassword");
+                    $new2=$request->post("newPassword2");
+                    $userInfo=$user->where("userName",$userName)->find();
+                    if($userInfo["password"]===$old){
+                        if($new===$new2){
+                            $user->changePassword($userInfo["userID"], $new);
+                            Cookie::set("administrator",null);
+                            $this->redirect("admin/login");
+                        }else{
+                            echo "<script>
+                                     alert('请输入相同的密码！');
+                                    </script>";
+                        }
+                    }else{
+                        echo "<script>
+                                     alert('当前密码错误！');
+                                    </script>";
+                    }
+                }else if($request->get("type")=="logout"){
+                    Cookie::set("administrator",null);
+                    $this->redirect("admin/login");
+                }
+            }
         }
         
-        $this->assign('userName',$request->cookie("administrator"));
+        $this->assign('userName',$userName);
         $this->assign("loginTime",date('Y-m-d H:i:s',time()));
         return view();
     }
@@ -98,12 +128,7 @@ class Admin extends Controller
     }
     public function login(){
         $request = Request::instance();
-        if($request->has("type","get")){
-            if($request->get("type")=="logout"){
-                Cookie::set("administrator",null);
-                $this->redirect("admin/login");
-            }
-        }
+        
         if(null!==$request->cookie('administrator')){
             $this->redirect("admin/index");
         }
