@@ -322,7 +322,7 @@ img {
     position: relative;
     z-index: 2;
     &::after {
-        background-image: url(img/core-img/pattern.png);
+        background-image: url("../img/core-img/pattern.png");
         background-repeat: repeat;
         content: '';
         position: absolute;
@@ -339,7 +339,7 @@ img {
     position: relative;
     z-index: 2;
     &::after {
-        background-image: url(img/core-img/pattern.png);
+        background-image: url("../img/core-img/pattern.png");
         background-repeat: repeat;
         content: '';
         position: absolute;
