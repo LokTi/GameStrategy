@@ -18,10 +18,6 @@ class Index extends Controller
     {
         return view();
     }
-    public function intgame_index()
-    {
-        return view();
-    }
     public function hostgame_index()
     {
         return view();
@@ -35,6 +31,14 @@ class Index extends Controller
         return view();
     }
     public function personal_page()
+    {
+        return view();
+    }
+    public function game_page()
+    {
+        return view();
+    }
+    public function information_page()
     {
         return view();
     }
@@ -85,7 +89,7 @@ class Index extends Controller
     public function login()
     {
         $request = Request::instance();
-        
+
         if(null!==$request->cookie('userID')){
             $this->redirect("index/index");
         }
@@ -150,9 +154,6 @@ class Index extends Controller
                     </script>";
             }
         }
-        return view();
-    }
-    public function information_page(){
         return view();
     }
 }
