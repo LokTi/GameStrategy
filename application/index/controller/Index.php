@@ -150,11 +150,6 @@ class Index extends Controller
                     </script>";
             }
         }
-        else{
-            echo "<script>
-                     alert('".$userName=$request->post("userName")."');
-                    </script>";
-        }
         return view();
     }
     public function information_page(){
