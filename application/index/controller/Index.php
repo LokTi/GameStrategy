@@ -31,6 +31,10 @@ class Index extends Controller
     {
         return view();
     }
+    public function personal_page()
+    {
+        return view();
+    }
     public function singlegame_index()
     {
         $game = new Game();
