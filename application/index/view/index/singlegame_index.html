@@ -44,6 +44,7 @@
 <link href="../../../../public/css/style2.css" rel="stylesheet" type="text/css" media="all" />
 
 
+
 </head>
 
 <body>
@@ -112,12 +113,7 @@
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="hostgame_index.html">主机游戏</a>
-                                        <ul class="dropdown">
-                                            <li><a href="game-review.html">XBOX</a></li>
-                                            <li><a href="single-game-review.html">PS4</a></li>
-                                            <li><a href="game-review.html">Wii</a></li>
-                                            <li><a href="single-game-review.html">NS</a></li>
-                                        </ul>
+
                                     </li>
                                     <li><a href="singlegame_index.html">单机游戏</a>
                                         <ul class="dropdown">
@@ -132,26 +128,13 @@
                                         </ul>
                                     </li>
                                     <li><a href="onlinegame_index.html">网游</a>
-                                        <ul class="dropdown">
-                                            <li><a href="post.html">角色扮演</a></li>
-                                            <li><a href="single-post.html">动作</a></li>
-                                            <li><a href="post.html">竞技</a></li>
-                                            <li><a href="single-post.html">休闲</a></li>
-                                        </ul>
+                                        
+
                                     </li>
                                     <li><a href="mobilegame_index.html">手游</a>
-                                        <ul class="dropdown">
-                                            <li><a href="game-review.html">角色扮演</a></li>
-                                            <li><a href="single-game-review.html">动作</a></li>
-                                            <li><a href="game-review.html">冒险</a></li>
-                                            <li><a href="single-game-review.html">体育竞速</a></li>
-                                            <li><a href="game-review.html">休闲</a></li>
-                                            <li><a href="single-game-review.html">经营模拟</a></li>
-                                            <li><a href="game-review.html">策略益智</a></li>
-                                            <li><a href="single-game-review.html">桌游棋牌</a></li>
-                                        </ul>
+
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="contact.html">联系我们</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -217,14 +200,14 @@
                             </div>
                         </div>
                         <div class="col-md-5 banner-bottom-grid-left-gridr">
-                            <h3><a href="single.html"> {volist name = "infosh1" id = "info"}{$info.infoTitle}{/volist}</a></h3>
+                            <h3> {volist name = "infosh1" id = "info"}<a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}{/volist}</a></h3>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="banner-bottom-grid-right-grid1">
                         <ul>
                             {volist name = "infos1" id = "info"}
-                            <li><a href="single.html">{$info.infoTitle}</a></li>
+                            <li><a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}</a></li>
                             {/volist}
                         </ul>
                     </div>
@@ -241,14 +224,14 @@
                             </div>
                         </div>
                         <div class="col-md-5 banner-bottom-grid-left-gridr">
-                            <h3><a href="single.html">{volist name = "infosh2" id = "info"}{$info.infoTitle}{/volist}</a></h3>
+                            <h3>{volist name = "infosh2" id = "info"}<a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}{/volist}</a></h3>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="banner-bottom-grid-right-grid1">
                         <ul>
                             {volist name = "infos2" id = "info"}
-                            <li><a href="single.html">{$info.infoTitle}</a></li>
+                            <li><a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}</a></li>
                             {/volist}
                         </ul>
                     </div>
@@ -548,7 +531,7 @@
                 <div class="clearfix"> </div>
             </div>
             <!-- Script for gallery Here -->
-            <script type="text/javascript" src="../../../../../public/js/jquery.mixitup.min.js"></script>
+            
                 <script type="text/javascript">
                 $(function () {
 
