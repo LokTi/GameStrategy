@@ -12,38 +12,109 @@ class Index extends Controller
 {
     public function index()
     {
+        $user=new User();
+        $request=Request::instance();
+        if($request->has("type","get")){
+            if($request->get("type")=="logout"){
+                Cookie::set("userID",null);
+                $this->redirect("index/index");
+            }
+        }
+        if($request->has("userID","cookie")){
+            $userID=$request->cookie("userID");
+            $userInfo=$user->where("userID",$userID)->find();
+            $this->assign("userInfo",$userInfo);
+        }
         return view();
     }
     public function contact()
     {
+        $user=new User();
+        $request=Request::instance();
+        
+        if($request->has("userID","cookie")){
+            $userID=$request->cookie("userID");
+            $userInfo=$user->where("userID",$userID)->find();
+            $this->assign("userInfo",$userInfo);
+        }
         return view();
     }
     public function hostgame_index()
     {
+        $user=new User();
+        $request=Request::instance();
+        
+        if($request->has("userID","cookie")){
+            $userID=$request->cookie("userID");
+            $userInfo=$user->where("userID",$userID)->find();
+            $this->assign("userInfo",$userInfo);
+        }
         return view();
     }
     public function onlinegame_index()
     {
+        $user=new User();
+        $request=Request::instance();
+        
+        if($request->has("userID","cookie")){
+            $userID=$request->cookie("userID");
+            $userInfo=$user->where("userID",$userID)->find();
+            $this->assign("userInfo",$userInfo);
+        }
         return view();
     }
     public function mobilegame_index()
     {
+        $user=new User();
+        $request=Request::instance();
+        
+        if($request->has("userID","cookie")){
+            $userID=$request->cookie("userID");
+            $userInfo=$user->where("userID",$userID)->find();
+            $this->assign("userInfo",$userInfo);
+        }
         return view();
     }
     public function personal_page()
     {
+        $user=new User();
+        $request=Request::instance();
+        
+        if($request->has("userID","cookie")){
+            $userID=$request->cookie("userID");
+            $userInfo=$user->where("userID",$userID)->find();
+            $this->assign("userInfo",$userInfo);
+        }
         return view();
     }
     public function game_page()
     {
+        $user=new User();
+        $request=Request::instance();
+        
+        if($request->has("userID","cookie")){
+            $userID=$request->cookie("userID");
+            $userInfo=$user->where("userID",$userID)->find();
+            $this->assign("userInfo",$userInfo);
+        }
         return view();
     }
     public function information_page()
     {
+        $user=new User();
+        $request=Request::instance();
+        
+        if($request->has("userID","cookie")){
+            $userID=$request->cookie("userID");
+            $userInfo=$user->where("userID",$userID)->find();
+            $this->assign("userInfo",$userInfo);
+        }
         return view();
     }
     public function singlegame_index()
     {
+        $user=new User();
+        $request=Request::instance();
         $game = new Game();
         $info = new Information();
 
@@ -83,17 +154,21 @@ class Index extends Controller
         //体育游戏
         $spggames = $game->where("gameType = 'SPG'")->limit(5)->select();
         $this->assign('spggames',$spggames);
-
+        if($request->has("userID","cookie")){
+            $userID=$request->cookie("userID");
+            $userInfo=$user->where("userID",$userID)->find();
+            $this->assign("userInfo",$userInfo);
+        }
         return view();
     }
     public function login()
     {
+        $user=new User();
         $request = Request::instance();
 
         if(null!==$request->cookie('userID')){
             $this->redirect("index/index");
         }
-        $user=new User();
         if($request->has("userName","post")&&$request->has("password","post")){
             $userName=$request->post("userName");
             $password=$request->post("password");
@@ -114,8 +189,8 @@ class Index extends Controller
     }
     public function register()
     {
-        $request = Request::instance();
         $user=new User();
+        $request=Request::instance();
 
         if($request->has("userName","post")&&$request->has("password","post")){
             $userName=$request->post("userName");
@@ -136,7 +211,7 @@ class Index extends Controller
                     }else{
                         $userID=$user->max("userID")+1;
                         $user->addUser($userID, $userName, $password, 1, 1);
-                        $imgInfo = $img->move(ROOT_PATH . 'public' . DS . 'uploads' . DS . 'userImg',$userID);
+                        $imgInfo = $img->move(ROOT_PATH . 'public' . DS . 'uploads' . DS . 'userImg',$userID.".jpg");
                         echo "<script>
                      alert('注册成功！');
                     </script>";
