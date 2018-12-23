@@ -161,13 +161,11 @@
     <div class="single">
         <div class="container">
             <div class="single-info">
-                <h3>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                    voluptatum deleniti atque corrupti quos dolores et quas</h3>
+                <h3>{volist name="info" id="info"}{$info.infoTitle}{/volist}</h3>
                 <div class="comments">
                     <ul>
-                        <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Chris Paul Drew</a> /</li>
-                        <li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>8 Comments</a> /</li>
-                        <li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>31 March 2016</li>
+                        <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>{volist name="user" id="user"}{$user.userName}{/volist}</a> /</li>
+                        <li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>{volist name="info" id="info"}{$info.infoDate}{/volist}</li>
                     </ul>
                 </div>
                 <div class="dummy-text">

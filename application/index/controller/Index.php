@@ -40,6 +40,17 @@ class Index extends Controller
     }
     public function information_page()
     {
+        $request=new Request();
+        $info = new Information();
+        $user = new User();
+
+        //资讯
+        $infomation=$info->where("infoID",$request->get("infoID"))->find();
+        $this->assign('info',$infomation);
+
+        //作者
+        $userInfo = $user->where("userID",$infomation['userID'])->find();
+        $this->assign('user',$userInfo);
         return view();
     }
     public function singlegame_index()
@@ -48,10 +59,10 @@ class Index extends Controller
         $info = new Information();
 
 
-        $infosh1 = $info->limit(1)->select();
+        $infosh1 = $info->order('infoDate desc')->limit(1)->select();
         $infosh2 = $info->order('infoClick desc')->limit(1)->select();
-        $infos1 = $info->limit(2,4)->select();
-        $infos2 = $info->limit(6,4)->select();
+        $infos1 = $info->order('infoDate desc')->limit(2,4)->select();
+        $infos2 = $info->order('infoClick desc')->limit(6,4)->select();
         $this->assign('infosh1',$infosh1);
         $this->assign('infosh2',$infosh2);
         $this->assign('infos1',$infos1);
