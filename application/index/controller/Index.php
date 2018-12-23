@@ -97,6 +97,26 @@ class Index extends Controller
 
         return view();
     }
+    public function personal_page()
+    {
+        $request = Request::instance();
+        $userID = $request->get('userID');
+        $user = new User();
+        $info = new Information();
+        
+        //用户
+        $userInfo = $user->where('userID',$userID)->find();
+        $this->assign('user',$userInfo);
+        
+        //推荐文章
+        $inforHot = $info->where('userID',$userID)->select();
+        $this->assign('')
+        
+        //最新发表
+        $infoNew = $info->where('userID')->order('info desc')->limit(2)->select();
+        
+        return view();
+    }
     public function onlinegame_index()
     {
         $game = new Game();
@@ -130,8 +150,6 @@ class Index extends Controller
         //休闲游戏
         $fpsgames = $game->where("gameType = 'FPS'")->limit(5)->select();
         $this->assign('fpsgames',$fpsgames);
-
-
 
         return view();
     }
