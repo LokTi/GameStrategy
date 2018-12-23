@@ -45,6 +45,7 @@ class Admin extends Controller
                     }
                 }else if($request->get("type")=="logout"){
                     Cookie::set("administrator",null);
+                    Cookie::set("userID",null);
                     $this->redirect("admin/login");
                 }
             }
