@@ -30,6 +30,7 @@
     Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
+
     <!-- Enen Link End -->
 
     <!-- for-mobile-apps -->
@@ -41,6 +42,8 @@
 <!-- //for-mobile-apps -->
 <link href="../../../../public/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../../../../public/css/style2.css" rel="stylesheet" type="text/css" media="all" />
+
+<!-- js -->
 
 
 </head>
@@ -111,46 +114,33 @@
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="hostgame_index.html">主机游戏</a>
-                                        <ul class="dropdown">
-                                            <li><a href="game-review.html">XBOX</a></li>
-                                            <li><a href="single-game-review.html">PS4</a></li>
-                                            <li><a href="game-review.html">Wii</a></li>
-                                            <li><a href="single-game-review.html">NS</a></li>
-                                        </ul>
+
                                     </li>
                                     <li><a href="singlegame_index.html">单机游戏</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">RPG</a></li>
-                                            <li><a href="post.html">RTS</a></li>
-                                            <li><a href="single-post.html">独立</a></li>
-                                            <li><a href="game-review.html">休闲</a></li>
-                                            <li><a href="single-game-review.html">动作</a></li>
-                                            <li><a href="contact.html">射击</a></li>
-                                            <li><a href="single-game-review.html">冒险</a></li>
-                                            <li><a href="contact.html">竞速</a></li>
-                                        </ul>
+
                                     </li>
+
+
                                     <li><a href="onlinegame_index.html">网游</a>
-                                        <ul class="dropdown">
-                                            <li><a href="post.html">角色扮演</a></li>
-                                            <li><a href="single-post.html">动作</a></li>
-                                            <li><a href="post.html">竞技</a></li>
-                                            <li><a href="single-post.html">休闲</a></li>
-                                        </ul>
+                                        
+
+
                                     </li>
+
                                     <li><a href="mobilegame_index.html">手游</a>
+
                                         <ul class="dropdown">
-                                            <li><a href="game-review.html">角色扮演</a></li>
-                                            <li><a href="single-game-review.html">动作</a></li>
-                                            <li><a href="game-review.html">冒险</a></li>
-                                            <li><a href="single-game-review.html">体育竞速</a></li>
-                                            <li><a href="game-review.html">休闲</a></li>
-                                            <li><a href="single-game-review.html">经营模拟</a></li>
-                                            <li><a href="game-review.html">策略益智</a></li>
-                                            <li><a href="single-game-review.html">桌游棋牌</a></li>
+                                            <li><a href="#hot">热门游戏</a></li>
+                                            <li><a href="#new">新游上市</a></li>
+                                            <li><a href="#xbox">角色扮演类游戏</a></li>
+                                            <li><a href="#ps4">动作类游戏</a></li>
+                                            <li><a href="#wii">冒险类游戏</a></li>
+                                            <li><a href="#ns">模拟经营类游戏</a></li>
+                                            <li><a href="#ns1">策略益智类游戏</a></li>
+                                            <li><a href="#ns2">桌游棋牌类游戏</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="contact.html">联系我们</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -172,44 +162,35 @@
     </header>
     <!-- ##### Header Area End ##### -->
 
+
+
+
      <!-- ##### Hero Area Start ##### -->
     <div class="hero-area">
         <!-- Hero Post Slides -->
         <div class="hero-post-slides owl-carousel">
 
             <!-- Single Slide -->
-            <div class="single-slide bg-img bg-overlay" style="background-image: url(img/bg-img/1.jpg);">
+            {volist name = "hotgames" id = "game"}
+            <div class="single-slide bg-img bg-overlay" style="background-image: url(../../../../public/uploads/{$game.gameID}/0.jpg);">
                 <!-- Blog Content -->
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-lg-9">
                             <div class="blog-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="400ms">The Power of Gaming</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt.</p>
+                                <h2 data-animation="fadeInUp" data-delay="400ms">{$game.gameName}</h2>
+                                <p data-animation="fadeInUp" data-delay="700ms">{$game.gameInfo}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Single Slide -->
-            <div class="single-slide bg-img bg-overlay" style="background-image: url(img/bg-img/2.jpg);">
-                <!-- Blog Content -->
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12 col-lg-9">
-                            <div class="blog-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="400ms">The Power of Gaming</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			{/volist}
 
         </div>
     </div>
     <!-- ##### Hero Area End ##### -->
+
 
     <!-- ##### Green Start ##### -->
     <div class="container">
@@ -225,17 +206,15 @@
                             </div>
                         </div>
                         <div class="col-md-5 banner-bottom-grid-left-gridr">
-                            <h3><a href="single.html">the <i>country</i> is strong with a strong <span>Combatant.</span></a></h3>
+                            <h3> {volist name = "infosh1" id = "info"}<a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}{/volist}</a></h3>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="banner-bottom-grid-right-grid1">
                         <ul>
-                            <li><a href="single.html">资讯</a></li>
-                            <li><a href="single.html">Neque porro quisquam est, qui dolorem.</a></li>
-                            <li><a href="single.html">Quis autem vel eum iure reprehenderit qui.</a></li>
-                            <li><a href="single.html">Excepteur sint cupidatat non proident.</a></li>
-                            <li><a href="single.html">Ut enim ad minim veniam, quis exercitation.</a></li>
+                            {volist name = "infos1" id = "info"}
+                            <li><a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}</a></li>
+                            {/volist}
                         </ul>
                     </div>
                 </div>
@@ -251,17 +230,15 @@
                             </div>
                         </div>
                         <div class="col-md-5 banner-bottom-grid-left-gridr">
-                            <h3><a href="single.html">the <i>country</i> is strong with a strong <span>Combatant.</span></a></h3>
+                            <h3>{volist name = "infosh2" id = "info"}<a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}{/volist}</a></h3>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="banner-bottom-grid-right-grid1">
                         <ul>
-                            <li><a href="single.html">Sed ut perspiciatis unde omnis iste natus.</a></li>
-                            <li><a href="single.html">Neque porro quisquam est, qui dolorem.</a></li>
-                            <li><a href="single.html">Quis autem vel eum iure reprehenderit qui.</a></li>
-                            <li><a href="single.html">Excepteur sint cupidatat non proident.</a></li>
-                            <li><a href="single.html">Ut enim ad minim veniam, quis exercitation.</a></li>
+                            {volist name = "infos2" id = "info"}
+                            <li><a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}</a></li>
+                            {/volist}
                         </ul>
                     </div>
                 </div>
@@ -273,916 +250,338 @@
 
     <!-- ##### Enen Area Start ##### -->
     <section class="latest-articles-area section-padding-100-0 bg-img bg-pattern bg-fixed" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
-        <div class="container">
-            <div class="works" id="portfolio">
-                <div class=" port-top">
-                    <h3 class="port" style="color: #fff;">热门游戏</h3>
-                    <div class="clearfix"> </div>
+        <div class="container works bg-pattern">
+        <div class="works" id="portfolio">
+            <div class=" port-top">
+                <h3 class="port" style="color: #fff;">热门游戏</h3>
+                <div class="clearfix"> </div>
+            </div>
+            <div id="portfoliolist">
+              	{volist name = "hotgames" id = "game" mod="5"}
+                {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
+                {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
+                {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
+                {eq name="mod" value="3"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">{/eq}
+                {eq name="mod" value="4"}<div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">{/eq}
+                    <div class="portfolio-wrapper">
+                        <a href="single.html" class="b-link-stripe b-animate-go">
+                        <img class="img-responsive" src="../../../../public/uploads/{$game.gameID}/1.jpg" alt=""  />
+	                        <div class="b-wrapper" class="b-link-stripe b-animate-go">
+		                            <h2 class="b-animate b-from-left ">
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gameName}</div>
+		                                <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
+		                            </h2>
+	                        </div>
+                        </a>
+                    </div>
                 </div>
-                <div id="portfoliolist">
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="../../../../public/img/bg-img/test.jpg" alt=""  />
-                                <div class="b-wrapper">
-                                    <h2 class="b-animate b-from-left">
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 55%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                        <p style="padding: 0;margin: 0 0 .04rem;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: #cacfe2;">游戏简介</p>
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="../../../../public/img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper" class="b-link-stripe b-animate-go">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="../../../../public/img/bg-img/test.jpg"  alt="" />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="../../../../public/img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="../../../../public/img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;margin-left: 0;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
+                {/volist}
+                <div class="clearfix"> </div>
             </div>
         </div>
+    </div>
     </section>
     <!-- ##### Enen Area End ##### -->
 
     <!-- ##### Enen Area Start ##### -->
     <div class="egames-video-area section-padding-100 bg-pattern2">
-        <div class="container">
-            <div class="works" id="portfolio">
-                <div class=" port-top">
-                    <h3 class="port">新游上市</h3>
-                    <div class="clearfix"> </div>
-                </div>
-                <div id="portfoliolist">
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                                <div class="b-wrapper">
-                                    <h2 class="b-animate b-from-left">
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 55%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                        <p style="padding: 0;margin: 0 0 .04rem;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: #cacfe2;">游戏简介</p>
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper" class="b-link-stripe b-animate-go">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg"  alt="" />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;margin-left: 0;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
+    <div class="container">
+        <div class="works" id="portfolio">
+            <div class=" port-top">
+                <h3 class="port">新游上市</h3>
+                <div class="clearfix"> </div>
             </div>
+            <div id="portfoliolist">
+                {volist name = "rpggames" id = "game" mod="5"}
+                {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
+                {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
+                {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
+                {eq name="mod" value="3"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">{/eq}
+                {eq name="mod" value="4"}<div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">{/eq}
+                    <div class="portfolio-wrapper">
+                        <a href="single.html" class="b-link-stripe b-animate-go">
+                        <img class="img-responsive" src="../../../../public/uploads/{$game.gameID}/1.jpg" alt=""  />
+	                        <div class="b-wrapper" class="b-link-stripe b-animate-go">
+		                            <h2 class="b-animate b-from-left ">
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gameName}</div>
+		                                <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
+		                            </h2>
+	                        </div>
+                        </a>
+                    </div>
+                </div>
+                {/volist}
+                <div class="clearfix"> </div>
+            </div>
+        </div>
         </div>
     </div>
     <!-- ##### Enen Area End ##### -->
 
     <!-- ##### Enen Area Start ##### -->
-    <section class="latest-articles-area section-padding-100-0 bg-img bg-pattern bg-fixed" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
-        <div class="container">
-            <div class="works" id="portfolio">
-                <div class=" port-top">
-                    <h3 class="port" style="color: #fff;">角色扮演</h3>
-                    <div class="clearfix"> </div>
+        <section class="latest-articles-area section-padding-100-0 bg-img bg-pattern bg-fixed" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
+    
+        <div class="container works bg-pattern">
+        <div class="works" id="portfolio">
+            <div class=" port-top">
+                <h3 class="port" style="color: #fff;">角色扮演</h3>
+                <div class="clearfix"> </div>
+            </div>
+            <div id="portfoliolist">
+                {volist name = "rtsgames" id = "game" mod="5"}
+                {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
+                {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
+                {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
+                {eq name="mod" value="3"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">{/eq}
+                {eq name="mod" value="4"}<div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">{/eq}
+                    <div class="portfolio-wrapper">
+                        <a href="single.html" class="b-link-stripe b-animate-go">
+                        <img class="img-responsive" src="../../../../public/uploads/{$game.gameID}/1.jpg" alt=""  />
+	                        <div class="b-wrapper" class="b-link-stripe b-animate-go">
+		                            <h2 class="b-animate b-from-left ">
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gameName}</div>
+		                                <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
+		                            </h2>
+	                        </div>
+                        </a>
+                    </div>
                 </div>
-                <div id="portfoliolist">
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                                <div class="b-wrapper">
-                                    <h2 class="b-animate b-from-left">
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 55%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                        <p style="padding: 0;margin: 0 0 .04rem;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: #cacfe2;">游戏简介</p>
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper" class="b-link-stripe b-animate-go">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg"  alt="" />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;margin-left: 0;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
+                {/volist}
+                <div class="clearfix"> </div>
             </div>
         </div>
+    </div>
     </section>
     <!-- ##### Enen Area End ##### -->
 
     <!-- ##### Enen Area Start ##### -->
     <div class="egames-video-area section-padding-100 bg-pattern2">
-        <div class="container">
-            <div class="works" id="portfolio">
-                <div class=" port-top">
-                    <h3 class="port">动作</h3>
-                    <div class="clearfix"> </div>
-                </div>
-                <div id="portfoliolist">
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                                <div class="b-wrapper">
-                                    <h2 class="b-animate b-from-left">
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 55%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                        <p style="padding: 0;margin: 0 0 .04rem;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: #cacfe2;">游戏简介</p>
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper" class="b-link-stripe b-animate-go">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg"  alt="" />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;margin-left: 0;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
+    <div class="container">
+        <div class="works" id="portfolio">
+            <div class=" port-top">
+                <h3 class="port" >动作游戏</h3>
+                <div class="clearfix"> </div>
             </div>
+            <div id="portfoliolist">
+               {volist name = "actgames" id = "game" mod="5"}
+                {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
+                {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
+                {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
+                {eq name="mod" value="3"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">{/eq}
+                {eq name="mod" value="4"}<div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">{/eq}
+                    <div class="portfolio-wrapper">
+                        <a href="single.html" class="b-link-stripe b-animate-go">
+                        <img class="img-responsive" src="../../../../public/uploads/{$game.gameID}/1.jpg" alt=""  />
+	                        <div class="b-wrapper" class="b-link-stripe b-animate-go">
+		                            <h2 class="b-animate b-from-left ">
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gameName}</div>
+		                                <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
+		                            </h2>
+	                        </div>
+                        </a>
+                    </div>
+                </div>
+                {/volist}
+                <div class="clearfix"> </div>
+            </div>
+        </div>
         </div>
     </div>
     <!-- ##### Enen Area End ##### -->
 
     <!-- ##### Enen Area Start ##### -->
-    <section class="latest-articles-area section-padding-100-0 bg-img bg-pattern bg-fixed" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
-        <div class="container">
-            <div class="works" id="portfolio">
-                <div class=" port-top">
-                    <h3 class="port" style="color: #fff;">冒险</h3>
-                    <div class="clearfix"> </div>
+        <section class="latest-articles-area section-padding-100-0 bg-img bg-pattern bg-fixed" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
+    
+        <div class="container works bg-pattern">
+        <div class="works" id="portfolio">
+            <div class=" port-top">
+                <h3 class="port" style="color: #fff;">模拟经营</h3>
+                <div class="clearfix"> </div>
+            </div>
+            <div id="portfoliolist">
+                {volist name = "racgames" id = "game" mod="5"}
+                {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
+                {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
+                {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
+                {eq name="mod" value="3"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">{/eq}
+                {eq name="mod" value="4"}<div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">{/eq}
+                    <div class="portfolio-wrapper">
+                        <a href="single.html" class="b-link-stripe b-animate-go">
+                        <img class="img-responsive" src="../../../../public/uploads/{$game.gameID}/1.jpg" alt=""  />
+	                        <div class="b-wrapper" class="b-link-stripe b-animate-go">
+		                            <h2 class="b-animate b-from-left ">
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gameName}</div>
+		                                <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
+		                            </h2>
+	                        </div>
+                        </a>
+                    </div>
                 </div>
-                <div id="portfoliolist">
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="../../../../public/img/bg-img/test.jpg" alt=""  />
-                                <div class="b-wrapper">
-                                    <h2 class="b-animate b-from-left">
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 55%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                        <p style="padding: 0;margin: 0 0 .04rem;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: #cacfe2;">游戏简介</p>
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="../../../../public/img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper" class="b-link-stripe b-animate-go">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="../../../../public/img/bg-img/test.jpg"  alt="" />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="../../../../public/img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="../../../../public/img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;margin-left: 0;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
+                {/volist}
+                <div class="clearfix"> </div>
             </div>
         </div>
+    </div>
     </section>
     <!-- ##### Enen Area End ##### -->
 
-    <!-- ##### Enen Area Start ##### -->
+	<!-- ##### Enen Area Start ##### -->
     <div class="egames-video-area section-padding-100 bg-pattern2">
-        <div class="container">
-            <div class="works" id="portfolio">
-                <div class=" port-top">
-                    <h3 class="port">体育竞速</h3>
-                    <div class="clearfix"> </div>
+    <div class="container">
+        <div class="works" id="portfolio">
+            <div class=" port-top">
+                <h3 class="port">冒险游戏</h3>
+                <div class="clearfix"> </div>
+            </div>
+            <div id="portfoliolist">
+                {volist name = "avggames" id = "game" mod="5"}
+                {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
+                {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
+                {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
+                {eq name="mod" value="3"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">{/eq}
+                {eq name="mod" value="4"}<div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">{/eq}
+                    <div class="portfolio-wrapper">
+                        <a href="single.html" class="b-link-stripe b-animate-go">
+                        <img class="img-responsive" src="../../../../public/uploads/{$game.gameID}/1.jpg" alt=""  />
+	                        <div class="b-wrapper" class="b-link-stripe b-animate-go">
+		                            <h2 class="b-animate b-from-left ">
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gameName}</div>
+		                                <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
+		                            </h2>
+	                        </div>
+                        </a>
+                    </div>
                 </div>
-                <div id="portfoliolist">
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                                <div class="b-wrapper">
-                                    <h2 class="b-animate b-from-left">
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 55%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                        <p style="padding: 0;margin: 0 0 .04rem;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: #cacfe2;">游戏简介</p>
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper" class="b-link-stripe b-animate-go">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg"  alt="" />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;margin-left: 0;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
+                {/volist}
+                <div class="clearfix"> </div>
             </div>
         </div>
+    </div>
     </div>
     <!-- ##### Enen Area End ##### -->
 
     <!-- ##### Enen Area Start ##### -->
-    <section class="latest-articles-area section-padding-100-0 bg-img bg-pattern bg-fixed" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
-        <div class="container">
-            <div class="works" id="portfolio">
-                <div class=" port-top">
-                    <h3 class="port" style="color: #fff;">休闲</h3>
-                    <div class="clearfix"> </div>
-                </div>
-                <div id="portfoliolist">
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                                <div class="b-wrapper">
-                                    <h2 class="b-animate b-from-left">
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 55%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                        <p style="padding: 0;margin: 0 0 .04rem;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: #cacfe2;">游戏简介</p>
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper" class="b-link-stripe b-animate-go">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg"  alt="" />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;margin-left: 0;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
+        <section class="latest-articles-area section-padding-100-0 bg-img bg-pattern bg-fixed" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
+    
+        <div class="container works bg-pattern">
+        <div class="works" id="portfolio">
+            <div class=" port-top">
+                <h3 class="port" style="color: #fff;">策略益智</h3>
+                <div class="clearfix"> </div>
             </div>
-        </div>
-    </section>
-    <!-- ##### Enen Area End ##### -->
-
-    <!-- ##### Enen Area Start ##### -->
-    <div class="egames-video-area section-padding-100 bg-pattern2">
-        <div class="container">
-            <div class="works" id="portfolio">
-                <div class=" port-top">
-                    <h3 class="port">经营模拟</h3>
-                    <div class="clearfix"> </div>
+            <div id="portfoliolist">
+                {volist name = "fpsgames" id = "game" mod="5"}
+                {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
+                {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
+                {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
+                {eq name="mod" value="3"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">{/eq}
+                {eq name="mod" value="4"}<div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">{/eq}
+                    <div class="portfolio-wrapper">
+                        <a href="single.html" class="b-link-stripe b-animate-go">
+                        <img class="img-responsive" src="../../../../public/uploads/{$game.gameID}/1.jpg" alt=""  />
+	                        <div class="b-wrapper" class="b-link-stripe b-animate-go">
+		                            <h2 class="b-animate b-from-left ">
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gameName}</div>
+		                                <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
+		                            </h2>
+	                        </div>
+                        </a>
+                    </div>
                 </div>
-                <div id="portfoliolist">
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                                <div class="b-wrapper">
-                                    <h2 class="b-animate b-from-left">
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 55%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                        <p style="padding: 0;margin: 0 0 .04rem;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: #cacfe2;">游戏简介</p>
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper" class="b-link-stripe b-animate-go">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg"  alt="" />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;margin-left: 0;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
+                {/volist}
+                <div class="clearfix"> </div>
             </div>
         </div>
     </div>
-    <!-- ##### Enen Area End ##### -->
-
-    <!-- ##### Enen Area Start ##### -->
-    <section class="latest-articles-area section-padding-100-0 bg-img bg-pattern bg-fixed" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
-        <div class="container">
-            <div class="works" id="portfolio">
-                <div class=" port-top">
-                    <h3 class="port" style="color: #fff;">策略益智</h3>
-                    <div class="clearfix"> </div>
-                </div>
-                <div id="portfoliolist">
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                                <div class="b-wrapper">
-                                    <h2 class="b-animate b-from-left">
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 55%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                        <p style="padding: 0;margin: 0 0 .04rem;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: #cacfe2;">游戏简介</p>
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper" class="b-link-stripe b-animate-go">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg"  alt="" />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;margin-left: 0;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
     </section>
     <!-- ##### Enen Area End ##### -->
 
+    
+
     <!-- ##### Enen Area Start ##### -->
     <div class="egames-video-area section-padding-100 bg-pattern2">
-        <div class="container">
-            <div class="works" id="portfolio">
-                <div class=" port-top">
-                    <h3 class="port">桌游棋牌</h3>
-                    <div class="clearfix"> </div>
-                </div>
-                <div id="portfoliolist">
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                                <div class="b-wrapper">
-                                    <h2 class="b-animate b-from-left">
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 55%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                        <p style="padding: 0;margin: 0 0 .04rem;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: #cacfe2;">游戏简介</p>
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper" class="b-link-stripe b-animate-go">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">
-                        <div class="portfolio-wrapper">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg"  alt="" />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">
-                        <div class="portfolio-wrapper ">
-                            <a href="single.html" class="b-link-stripe b-animate-go">
-                            <img class="img-responsive" src="img/bg-img/test.jpg" alt=""  />
-                            <div class="b-wrapper">
-                                <h2 class="b-animate b-from-left ">
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;margin-left: 0;">游戏名</div>
-                                    <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">剑魂6</div>
-                                    <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">游戏类型</p>
-                                </h2>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <!-- Script for gallery Here -->
-                <script type="text/javascript" src="../../../../public/js/jquery.mixitup.min.js"></script>
-                    <script type="text/javascript">
-                    $(function () {
-
-                        var filterList = {
-
-                            init: function () {
-
-                                // MixItUp plugin
-                                // http://mixitup.io
-                                $('#portfoliolist').mixitup({
-                                    targetSelector: '.portfolio',
-                                    filterSelector: '.filter',
-                                    effects: ['fade'],
-                                    easing: 'snap',
-                                    // call the hover effect
-                                    onMixEnd: filterList.hoverEffect()
-                                });
-
-                            },
-
-                            hoverEffect: function () {
-
-                                // Simple parallax effect
-                                $('#portfoliolist .portfolio').hover(
-                                    function () {
-                                        $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
-                                        $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');
-                                    },
-                                    function () {
-                                        $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
-                                        $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');
-                                    }
-                                );
-
-                            }
-
-                        };
-
-                        // Run the show!
-                        filterList.init();
-                    });
-                    </script>
-                <!-- Gallery Script Ends -->
+    <div class="container">
+        <div class="works" id="portfolio">
+            <div class=" port-top">
+                <h3 class="port">桌游棋牌</h3>
+                <div class="clearfix"> </div>
             </div>
+            <div id="portfoliolist">
+                {volist name = "spggames" id = "game" mod="5"}
+                {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
+                {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
+                {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
+                {eq name="mod" value="3"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;margin-top: 0px;">{/eq}
+                {eq name="mod" value="4"}<div class="portfolio add mix_all" data-cat="add" style="display: inline-block; opacity: 1;margin:0 0 2% 2.5%;float: right;">{/eq}
+                    <div class="portfolio-wrapper">
+                        <a href="single.html" class="b-link-stripe b-animate-go">
+                        <img class="img-responsive" src="../../../../public/uploads/{$game.gameID}/1.jpg" alt=""  />
+	                        <div class="b-wrapper" class="b-link-stripe b-animate-go">
+		                            <h2 class="b-animate b-from-left ">
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gameName}</div>
+		                                <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
+		                            </h2>
+	                        </div>
+                        </a>
+                    </div>
+                </div>
+                {/volist}
+                <div class="clearfix"> </div>
+            </div>
+            <!-- Script for gallery Here -->
+                <script type="text/javascript">
+                $(function () {
+
+                    var filterList = {
+
+                        init: function () {
+
+                            // MixItUp plugin
+                            // http://mixitup.io
+                            $('#portfoliolist').mixitup({
+                                targetSelector: '.portfolio',
+                                filterSelector: '.filter',
+                                effects: ['fade'],
+                                easing: 'snap',
+                                // call the hover effect
+                                onMixEnd: filterList.hoverEffect()
+                            });
+
+                        },
+
+                        hoverEffect: function () {
+
+                            // Simple parallax effect
+                            $('#portfoliolist .portfolio').hover(
+                                function () {
+                                    $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                                    $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');
+                                },
+                                function () {
+                                    $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+                                    $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');
+                                }
+                            );
+
+                        }
+
+                    };
+
+                    // Run the show!
+                    filterList.init();
+                });
+                </script>
+            <!-- Gallery Script Ends -->
         </div>
+    </div>
     </div>
     <!-- ##### Enen Area End ##### -->
 
