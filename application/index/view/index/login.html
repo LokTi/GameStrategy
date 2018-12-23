@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登陆</title>
+    <link rel="stylesheet" href="../../../../public/css/style3.css">
+	<link rel="stylesheet" type="text/css" href="../../../../public/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="../../../../public/css/demo.css" />
+	<!--必要样式-->
+	<link rel="stylesheet" type="text/css" href="../../../../public/css/component.css" />
+</head>
+<body>
+<!--背景-->
+<div class="wel" id="background-3"></div>
+
+<!--荧光点点-->
+<div class="wel" id="git"></div>
+<!--登录注册表-->
+<div class="wel" id="from" style="top:100px;">
+<div class="logo_box">
+						<h3>LCZ_—"Game</h3>
+						<form action="login.html" id="fromLogin" name="f" method="post">
+							<div class="input_outer">
+								<span class="u_user"></span>
+								<input name="userName" class="text" autocomplete="off" style="color: #FFFFFF " type="text" placeholder="请输入账户">
+							</div>
+							<div class="input_outer">
+								<span class="us_uer"></span>
+								<input name="password" class="text" style="color: #FFFFFF ; position:absolute; z-index:100;"value="" type="password" placeholder="请输入密码">
+							</div>
+							<div><a href="#" style="color:white;float:left;margin-left:5px;">忘记密码？</a></div>
+							<div style="margin-left:255px;"><a href="register.html" style="color:white;">立即注册</a></div>
+							<div class="mb2"><a class="act-but submit" href="javascript:void(0);" onclick="formSubmit();"  style="color: #FFFFFF" >登录</a></div>
+						</form>
+					</div>
+</div>
+
+</body>
+</html>
+<script>
+
+function formSubmit()
+{
+document.getElementById("fromLogin").submit();
+}
+</script>
