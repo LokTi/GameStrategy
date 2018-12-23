@@ -89,7 +89,7 @@ class Index extends Controller
     public function login()
     {
         $request = Request::instance();
-        
+
         if(null!==$request->cookie('userID')){
             $this->redirect("index/index");
         }
@@ -154,9 +154,6 @@ class Index extends Controller
                     </script>";
             }
         }
-        return view();
-    }
-    public function information_page(){
         return view();
     }
 }
