@@ -4,6 +4,8 @@ namespace app\index\controller;
 use app\admin\model\Game;
 use think\Controller;
 use app\admin\model\Information;
+use think\Request;
+use app\admin\model\Comment;
 
 class Index extends Controller
 {
@@ -12,8 +14,41 @@ class Index extends Controller
         return view();
     }
     public function information_page(){
-        return view();
+        
+        $request = Request::instance();
+        $infoID = $request->get('infoID');
+        $info = new Information();
+        $comment = new Comment();
+        
+        if($request->has("type","get")){
+            if($request->get("type")=="check"){
+                if(null == $request->cookie('userID')){
+                    $this->redirect("index/login");
+                }else{
+                    $userID = $request->cookie('userID');
+                    $commentContent = $request->post('content');
+                    $newComment = new Comment();
+                    $newComment->addComment( $infoID, $userID, $commentContent);
+                }
+            }
+        }
+        
+        
+        
+        
+        
+        $infos = $info->where('infoID',$infoID)->select();
+        $comments = $comment->where('infoID',$infoID)->select();
+        $latestInfos = $info->order('infoID desc')->limit(5)->select();
+        $this->assign('infos',$infos);
+        $this->assign('latestInfos',$latestInfos);
+        $this->assign('comments',$comments);
+        
+       return view();
     }
+    
+    
+    
     public function contact()
     {
         return view();

@@ -138,11 +138,17 @@
                                     <li><a href="mobilegame_index.html">手游</a>
 
                                         <ul class="dropdown">
-                                            <li><a href="game-review.html">Game Review</a></li>
-                                            <li><a href="single-game-review.html">Single Game Review</a></li>
+                                            <li><a href="#hot">热门游戏</a></li>
+                                            <li><a href="#new">新游上市</a></li>
+                                            <li><a href="#xbox">角色扮演类游戏</a></li>
+                                            <li><a href="#ps4">动作类游戏</a></li>
+                                            <li><a href="#wii">冒险类游戏</a></li>
+                                            <li><a href="#ns">模拟经营类游戏</a></li>
+                                            <li><a href="#ns1">策略益智类游戏</a></li>
+                                            <li><a href="#ns2">桌游棋牌类游戏</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="contact.html">联系我们</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -208,14 +214,14 @@
                             </div>
                         </div>
                         <div class="col-md-5 banner-bottom-grid-left-gridr">
-                            <h3> {volist name = "infosh1" id = "info"}<a href="single.html">{$info.infoTitle}{/volist}</a></h3>
+                            <h3> {volist name = "infosh1" id = "info"}<a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}{/volist}</a></h3>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="banner-bottom-grid-right-grid1">
                         <ul>
                             {volist name = "infos1" id = "info"}
-                            <li><a href="single.html">{$info.infoTitle}</a></li>
+                            <li><a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}</a></li>
                             {/volist}
                         </ul>
                     </div>
@@ -232,14 +238,14 @@
                             </div>
                         </div>
                         <div class="col-md-5 banner-bottom-grid-left-gridr">
-                            <h3><a href="single.html">{volist name = "infosh2" id = "info"}{$info.infoTitle}{/volist}</a></h3>
+                            <h3>{volist name = "infosh2" id = "info"}<a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}{/volist}</a></h3>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="banner-bottom-grid-right-grid1">
                         <ul>
                             {volist name = "infos2" id = "info"}
-                            <li><a href="single.html">{$info.infoTitle}</a></li>
+                            <li><a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}</a></li>
                             {/volist}
                         </ul>
                     </div>

@@ -144,7 +144,7 @@
                                     <li><a href="mobilegame_index.html">手游</a>
 
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="contact.html">联系我们</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -210,14 +210,14 @@
                             </div>
                         </div>
                         <div class="col-md-5 banner-bottom-grid-left-gridr">
-                            <h3> {volist name = "infosh1" id = "info"}<a href="single.html">{$info.infoTitle}{/volist}</a></h3>
+                            <h3> {volist name = "infosh1" id = "info"}<a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}{/volist}</a></h3>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="banner-bottom-grid-right-grid1">
                         <ul>
                             {volist name = "infos1" id = "info"}
-                            <li><a href="single.html">{$info.infoTitle}</a></li>
+                            <li><a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}</a></li>
                             {/volist}
                         </ul>
                     </div>
@@ -234,14 +234,14 @@
                             </div>
                         </div>
                         <div class="col-md-5 banner-bottom-grid-left-gridr">
-                            <h3><a href="single.html">{volist name = "infosh2" id = "info"}{$info.infoTitle}{/volist}</a></h3>
+                            <h3>{volist name = "infosh2" id = "info"}<a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}{/volist}</a></h3>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="banner-bottom-grid-right-grid1">
                         <ul>
                             {volist name = "infos2" id = "info"}
-                            <li><a href="single.html">{$info.infoTitle}</a></li>
+                            <li><a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}</a></li>
                             {/volist}
                         </ul>
                     </div>
