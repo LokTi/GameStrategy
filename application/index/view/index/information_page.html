@@ -65,7 +65,7 @@
                             <div class="login-area">
                                 {if !isset($_COOKIE["userID"])}
                             		<a href='login.html'><span>Login / Register</span> <i class='fa fa-lock' aria-hidden='true'></i></a>
-                           		{/if}                            
+                           		{/if}
                            	</div>
                         </div>
                     </div>
@@ -172,10 +172,11 @@
                     <div class="recent-com-grids">
                         <div class="recent-com-grid">
                             <div class="col-xs-2 recent-com-grid-left">
-                                <img src="../../../../public/img/bg-img/10.jpg" alt=" " class="img-responsive" />
+                                <a href="{:url('personal_page')}?userID={$comment.userID}"><img src="../../../../public/img/bg-img/10.jpg" alt=" " class="img-responsive"/></a>
                             </div>
                             <div class="col-xs-10 recent-com-grid-right">
-                                <h5><a href="#">James Car 用户ID{$comment.userID}</a></h5>
+                                <h5><a href="{:url('personal_page')}?userID={$comment.userID}"></a></h5>
+                                <h5 style="color:#94b9b2">用户ID:{$comment.userID}</h5>
                                 <p>{$comment.commentContent}</p>
                             </div>
                             <div class="clearfix"> </div>
@@ -187,7 +188,7 @@
                 <div class="leave-comm">
                     <h4>Leave a <span>Comment</span></h4>
                     <div class="leave-comm-grids">
-                        <form action="{:url('index/information_page')}?type=check&infoID={$infos[0]["infoID"]}" method="post">
+                        <form action="{:url('index/information_page')}?type=check&infoID={$infos[0]['infoID']}" method="post">
                             <textarea placeholder="Message..."  id="content"></textarea>
                             <input type="submit" value="Submit Comment" >
                         </form>

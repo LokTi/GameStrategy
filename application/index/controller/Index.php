@@ -17,7 +17,7 @@ class Index extends Controller
     {
         $user=new User();
         $request=Request::instance();
-        
+
         if($request->has("type","get")){
             if($request->get("type")=="logout"){
                 Cookie::set("userID",null);
@@ -39,7 +39,7 @@ class Index extends Controller
         $comment = new Comment();
         $user=new User();
         $request=Request::instance();
-        
+
         if($request->has("userID","cookie")){
             $userID=$request->cookie("userID");
             $userInfo=$user->where("userID",$userID)->find();
@@ -59,10 +59,6 @@ class Index extends Controller
             }
         }
 
-
-
-
-
         $infos = $info->where('infoID',$infoID)->select();
         $comments = $comment->where('infoID',$infoID)->select();
         $latestInfos = $info->order('infoID desc')->limit(5)->select();
@@ -79,7 +75,7 @@ class Index extends Controller
     {
         $user=new User();
         $request=Request::instance();
-        
+
         if($request->has("userID","cookie")){
             $userID=$request->cookie("userID");
             $userInfo=$user->where("userID",$userID)->find();
@@ -96,7 +92,7 @@ class Index extends Controller
         $info = new Information();
         $user=new User();
         $request=Request::instance();
-        
+
         if($request->has("userID","cookie")){
             $userID=$request->cookie("userID");
             $userInfo=$user->where("userID",$userID)->find();
@@ -137,21 +133,37 @@ class Index extends Controller
     public function personal_page()
     {
         $request = Request::instance();
-        $userID = $request->get('userID');
+        $userID_p = $request->get('userID');
         $user = new User();
         $info = new Information();
-        
+
+        //登陆注销
+        if($request->has("type","get")){
+            if($request->get("type")=="logout"){
+                Cookie::set("userID",null);
+                $this->redirect("index/personal_page");
+            }
+        }
+        if($request->has("userID","cookie")){
+            $userID=$request->cookie("userID");
+            $userInfo=$user->where("userID",$userID)->find();
+            $this->assign("userInfo",$userInfo);
+        }
+
         //用户
-        $userInfo = $user->where('userID',$userID)->find();
-        $this->assign('user',$userInfo);
-        
+        $userInfomation = $user->where('userID',$userID_p)->find();
+        $userImg_PATH="../../../../public/uploads/userImg/".$userInfomation["userID"].".jpg";
+        $this->assign('user',$userInfomation);
+        $this->assign('img',$userImg_PATH);
+
         //推荐文章
-        $inforHot = $info->where('userID',$userID)->select();
-        $this->assign('')
-        
+        $inforHot = $info->where('userID',$userID_p)->order('infoClick desc')->limit(5)->select();
+        $this->assign('infoHot',$inforHot);
+
         //最新发表
-        $infoNew = $info->where('userID')->order('info desc')->limit(2)->select();
-        
+        $infoNew = $info->where('userID',$userID_p)->order('infoDate desc')->limit(2)->select();
+        $this->assign('infoNew',$infoNew);
+
         return view();
     }
     public function onlinegame_index()
@@ -160,7 +172,7 @@ class Index extends Controller
         $request=Request::instance();
         $game = new Game();
         $info = new Information();
-        
+
         if($request->has("userID","cookie")){
             $userID=$request->cookie("userID");
             $userInfo=$user->where("userID",$userID)->find();
@@ -201,76 +213,48 @@ class Index extends Controller
     {
         $user=new User();
         $request=Request::instance();
-        
+
         if($request->has("userID","cookie")){
             $userID=$request->cookie("userID");
             $userInfo=$user->where("userID",$userID)->find();
             $this->assign("userInfo",$userInfo);
         }
-        return view();
-    }
-    public function personal_page()
-    {       
-        $game = new Game();
-        $info = new Information();
-        $user=new User();
-        $request=Request::instance();
-        
-        if($request->has("userID","cookie")){
-            $userID=$request->cookie("userID");
-            $userInfo=$user->where("userID",$userID)->find();
-            $this->assign("userInfo",$userInfo);
-        }
-
-
-        $infosh1 = $info->limit(1)->select();
-        $infosh2 = $info->order('infoClick desc')->limit(1)->select();
-        $infos1 = $info->limit(2,4)->select();
-        $infos2 = $info->limit(6,4)->select();
-        $this->assign('infosh1',$infosh1);
-        $this->assign('infosh2',$infosh2);
-        $this->assign('infos1',$infos1);
-        $this->assign('infos2',$infos2);
-
-
-        //热门游戏
-        $hotgames = $game->limit(1,5)->select();
-        $this->assign('hotgames',$hotgames);
-        //新游上市
-        $rpggames = $game->where("gameType = 'RPG'")->limit(5)->select();
-        $this->assign('rpggames',$rpggames);
-        //角色扮演
-        $rtsgames = $game->where("gameType = 'RST'")->limit(5)->select();
-        $this->assign('rtsgames',$rtsgames);
-        //动作游戏
-        $actgames = $game->where("gameType = 'ACT'")->limit(5)->select();
-        $this->assign('actgames',$actgames);
-        //模拟经营
-        $racgames = $game->where("gameType = 'RAC'")->limit(5)->select();
-        $this->assign('racgames',$racgames);
-        //策略益智
-        $fpsgames = $game->where("gameType = 'FPS'")->limit(5)->select();
-        $this->assign('fpsgames',$fpsgames);
-        //冒险游戏
-        $avggames = $game->where("gameType = 'AVG'")->limit(5)->select();
-        $this->assign('avggames',$avggames);
-        //桌游棋牌
-        $spggames = $game->where("gameType = 'SPG'")->limit(5)->select();
-        $this->assign('spggames',$spggames);
-
-
         return view();
     }
     public function game_page()
     {
-        $user=new User();
         $request=Request::instance();
-        
+        $user=new User();
+        $game = new Game();
+        $gameID = $request->get('gameID');
+        $info = new Information();
+
+        if($request->has("type","get")){
+            if($request->get("type")=="logout"){
+                Cookie::set("userID",null);
+                $this->redirect("index/index");
+            }
+        }
         if($request->has("userID","cookie")){
             $userID=$request->cookie("userID");
             $userInfo=$user->where("userID",$userID)->find();
             $this->assign("userInfo",$userInfo);
         }
+
+        //游戏讯息
+        $gameinfo = $game->where('gameID',$gameID)->find();
+        $gameImg_PATH = "../../../../public/uploads/".$gameinfo["gameID"]."/0.jpg";
+        $this->assign('game',$gameinfo);
+        $this->assign('img',$gameImg_PATH);
+
+        //热门攻略
+        $inforHot = $info->where("gameID",$gameID)->order('infoClick desc')->limit(5)->select();
+        $this->assign('infoHot',$inforHot);
+
+        //最新发表
+        $infoNew = $info->where("gameID",$gameID)->order('infoDate desc')->limit(5)->select();
+        $this->assign('infoNew',$infoNew);
+
         return view();
     }
 
@@ -316,7 +300,7 @@ class Index extends Controller
         //体育游戏
         $spggames = $game->where("gameType = 'SPG'")->limit(5)->select();
         $this->assign('spggames',$spggames);
-        
+
         if($request->has("userID","cookie")){
             $userID=$request->cookie("userID");
             $userInfo=$user->where("userID",$userID)->find();
