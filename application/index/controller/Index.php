@@ -18,10 +18,6 @@ class Index extends Controller
     {
         return view();
     }
-    public function intgame_index()
-    {
-        return view();
-    }
     public function hostgame_index()
     {
         return view();
