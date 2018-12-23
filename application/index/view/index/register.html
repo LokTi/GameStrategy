@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="../../../../public/css/style3.css">
+	<link rel="stylesheet" type="text/css" href="../../../../public/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="../../../../public/css/demo.css" />
+	<!--必要样式-->
+	<link rel="stylesheet" type="text/css" href="../../../../public/css/component.css" />
+</head>
+<body>
+<!--背景-->
+<div class="wel" id="background-3"></div>
+<!--左右两边云-->
+
+<!--荧光点点-->
+<div class="wel" id="git"></div>
+<!--登录注册表-->
+<div class="wel" id="from" style="top:50px;">
+				<div class="logo_box">
+						<h3>LCZ_—"Game</h3>
+						 <!-- enctype = "multipart/form-data" -->
+						<form action="register.html" id="fromRegister" name="f" method="post" enctype="multipart/form-data">
+							<div class="input_outer">
+								<span class="u_user"></span>
+								<input name="userName" class="text" style="color: #FFFFFF "autocomplete="off" type="text" placeholder="请输入账户">
+							</div>
+							<div class="input_outer">
+								<span class="us_uer"></span>
+								<input name="password" class="text" style="color: #FFFFFF ; position:absolute; z-index:100;"value="" type="password" placeholder="请输入密码">
+							</div>
+							<div class="input_outer">
+								<span class="us_uer"></span>
+								<input name="password1" class="text" style="color: #FFFFFF ; position:absolute; z-index:100;"value="" type="password" placeholder="请确认密码">
+							</div>
+							<div style="float:right;margin-top:14px;">
+								<a href="#" class="upload">选择头像
+									<input id="imgaddress" name="userImg" class="change" type="file" multiple="multiple" value="#" onchange="showFileName()">
+								</a>
+							</div>
+							<div class="input_outer" style="width:240px;">
+								<span class="u_user" style="background-position: -125px -212px;"></span>
+								<input id="FileName" class="text" readOnly="true" style="color: #FFFFFF ; position:absolute;width:150px; z-index:100;" value="" />
+							</div>
+							<div class="mb2"><a class="act-but submit" href="javascript:void(0);" onclick="formSubmit();"   style="background-color: #20d8da">立即注册</a></div>
+						</form>
+					</div>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	function showFileName(){
+		document.getElementById("FileName").value=document.getElementById("imgaddress").value;
+	}
+	function formSubmit()
+	  {
+	  document.getElementById("fromRegister").submit();
+	  }
+</script>
