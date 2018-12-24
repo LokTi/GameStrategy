@@ -487,6 +487,7 @@ class Index extends Controller
         $request = Request::instance();
         $info = new Information();
         $userID = $request->cookie('userID');
+        $game = new Game();
 
         if($request->has('type','get')){
 
