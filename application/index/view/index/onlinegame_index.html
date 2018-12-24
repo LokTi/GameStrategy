@@ -122,10 +122,10 @@
                                         <ul class="dropdown">
                                             <li><a href="#hot">热门游戏</a></li>
                                             <li><a href="#new">新游上市</a></li>
-                                            <li><a href="#xbox">角色扮演类游戏</a></li>
-                                            <li><a href="#ps4">动作类游戏</a></li>
-                                            <li><a href="#wii">竞技类游戏</a></li>
-                                            <li><a href="#ns">休闲类游戏</a></li>
+                                            <li><a href="#rpg">角色扮演类游戏</a></li>
+                                            <li><a href="#act">动作类游戏</a></li>
+                                            <li><a href="#moba">竞技类游戏</a></li>
+                                            <li><a href="#xx">休闲类游戏</a></li>
                                         </ul>
                                     </li>
 
@@ -245,14 +245,14 @@
 
     <!-- ##### Enen Area Start ##### -->
     <section class="latest-articles-area section-padding-100-0 bg-img bg-pattern bg-fixed" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
-        <div class="container works bg-pattern">
+        <div class="container works bg-pattern" id = "hot">
         <div class="works" id="portfolio">
             <div class=" port-top">
                 <h3 class="port" style="color: #fff;">热门游戏</h3>
                 <div class="clearfix"> </div>
             </div>
             <div id="portfoliolist">
-              	{volist name = "hotgames" id = "game" mod="5"}
+              	{volist name = "hotgames" id = "game" mod="5" }
                 {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
                 {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
                 {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
@@ -280,7 +280,7 @@
     <!-- ##### Enen Area End ##### -->
 
     <!-- ##### Enen Area Start ##### -->
-    <div class="egames-video-area section-padding-100 bg-pattern2">
+    <div class="egames-video-area section-padding-100 bg-pattern2" id = "new">
     <div class="container">
         <div class="works" id="portfolio">
             <div class=" port-top">
@@ -318,7 +318,7 @@
     <!-- ##### Enen Area Start ##### -->
         <section class="latest-articles-area section-padding-100-0 bg-img bg-pattern bg-fixed" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
     
-        <div class="container works bg-pattern">
+        <div class="container works bg-pattern" id = "rpg">
         <div class="works" id="portfolio">
             <div class=" port-top">
                 <h3 class="port" style="color: #fff;">角色扮演</h3>
@@ -353,7 +353,7 @@
     <!-- ##### Enen Area End ##### -->
 
     <!-- ##### Enen Area Start ##### -->
-    <div class="egames-video-area section-padding-100 bg-pattern2">
+    <div class="egames-video-area section-padding-100 bg-pattern2" id = "act">
     <div class="container">
         <div class="works" id="portfolio">
             <div class=" port-top">
@@ -391,7 +391,7 @@
     <!-- ##### Enen Area Start ##### -->
         <section class="latest-articles-area section-padding-100-0 bg-img bg-pattern bg-fixed" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
     
-        <div class="container works bg-pattern">
+        <div class="container works bg-pattern" id = "moba">
         <div class="works" id="portfolio">
             <div class=" port-top">
                 <h3 class="port" style="color: #fff;">竞技游戏</h3>
@@ -426,11 +426,11 @@
     <!-- ##### Enen Area End ##### -->
 
     <!-- ##### Enen Area Start ##### -->
-    <div class="egames-video-area section-padding-100 bg-pattern2">
+    <div class="egames-video-area section-padding-100 bg-pattern2" id = "xx">
     <div class="container">
         <div class="works" id="portfolio">
             <div class=" port-top">
-                <h3 class="port">SPG（Sports games）：体育游戏</h3>
+                <h3 class="port">休闲类游戏</h3>
                 <div class="clearfix"> </div>
             </div>
             <div id="portfoliolist">
@@ -602,9 +602,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Col
                         <div class="footer-nav">
                             <ul>
                                 <li><a href="index.html">Home</a></li>
-                                <li><a href="game-review.html">Games</a></li>
-                                <li><a href="post.html">Articles</a></li>
-                                <li><a href="single-game-review.html">Reviews</a></li>
+                                <li><a href="hostgame_index.html">主机游戏</a></li>
+                                <li><a href="singlegame_index.html">单机游戏</a></li>
+                                <li><a href="onlinegame_index.html">网游</a></li>
+                                <li><a href="mobilegame_index.html">手游</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>

@@ -145,13 +145,6 @@
                 </div>
                 <div class="dummy-text">
                 	{$infos[0]["infoContent"]}
-                	<p>But I must explain to you how all this mistaken idea of denouncing pleasure
-
-                        and praising pain was born and I will give you a complete account of the system,
-
-                        and expound the actual teachings of the great explorer of the truth,
-
-                        the master-builder of human happiness.</p>
                 </div>
                 <div class="recent-com" style="margin-top: 3em;">
                     {notempty name="comments" }<h4>Recent <span>Comments</span></h4>{/notempty}
@@ -203,12 +196,15 @@
                         {eq name="mod" value="3"}<div class="single-articles-area style-2 d-flex flex-wrap mb-30 wow fadeInUp" data-wow-delay="600ms">{/eq}
                         {eq name="mod" value="4"}<div class="single-articles-area style-2 d-flex flex-wrap mb-30 wow fadeInUp" data-wow-delay="700ms">{/eq}
                             <div class="article-content">
-                                <a href="single-post.html" class="post-title">{$info.infoTitle}</a>
+                                <a a href="{:url('information_page')}?infoID={$info.infoID}" class="post-title">{$info.infoTitle}</a>
                                 <div class="post-meta">
-                                    <a href="#" class="post-date">{$info.infoDate}</a>
-                                    <a href="#" class="post-comments">{$info.infoClick}</a>
+                                    <a>{$info.infoDate}</a>
+                                    <a><strong>点击量:</strong>{$info.infoClick}</a>
+                                    {volist name = "users" id = "user"}
+                                	{eq name="$user.userID" value="$info.userID"}<a><strong>作者：</strong>{$user.userName}</a>{/eq}
+                                	{/volist}
                                 </div>
-                                <p style = "display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden;">{$info.infoContent}</p>
+                                <br/>
                             </div>
                         </div>
 						{/volist}
@@ -249,41 +245,22 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Single Footer Widget -->
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="300ms">
-                            <div class="widget-title">
-                                <h4>Game Reviews</h4>
-                            </div>
-                            <div class="widget-content">
-                                <nav>
-                                    <ul>
-                                        <li><a href="#">Doom</a></li>
-                                        <li><a href="#">Grand Theft Auto</a></li>
-                                        <li><a href="#">Bloodborne</a></li>
-                                        <li><a href="#">God of war</a></li>
-                                        <li><a href="#">Persona 5</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-
+                    <div class="col-12 col-sm-6 col-lg-3"></div>
                     <!-- Single Footer Widget -->
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="500ms">
                             <div class="widget-title">
-                                <h4>Usefull Links</h4>
+                                <h4>友情链接</h4>
                             </div>
                             <div class="widget-content">
                                 <nav>
                                     <ul>
-                                        <li><a href="#">Testimanials</a></li>
-                                        <li><a href="#">Reviews</a></li>
-                                        <li><a href="#">New Games</a></li>
-                                        <li><a href="#">Forum</a></li>
-                                        <li><a href="#">Contact</a></li>
+                                        <li><a href="http://www.tgbus.com/">电玩巴士</a></li>
+                                        <li><a href="http://www.duowan.com/">多玩网</a></li>
+                                        <li><a href="https://www.gamersky.com/">游民星空</a></li>
+                                        <li><a href="https://www.3dmgame.com/">3DM游戏网</a></li>
+                                        <li><a href="http://www.ali213.net/">游侠网</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -294,7 +271,7 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="700ms">
                             <div class="widget-title">
-                                <h4>What’s new</h4>
+                                <h4>主编推荐游戏</h4>
                             </div>
                             <div class="widget-content">
                                 <nav>
@@ -329,10 +306,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Col
                         <div class="footer-nav">
                             <ul>
                                 <li><a href="index.html">Home</a></li>
-                                <li><a href="game-review.html">主机游戏</a></li>
-                                <li><a href="post.html">单机游戏</a></li>
-                                <li><a href="single-game-review.html">网游</a></li>
-                                <li><a href="single-game-review.html">手游</a></li>
+                                <li><a href="hostgame_index.html">主机游戏</a></li>
+                                <li><a href="singlegame_index.html">单机游戏</a></li>
+                                <li><a href="onlinegame_index.html">网游</a></li>
+                                <li><a href="mobilegame_index.html">手游</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>

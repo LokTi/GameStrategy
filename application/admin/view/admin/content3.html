@@ -52,7 +52,7 @@
 			                          <tr>
 										  <th class="sorting_asc">游戏ID</th>
 									      <th class="sorting">游戏名称</th>
-									      <th class="sorting">游戏图集所在路径</th>
+									      <th class="sorting">游戏发布时间</th>
 									      <th class="sorting">游戏类型</th>
 									      <th class="sorting">游戏所在平台</th>
 					                      <th class="text-center">操作</th>
@@ -63,7 +63,7 @@
 			                  		<tr >
 				                          <td>{$game.gameID}</td>
 				                          <td>{$game.gameName}</td>
-									      <td>{$game.gameImg}</td>
+									      <td>{$game.gameDate}</td>
 									      <td>{$game.gameType}</td>
 									      <td>{$game.gamePlat}</td>
 		                                  <td class="text-center">
@@ -140,8 +140,20 @@
 			      		<td><input type="text" name="gameType" value="{$game.gameType}"></td>
 			      	</tr>
 			      	<tr>
-			      		<td>游戏图集所在路径</td>
-			      		<td><input type="text" name="gameImg" value="{$game.gameImg}"></td>
+			      		<td>游戏发布时间</td>
+			      		<td><input type="date"  name="gameDate " value="{$game.gameDate}"></td>
+			      	</tr>
+			      	<tr>
+			      		<td>游戏分类</td>
+			      		<td>
+							<select name="gameImg">
+							<option value = 1>主机游戏</option>
+							<option value = 2>单机游戏</option>
+							<option value = 3>网络游戏</option>
+							<option value = 4>手机游戏</option>
+							<option value = 5>主机游戏+单机游戏</option>
+						</select>
+						</td>
 			      	</tr>
 			      	<tr>
 			      		<td>游戏简介</td>
@@ -180,8 +192,24 @@
 			      		<td><input type="text" name="gameName"></td>
 			      	</tr>
 			      	<tr>
+			      		<td>游戏分类</td>
+			      		<td>
+			      		<select name="gameImg">
+							<option value = 1>主机游戏</option>
+							<option value = 2>单机游戏</option>
+							<option value = 3>网络游戏</option>
+							<option value = 4>手机游戏</option>
+							<option value = 5>主机游戏+单机游戏</option>
+						</select>
+						</td>
+			      	</tr>
+			      	<tr>
 			      		<td>游戏所在平台</td>
 			      		<td><input type="text" name="gamePlat"></td>
+			      	</tr>
+			      	<tr>
+			      		<td>游戏发布时间</td>
+			      		<td><input type="date"  name="gameDate"></td>
 			      	</tr>
 			      	<tr>
 			      		<td>游戏类型</td>
