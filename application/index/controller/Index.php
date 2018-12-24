@@ -361,15 +361,29 @@ class Index extends Controller
 
 
         //热门游戏
-        $hotgames = $game->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->order('gameClick desc')->limit(1,5)->select();
+        $hotgames = $game->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(1,5)->select();
         $this->assign('hotgames',$hotgames);
         //角色扮演游戏
-        $rpggames = $game->where('gameImg',2)->where("gameType = 'RPG'")->limit(5)->select();
+        $rpggames = $game->where("gameType LIKE '%RPG%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
         $this->assign('rpggames',$rpggames);
         //即时战略游戏
         $rtsgames = $game->where("gameType LIKE '%RTS%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
-
-       
+        $this->assign('rtsgames',$rtsgames);
+        //动作游戏
+        $actgames = $game->where("gameType LIKE '%ACT%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+        $this->assign('actgames',$actgames);
+        //竞速游戏
+        $racgames = $game->where("gameType LIKE '%RAC%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+        $this->assign('racgames',$racgames);
+        //射击游戏
+        $fpsgames = $game->where("gameType LIKE '%FPS%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+        $this->assign('fpsgames',$fpsgames);
+        //冒险游戏
+        $avggames = $game->where("gameType LIKE '%AVG%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+        $this->assign('avggames',$avggames);
+        //体育游戏
+        $spggames = $game->where("gameType LIKE '%SPG%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+        $this->assign('spggames',$spggames);
 
         if($request->has("userID","cookie")){
             $userID=$request->cookie("userID");
