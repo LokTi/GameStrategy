@@ -80,8 +80,10 @@
                             </div>
                             <!-- Login Area -->
                             <div class="login-area">
-                                <a href="#"><span>Login / Register</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
-                            </div>
+                                {if !isset($_COOKIE["userID"])}
+                            		<a href='login.html'><span>Login / Register</span> <i class='fa fa-lock' aria-hidden='true'></i></a>
+                           		{/if}
+							</div>
                         </div>
                     </div>
                 </div>
@@ -128,7 +130,7 @@
                                         </ul>
                                     </li>
                                     <li><a href="onlinegame_index.html">网游</a>
-                                        
+
 
                                     </li>
                                     <li><a href="mobilegame_index.html">手游</a>
@@ -141,7 +143,7 @@
                         </div>
 
                         <!-- Top Social Info -->
-                        <div class="top-social-info">
+                        <div class="top-social-info" style="right:25%;position: absolute;">
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -149,6 +151,19 @@
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Behance"><i class="fa fa-behance" aria-hidden="true"></i></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                         </div>
+                        {if isset($_COOKIE["userID"])}
+                        	<div class=" classynav" style="right:10%;position: absolute;">
+                                <ul >
+                                    <li><a>HELLEO:</a></li>
+                                    <li><a href="#">{$userInfo["userName"]}</a>
+                                        <ul class="dropdown">
+                                            <li><a href="#">管理个人信息</a></li>
+                                            <li><a href="index.html?type=logout">注销</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+						</div>
+                        {/if}
                     </nav>
                 </div>
             </div>
@@ -531,7 +546,7 @@
                 <div class="clearfix"> </div>
             </div>
             <!-- Script for gallery Here -->
-            
+
                 <script type="text/javascript">
                 $(function () {
 
