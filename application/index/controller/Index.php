@@ -286,10 +286,8 @@ class Index extends Controller
         }
 
         //游戏讯息
-        $gameinfo = $game->where('gameID',$gameID)->find();
-        $gameImg_PATH = "../../../../public/uploads/".$gameinfo["gameID"]."/0.jpg";
+        $gameinfo = $game->where('gameID',$gameID)->select();
         $this->assign('game',$gameinfo);
-        $this->assign('img',$gameImg_PATH);
 
         //热门攻略
         $inforHot = $info->where("gameID",$gameID)->order('infoClick desc')->limit(5)->select();
@@ -427,7 +425,15 @@ class Index extends Controller
 
     public function index_user()
     {
+        $request = Request::instance();
+        $user = new User();
+        $userID = $request->get('userID');
 
+        //连接个人主页
+        $userInfo = $user->where("userID",$userID)->find();
+        $this->assign("user",$userInfo);
+
+        $this->assign("loginTime",date('Y-m-d H:i:s',time()));
 
         return view();
     }

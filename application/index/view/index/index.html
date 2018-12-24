@@ -55,7 +55,7 @@
                             {if !isset($_COOKIE["userID"])}
                             		<a href='login.html'><span>Login / Register</span> <i class='fa fa-lock' aria-hidden='true'></i></a>
                             {/if}
-                            </div>  
+                            </div>
 
                         </div>
                     </div>
@@ -88,16 +88,16 @@
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="hostgame_index.html">主机游戏</a>
-                                       
+
                                     </li>
                                     <li><a href="singlegame_index.html">单机游戏</a>
-                                      
+
                                     </li>
                                     <li><a href="onlinegame_index.html">网游</a>
-                                    
+
                                     </li>
                                     <li><a href="mobilegame_index.html">手游</a>
-                                   
+
                                     </li>
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
@@ -120,14 +120,14 @@
                                     <li><a>HELLEO:</a></li>
                                     <li><a href="#">{$userInfo["userName"]}</a>
                                         <ul class="dropdown">
-                                            <li><a href="#">管理个人信息</a></li>
+                                            <li><a href="{:url('index_user')}?userID={$userInfo['userID']}">管理个人信息</a></li>
                                             <li><a href="index.html?type=logout">注销</a></li>
                                         </ul>
                                     </li>
                                 </ul>
 						</div>
                         {/if}
-                         
+
                     </nav>
                 </div>
             </div>
@@ -916,10 +916,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Col
                         <div class="footer-nav">
                             <ul>
                                 <li><a href="index.html">Home</a></li>
-                                <li><a href="game-review.html">主机游戏</a></li>
-                                <li><a href="post.html">单机游戏</a></li>
-                                <li><a href="single-game-review.html">网游</a></li>
-                                <li><a href="single-game-review.html">手游</a></li>
+                                <li><a href="hostgame_index.html">主机游戏</a></li>
+                                <li><a href="singlegame_index.html">单机游戏</a></li>
+                                <li><a href="onlinegame_index.html">网游</a></li>
+                                <li><a href="mobliegame_index.html">手游</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>

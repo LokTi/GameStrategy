@@ -157,7 +157,7 @@
                                     <li><a>HELLEO:</a></li>
                                     <li><a href="#">{$userInfo["userName"]}</a>
                                         <ul class="dropdown">
-                                            <li><a href="#">管理个人信息</a></li>
+                                            <li><a href="{:url('index_user')}?userID={$userInfo['userID']}">管理个人信息</a></li>
                                             <li><a href="index.html?type=logout">注销</a></li>
                                         </ul>
                                     </li>
@@ -302,7 +302,7 @@
                 <div class="clearfix"> </div>
             </div>
             <div id="portfoliolist">
-                {volist name = "hotgames" id = "game" mod="5"}
+                {volist name = "rpggames" id = "game" mod="5"}
                 {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
                 {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
                 {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
@@ -339,7 +339,7 @@
                 <div class="clearfix"> </div>
             </div>
             <div id="portfoliolist">
-                {volist name = "hotgames" id = "game" mod="5"}
+                {volist name = "rtsgames" id = "game" mod="5"}
                 {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
                 {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
                 {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
@@ -375,7 +375,7 @@
                 <div class="clearfix"> </div>
             </div>
             <div id="portfoliolist">
-               {volist name = "hotgames" id = "game" mod="5"}
+               {volist name = "actgames" id = "game" mod="5"}
                 {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
                 {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
                 {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
@@ -412,7 +412,7 @@
                 <div class="clearfix"> </div>
             </div>
             <div id="portfoliolist">
-                {volist name = "hotgames" id = "game" mod="5"}
+                {volist name = "racgames" id = "game" mod="5"}
                 {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
                 {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
                 {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
@@ -448,7 +448,7 @@
                 <div class="clearfix"> </div>
             </div>
             <div id="portfoliolist">
-                {volist name = "hotgames" id = "game" mod="5"}
+                {volist name = "fpsgames" id = "game" mod="5"}
                 {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
                 {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
                 {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
@@ -485,7 +485,7 @@
                 <div class="clearfix"> </div>
             </div>
             <div id="portfoliolist">
-                {volist name = "hotgames" id = "game" mod="5"}
+                {volist name = "avggames" id = "game" mod="5"}
                 {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
                 {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
                 {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
@@ -523,7 +523,7 @@
                 <div class="clearfix"> </div>
             </div>
             <div id="portfoliolist">
-                {volist name = "hotgames" id = "game" mod="5"}
+                {volist name = "spggames" id = "game" mod="5"}
                 {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
                 {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
                 {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
@@ -676,7 +676,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Col
                                 <li><a href="hostgame_index.html">主机游戏</a></li>
                                 <li><a href="singlegame_index.html">单机游戏</a></li>
                                 <li><a href="onlinegame_index.html">网游</a></li>
-                                <li><a href="mobilegame_index.html">手游</a></li>
+                                <li><a href="mobliegame_index.html">手游</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>
