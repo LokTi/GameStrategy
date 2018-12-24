@@ -466,7 +466,7 @@ class Index extends Controller
         $user = new User();
         $userID = $request->cookie('userID');
 
-        //杩炴帴涓汉涓婚〉
+        //连接主页
         $userInfo = $user->where("userID",$userID)->find();
         $this->assign("user",$userInfo);
 
@@ -511,7 +511,7 @@ class Index extends Controller
 
         }
 
-        //鏂囩珷
+        //文章
         $list = $info->where("userID",$userID)->paginate(8);
         $this->assign('list',$list);
 
