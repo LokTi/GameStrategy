@@ -13,6 +13,7 @@ use think\Cookie;
 
 class Index extends Controller
 {
+
     public function index()
     {
         $user=new User();
@@ -31,6 +32,7 @@ class Index extends Controller
         }
         return view();
     }
+
     public function information_page(){
 
         $request = Request::instance();
@@ -58,7 +60,7 @@ class Index extends Controller
                 }
             }
         }
-        
+
         $info->clickInformation($infoID);
         $infos = $info->where('infoID',$infoID)->select();
         $comments = $comment->where('infoID',$infoID)->select();
@@ -68,11 +70,9 @@ class Index extends Controller
         $this->assign('latestInfos',$latestInfos);
         $this->assign('comments',$comments);
         $this->assign('users',$users);
-        
+
        return view();
     }
-
-
 
     public function contact()
     {
@@ -86,8 +86,6 @@ class Index extends Controller
         }
         return view();
     }
-
-
 
     public function hostgame_index(){
 
@@ -133,6 +131,7 @@ class Index extends Controller
 
         return view();
     }
+
     public function personal_page()
     {
         $request = Request::instance();
@@ -169,6 +168,7 @@ class Index extends Controller
 
         return view();
     }
+
     public function onlinegame_index()
     {
         $user=new User();
@@ -212,11 +212,12 @@ class Index extends Controller
 
         return view();
     }
+
     public function mobilegame_index()
     {
         $game = new Game();
         $info = new Information();
-        
+
         $infosh1 = $info->limit(1)->select();
         $infosh2 = $info->order('infoClick desc')->limit(1)->select();
         $infos1 = $info->limit(2,4)->select();
@@ -225,8 +226,8 @@ class Index extends Controller
         $this->assign('infosh2',$infosh2);
         $this->assign('infos1',$infos1);
         $this->assign('infos2',$infos2);
-        
-        
+
+
         //热门游戏
         $hotgames = $game->where('gameImg',4)->order('gameClick desc')->limit(5)->select();
         $this->assign('hotgames',$hotgames);
@@ -251,8 +252,8 @@ class Index extends Controller
         //桌游棋牌
         $spggames = $game->where('gameImg',4)->where("gameType = 'SPG'")->limit(5)->select();
         $this->assign('spggames',$spggames);
-        
-        
+
+
         $user=new User();
         $request=Request::instance();
 
@@ -263,6 +264,7 @@ class Index extends Controller
         }
         return view();
     }
+
     public function game_page()
     {
         $request=Request::instance();
@@ -350,6 +352,7 @@ class Index extends Controller
         }
         return view();
     }
+
     public function login()
     {
         $user=new User();
@@ -376,6 +379,7 @@ class Index extends Controller
         }
         return view();
     }
+
     public function register()
     {
         $user=new User();
@@ -420,10 +424,11 @@ class Index extends Controller
         }
         return view();
     }
+
     public function index_user()
     {
-        
-        
+
+
         return view();
     }
 }
