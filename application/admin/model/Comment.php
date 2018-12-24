@@ -11,7 +11,7 @@ class Comment extends Model
     
     function addComment($infoID,$userID,$commentContent){            //增加评论
         $comment=new Comment();
-        $comment->commentID=$comment->max(commentID);
+        $comment->commentID=$comment->max(commentID)+1;
         $comment->infoID=$infoID;
         $comment->userID=$userID;
         $comment->commentContent=$commentContent;
