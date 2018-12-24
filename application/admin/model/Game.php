@@ -20,14 +20,13 @@ class Game extends Model
         $game->gameDate=date("Y-m-d");
         return $game->save();
     }
-    function changeGame($gameID,$gameName,$gameInfo,$gameImg,$gameType,$gamePlat,$gameDate){          //修改游戏信息
+    function changeGame($gameID,$gameName,$gameInfo,$gameImg,$gameType,$gamePlat){          //修改游戏信息
         $game=Game::get($gameID);
         $game->gameName=$gameName;
         $game->gameInfo=$gameInfo;
         $game->gameImg=$gameImg;
         $game->gameType=$gameType;
         $game->gamePlat=$gamePlat;
-        $game->gameDate=$gameDate;
         return $game->save();
     }
     function clickGame($gameID){                    //游戏点击量

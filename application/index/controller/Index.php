@@ -56,7 +56,7 @@ class Index extends Controller
                     $newComment = new Comment();
                     $newComment->addComment( $request->get('infoID'), $userID, $commentContent);
                 }else{
-                    $this->error('璇峰厛鐧诲綍锛�', 'login');
+                    $this->error('用户未登录！', 'login');
                 }
             }
         }
@@ -100,10 +100,10 @@ class Index extends Controller
             $userInfo=$user->where("userID",$userID)->find();
             $this->assign("userInfo",$userInfo);
         }
-        $infosh1 = $info->limit(1)->select();
-        $infosh2 = $info->order('infoClick desc')->limit(1)->select();
-        $infos1 = $info->order('infoDate desc')->limit(2,4)->select();
-        $infos2 = $info->order('infoClick desc')->limit(6,4)->select();
+        $infosh1 = $info->where('infoStatusReason',1)->limit(1)->select();
+        $infosh2 = $info->where('infoStatusReason',1)->order('infoClick desc')->limit(1)->select();
+        $infos1 = $info->where('infoStatusReason',1)->limit(2,4)->select();
+        $infos2 = $info->where('infoStatusReason',1)->limit(6,4)->select();
         $this->assign('infosh1',$infosh1);
         $this->assign('infosh2',$infosh2);
         $this->assign('infos1',$infos1);
@@ -219,10 +219,10 @@ class Index extends Controller
             $userInfo=$user->where("userID",$userID)->find();
             $this->assign("userInfo",$userInfo);
         }
-        $infosh1 = $info->limit(1)->select();
-        $infosh2 = $info->order('infoClick desc')->limit(1)->select();
-        $infos1 = $info->limit(2,4)->select();
-        $infos2 = $info->limit(6,4)->select();
+        $infosh1 = $info->where('infoStatusReason',1)->limit(1)->select();
+        $infosh2 = $info->where('infoStatusReason',1)->order('infoClick desc')->limit(1)->select();
+        $infos1 = $info->where('infoStatusReason',1)->limit(2,4)->select();
+        $infos2 = $info->where('infoStatusReason',1)->limit(6,4)->select();
         $this->assign('infosh1',$infosh1);
         $this->assign('infosh2',$infosh2);
         $this->assign('infos1',$infos1);
@@ -256,10 +256,10 @@ class Index extends Controller
         $game = new Game();
         $info = new Information();
 
-        $infosh1 = $info->limit(1)->select();
-        $infosh2 = $info->order('infoClick desc')->limit(1)->select();
-        $infos1 = $info->limit(2,4)->select();
-        $infos2 = $info->limit(6,4)->select();
+        $infosh1 = $info->where('infoStatusReason',1)->limit(1)->select();
+        $infosh2 = $info->where('infoStatusReason',1)->order('infoClick desc')->limit(1)->select();
+        $infos1 = $info->where('infoStatusReason',1)->limit(2,4)->select();
+        $infos2 = $info->where('infoStatusReason',1)->limit(6,4)->select();
         $this->assign('infosh1',$infosh1);
         $this->assign('infosh2',$infosh2);
         $this->assign('infos1',$infos1);
@@ -333,11 +333,11 @@ class Index extends Controller
 
 
         //热门攻略
-        $inforHot = $info->where("gameID",$gameID)->order('infoClick desc')->limit(5)->select();
+        $inforHot = $info->where("gameID",$gameID)->where('infoStatusReason',1)->order('infoClick desc')->limit(5)->select();
         $this->assign('infoHot',$inforHot);
 
         //最新发表
-        $infoNew = $info->where("gameID",$gameID)->order('infoDate desc')->limit(5)->select();
+        $infoNew = $info->where("gameID",$gameID)->where('infoStatusReason',1)->order('infoDate desc')->limit(5)->select();
         $this->assign('infoNew',$infoNew);
 
         return view();
@@ -350,10 +350,10 @@ class Index extends Controller
         $game = new Game();
         $info = new Information();
 
-        $infosh1 = $info->limit(1)->select();
-        $infosh2 = $info->order('infoClick desc')->limit(1)->select();
-        $infos1 = $info->limit(2,4)->select();
-        $infos2 = $info->limit(6,4)->select();
+        $infosh1 = $info->where('infoStatusReason',1)->limit(1)->select();
+        $infosh2 = $info->where('infoStatusReason',1)->order('infoClick desc')->limit(1)->select();
+        $infos1 = $info->where('infoStatusReason',1)->limit(2,4)->select();
+        $infos2 = $info->where('infoStatusReason',1)->limit(6,4)->select();
         $this->assign('infosh1',$infosh1);
         $this->assign('infosh2',$infosh2);
         $this->assign('infos1',$infos1);
