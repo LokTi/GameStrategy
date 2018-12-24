@@ -63,8 +63,10 @@
                             </div>
                             <!-- Login Area -->
                             <div class="login-area">
-                                <a href="#"><span>Login / Register</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
-                            </div>
+                                {if !isset($_COOKIE["userID"])}
+                            		<a href='login.html'><span>Login / Register</span> <i class='fa fa-lock' aria-hidden='true'></i></a>
+                           		{/if}
+                           	</div>
                         </div>
                     </div>
                 </div>
@@ -96,16 +98,16 @@
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="hostgame_index.html">主机游戏</a>
-                                        
+
                                     </li>
                                     <li><a href="singlegame_index.html">单机游戏</a>
-                                        
+
                                     </li>
                                     <li><a href="onlinegame_index.html">网游</a>
 
                                     </li>
                                     <li><a href="mobilegame_index.html">手游</a>
-                                        
+
                                     <li><a href="contact.html">联系我们</a></li>
                                 </ul>
                             </div>
@@ -113,7 +115,7 @@
                         </div>
 
                         <!-- Top Social Info -->
-                        <div class="top-social-info">
+                        <div class="top-social-info" style="right:25%;position: absolute;">
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -121,6 +123,19 @@
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Behance"><i class="fa fa-behance" aria-hidden="true"></i></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                         </div>
+                        {if isset($_COOKIE["userID"])}
+                        	<div class=" classynav" style="right:10%;position: absolute;">
+                                <ul >
+                                    <li><a>HELLEO:</a></li>
+                                    <li><a href="#">{$userInfo["userName"]}</a>
+                                        <ul class="dropdown">
+                                            <li><a href="#">管理个人信息</a></li>
+                                            <li><a href="index.html?type=logout">注销</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+						</div>
+                        {/if}
                     </nav>
                 </div>
             </div>
@@ -132,10 +147,7 @@
     <div class="single">
         <div class="container">
             <div class="single-info">
-                <h3>
-                	
-                	{$infos[0]["infoTitle"]}
-                </h3>
+                <h3>{$infos[0]["infoTitle"]}</h3>
                 <div class="comments">
                     <ul>
                         <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>{$infos[0]["userID"]}</a> /</li>
@@ -149,14 +161,15 @@
                 <div class="recent-com" style="margin-top: 3em;">
                     {notempty name="comments" }<h4>Recent <span>Comments</span></h4>{/notempty}
                     {volist name = "comments" id = "comment" mod="1"}
-                    
+
                     <div class="recent-com-grids">
                         <div class="recent-com-grid">
                             <div class="col-xs-2 recent-com-grid-left">
-                                <img src="../../../../public/img/bg-img/10.jpg" alt=" " class="img-responsive" />
+                                <a href="{:url('personal_page')}?userID={$comment.userID}"><img src="../../../../public/img/bg-img/10.jpg" alt=" " class="img-responsive"/></a>
                             </div>
                             <div class="col-xs-10 recent-com-grid-right">
-                                <h5><a href="#">James Car 用户ID{$comment.userID}</a></h5>
+                                <h5><a href="{:url('personal_page')}?userID={$comment.userID}"></a></h5>
+                                <h5 style="color:#94b9b2">用户ID:{$comment.userID}</h5>
                                 <p>{$comment.commentContent}</p>
                             </div>
                             <div class="clearfix"> </div>
@@ -164,11 +177,11 @@
                     </div>
                     {/volist}
                 </div>
-                
+
                 <div class="leave-comm">
                     <h4>Leave a <span>Comment</span></h4>
                     <div class="leave-comm-grids">
-                        <form action="{:url('index/information_page')}?type=check&infoID={$infos[0]["infoID"]}" method="post">
+                        <form action="{:url('index/information_page')}?type=check&infoID={$infos[0]['infoID']}" method="post">
                             <textarea placeholder="Message..."  id="content"></textarea>
                             <input type="submit" value="Submit Comment" >
                         </form>
@@ -177,7 +190,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- //single -->
 
     <!-- ##### Articles Area Start ##### -->
@@ -208,7 +221,7 @@
                             </div>
                         </div>
 						{/volist}
-                        
+
                     </div>
                 </div>
 

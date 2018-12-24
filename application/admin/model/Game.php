@@ -16,8 +16,8 @@ class Game extends Model
         $game->gameImg=$gameImg;
         $game->gameType=$gameType;
         $game->gamePlat=$gamePlat;
-        $game->gameDate=$gameDate;
-        $game->gameClick = 0;
+        $game->gameClick=0;
+        $game->gameDate=date("Y-m-d");
         return $game->save();
     }
     function changeGame($gameID,$gameName,$gameInfo,$gameImg,$gameType,$gamePlat,$gameDate){          //修改游戏信息
