@@ -168,18 +168,12 @@
                                 <a href="{:url('personal_page')}?userID={$comment.userID}"><img src="../../../../public/img/bg-img/10.jpg" alt=" " class="img-responsive"/></a>
                             </div>
                             <div class="col-xs-10 recent-com-grid-right">
-                                <h5>
-                               <a href="{:url('personal_page')}?userID={$comment.userID}">
-                               {volist name = "users" id = "user"}
-                                	{eq name="$user.userID" value="$comment.userID"}<a>{$user.userName}</a>{/eq}
-                                {/volist}
-                               </a>
-                                </h5>
-                                <h5 style="color:#94b9b2">
-                                
-                                
-                                       {$comment.userID}
-                                </h5>
+                            	<h5><a href="{:url('personal_page')}?userID={$comment.userID}">
+                            		{volist name = "users" id = "user"}
+	                                	{eq name="$user.userID" value="$comment.userID"}{$user.userName}{/eq}
+	                               	{/volist}
+                            	</a></h5>
+                                <h5 style="color:#94b9b2">用户ID:{$comment.userID}</h5>
                                 <p>{$comment.commentContent}</p>
                             </div>
                             <div class="clearfix"> </div>
