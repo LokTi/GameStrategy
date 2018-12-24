@@ -41,9 +41,9 @@
                                 </div>
                             </div>
                             <div class="pull-right">
-                            	<form class="form-inline definewidth m20" action="./content1?type=search" method="post">
+                            	<form class="form-inline definewidth m20" action="./content_1?type=search" method="post">
 								    <font color="#777777"><strong>资讯名称：</strong></font>
-								    <input type="text" name="infoTitle" id="infoTitle"class="abc input-default" placeholder="" value="">&nbsp;&nbsp;
+								    <input type="text" name="infoTitle" id="infoTitle" class="abc input-default" placeholder="输入查询信息" value="">&nbsp;&nbsp;
 								    <button type="submit" class="btn btn-default">查询</button>
 								</form>
                             </div>
@@ -59,6 +59,7 @@
 									      <th class="sorting">上传者ID</th>
 									      <th class="sorting">上传时间</th>
 									      <th class="sorting">点击数</th>
+									      <th class="sorting">状态</th>
 					                      <th class="text-center">操作</th>
 			                          </tr>
 			                      </thead>
@@ -74,6 +75,9 @@
 											    <td>{$info.userID}</td>
 											    <td>{$info.infoDate}</td>
 											    <td>{$info.infoClick}</td>
+											    {eq name="$info.infoStatusReason" value="0"}<td>未审核</td>{/eq}
+											    {eq name="$info.infoStatusReason" value="1"}<td>通过</td>{/eq}
+											    {eq name="$info.infoStatusReason" value="2"}<td>驳回</td>{/eq}
 												<td class="text-center">
 													<button type='button' class='btn bg-olive btn-xs' data-toggle='modal' data-target='#editModal{$info.infoID}' >详细内容</button>
 													<button type='button' class='btn bg-olive btn-xs' data-toggle='modal' data-target='#editModa2{$info.infoID}' >修改</button>
@@ -181,7 +185,7 @@
 			      	</tr>
 			      	<tr>
 			      		<td>相关游戏</td>
-			      		<td><input type="text" name="gameID" ></td>
+			      		<td><input type="text" name="gameName" ></td>
 			      	</tr>
 			      	<tr>
 			      		<td>资讯标题</td>

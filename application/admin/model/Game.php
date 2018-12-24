@@ -7,7 +7,7 @@ class Game extends Model
 {
     // 设置当前模型对应的完整数据表名称
     protected $table = 'game';
-    
+
     function addGame($gameID,$gameName,$gameInfo,$gameImg,$gameType,$gamePlat,$gameDate){             //增加新的游戏
         $game=new Game();
         $game->gameID=$gameID;
@@ -32,12 +32,8 @@ class Game extends Model
     }
     function clickGame($gameID){                    //游戏点击量
         $game=Game::get($gameID);
-        /*$game->gameClick++;
-        if($game->save()){
-            return true;
-        }else{
-            return false;
-        }*/
+        $game->gameClick++;
+        return $game->save();
     }
     function deleteGame($gameID){                   //删除游戏
         $game=new Game();
