@@ -447,11 +447,7 @@ class Index extends Controller
                     </script>";
                     }else if($password!=$password1){
                         echo "<script>
-<<<<<<< HEAD
                      alert('请输入相同的密码！');
-=======
-                     alert('请输入相同的密码');
->>>>>>> branch 'master' of https://github.com/964089877/GameStrategy.git
                     </script>";
                     }else{
                         $userID=$user->max("userID")+1;
@@ -465,20 +461,12 @@ class Index extends Controller
                     }
                 }else{
                     echo "<script>
-<<<<<<< HEAD
                      alert('密码不能为空！');
-=======
-                     alert('请输入密码！');
->>>>>>> branch 'master' of https://github.com/964089877/GameStrategy.git
                     </script>";
                 }
             }else{
                 echo "<script>
-<<<<<<< HEAD
                      alert('用户名不能为空！');
-=======
-                     alert('请输入用户名！');
->>>>>>> branch 'master' of https://github.com/964089877/GameStrategy.git
                     </script>";
             }
         }
