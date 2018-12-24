@@ -231,25 +231,25 @@ class Index extends Controller
         $hotgames = $game->where('gameImg',4)->order('gameClick desc')->limit(5)->select();
         $this->assign('hotgames',$hotgames);
         //新游上市
-        $rpggames = $game->where('gameImg',4)->where("gameType = 'RPG'")->limit(5)->select();
+        $rpggames = $game->where('gameImg',4)->where("gameType = 'RPG' or gameType = 'RST'")->limit(5)->select();
         $this->assign('rpggames',$rpggames);
         //角色扮演
-        $rtsgames = $game->where('gameImg',4)->where("gameType = 'RST'")->limit(5)->select();
+        $rtsgames = $game->where('gameImg',4)->where("gameType = 'RST' or gameType = 'ACT' or gameType = 'SPG'")->limit(5)->select();
         $this->assign('rtsgames',$rtsgames);
         //动作游戏
-        $actgames = $game->where('gameImg',4)->where("gameType = 'ACT'")->limit(5)->select();
+        $actgames = $game->where('gameImg',4)->where("gameType = 'ACT' or gameType = 'RAC'")->limit(5)->select();
         $this->assign('actgames',$actgames);
         //模拟经营
-        $racgames = $game->where('gameImg',4)->where("gameType = 'RAC'")->limit(5)->select();
+        $racgames = $game->where('gameImg',4)->where("gameType = 'RAC' or gameType = 'FPS' or gameType = 'SPG'")->limit(5)->select();
         $this->assign('racgames',$racgames);
         //策略益智
-        $fpsgames = $game->where('gameImg',4)->where("gameType = 'FPS'")->limit(5)->select();
+        $fpsgames = $game->where('gameImg',4)->where("gameType = 'FPS' or gameType = 'AVG' or gameType = 'SPG'")->limit(5)->select();
         $this->assign('fpsgames',$fpsgames);
         //冒险游戏
-        $avggames = $game->where('gameImg',4)->where("gameType = 'AVG'")->limit(5)->select();
+        $avggames = $game->where('gameImg',4)->where("gameType = 'AVG' or gameType = 'SPG'")->limit(5)->select();
         $this->assign('avggames',$avggames);
         //桌游棋牌
-        $spggames = $game->where('gameImg',4)->where("gameType = 'SPG'")->limit(5)->select();
+        $spggames = $game->where('gameImg',4)->where("gameType = 'SPG' or gameType = 'RPG'")->limit(5)->select();
         $this->assign('spggames',$spggames);
         
         
