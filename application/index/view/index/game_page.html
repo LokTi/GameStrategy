@@ -92,44 +92,16 @@
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="hostgame_index.html">主机游戏</a>
-                                        <ul class="dropdown">
-                                            <li><a href="game-review.html">XBOX</a></li>
-                                            <li><a href="single-game-review.html">PS4</a></li>
-                                            <li><a href="game-review.html">Wii</a></li>
-                                            <li><a href="single-game-review.html">NS</a></li>
-                                        </ul>
+                                        
                                     </li>
                                     <li><a href="singlegame_index.html">单机游戏</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">RPG</a></li>
-                                            <li><a href="post.html">RTS</a></li>
-                                            <li><a href="single-post.html">独立</a></li>
-                                            <li><a href="game-review.html">休闲</a></li>
-                                            <li><a href="single-game-review.html">动作</a></li>
-                                            <li><a href="contact.html">射击</a></li>
-                                            <li><a href="single-game-review.html">冒险</a></li>
-                                            <li><a href="contact.html">竞速</a></li>
-                                        </ul>
+                                        
                                     </li>
                                     <li><a href="onlinegame_index.html">网游</a>
-                                        <ul class="dropdown">
-                                            <li><a href="post.html">角色扮演</a></li>
-                                            <li><a href="single-post.html">动作</a></li>
-                                            <li><a href="post.html">竞技</a></li>
-                                            <li><a href="single-post.html">休闲</a></li>
-                                        </ul>
+                                       
                                     </li>
                                     <li><a href="mobilegame_index.html">手游</a>
-                                        <ul class="dropdown">
-                                            <li><a href="game-review.html">角色扮演</a></li>
-                                            <li><a href="single-game-review.html">动作</a></li>
-                                            <li><a href="game-review.html">冒险</a></li>
-                                            <li><a href="single-game-review.html">体育竞速</a></li>
-                                            <li><a href="game-review.html">休闲</a></li>
-                                            <li><a href="single-game-review.html">经营模拟</a></li>
-                                            <li><a href="game-review.html">策略益智</a></li>
-                                            <li><a href="single-game-review.html">桌游棋牌</a></li>
-                                        </ul>
+                                        
                                     </li>
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
@@ -152,7 +124,7 @@
                                     <li><a>HELLEO:</a></li>
                                     <li><a href="#">{$userInfo["userName"]}</a>
                                         <ul class="dropdown">
-                                            <li><a href="#">管理个人信息</a></li>
+                                            <li><a href="{:url('index_user')}?userID={$userInfo['userID']}">管理个人信息</a></li>
                                             <li><a href="index.html?type=logout">注销</a></li>
                                         </ul>
                                     </li>
@@ -168,32 +140,30 @@
 
     <!-- single -->
     <div class="single">
-            <div class="single-info" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
-                <div class="recent-posts" style="padding-bottom: 5em;margin: 0 0 4em;">
-                    <h4 style="margin-left: 15%;">Recent <span>Page</span></h4>
-                    <div class="recent-posts-grids">
-                        <div class="recent-posts-grid">
-                            <img src="{$img}" alt=" " class="img-responsive" style="position: absolute;margin-left: 15%;" />
-                            <div class="recent-posts-grid-pos" style="margin-top: 7%;width: 50%;left: 33%;">
-                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">游戏名 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">{$game["gameName"]}</span></a><br/>
-                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">译名 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">{$game["gameSubname"]}</span></a><br/>
-                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">发行时间 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">{$game["gameDate"]}</span></a><br/>
-                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">类型 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">{$game["gameType"]}</span></a><br/>
-                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">平台 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">{$game["gamePlat"]}</span></a><br/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    	{volist name="game" id="game"}
+    	<div class="single-info" style="background-image: url(../../../../public/uploads/{$game.gameID}/1.jpg);">
+			<div class="recent-posts" style="padding-bottom: 5em;margin: 0 0 4em;">
+			    <h4 style="margin-left: 15%;">Recent <span>Page</span></h4>
+			    <div class="recent-posts-grids">
+			        <div class="recent-posts-grid">
+			        	 <img src="../../../../public/uploads/{$game.gameID}/0.jpg" alt=" " class="img-responsive" style="position: absolute;margin-left: 15%;" />
+			            <div class="recent-posts-grid-pos" style="margin-top: 7%;width: 50%;left: 33%;">
+			                <a style="color: #fff;word-wrap:break-word;font-weight: 400">游戏名 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">{$game.gameName}</span></a><br/>
+			                <a style="color: #fff;word-wrap:break-word;font-weight: 400">发行时间 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">{$game.gameDate}</span></a><br/>
+			                <a style="color: #fff;word-wrap:break-word;font-weight: 400">类型 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">{$game.gameType}</span></a><br/>
+			                <a style="color: #fff;word-wrap:break-word;font-weight: 400">平台 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">{$game.gamePlat}</span></a><br/>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
     </div>
     <!-- //single -->
     <!-- single -->
     <div class="single">
         <div class="container">
             <div class="single-info">
-                <div class="recent-posts" style="padding-bottom: 5em;margin: 0 0 0em;">
-
-                </div>
+                <div class="recent-posts" style="padding-bottom: 3em;margin: 0 0 0em;"></div>
                 <div class="col-md-6 banner-bottom-grid-left">
                     <div class="banner-bottom-grid-left-grids">
                         <!-- 轮播 -->
@@ -202,7 +172,7 @@
         						<div class="row-fluid">
         							<div class="span12">
         								<div class="carousel slide" id="carousel-162589">
-        									<ol class="carousel-indicators" style="margin-top:65%;">
+        									<ol class="carousel-indicators" style="margin-top:52%;">
         										<li class="active" data-target="#carousel-162589" data-slide-to="0">
         										</li>
         										<li data-target="#carousel-162589" data-slide-to="1">
@@ -212,13 +182,13 @@
         									</ol>
         									<div class="carousel-inner">
         										<div class="item active">
-        											<img alt="" src="../../../../public/img/bg-img/26.jpg" style="margin:0 auto"/>
+        											<img alt="" src="../../../../public/uploads/{$game.gameID}/2.jpg" style="margin:0 auto"/>
         										</div>
         										<div class="item">
-        											<img alt="" src="../../../../public/img/bg-img/26.jpg" />
+        											<img alt="" src="../../../../public/uploads/{$game.gameID}/3.jpg" />
         										</div>
         										<div class="item">
-        											<img alt="" src="../../../../public/img/bg-img/26.jpg" />
+        											<img alt="" src="../../../../public/uploads/{$game.gameID}/3.jpg" />
         										</div>
         									</div>
         									 <a class="left carousel-control" href="#carousel-162589" data-slide="prev" style="margin:auto 0;width:50px;">‹</a>
@@ -233,7 +203,7 @@
                 </div>
                 <div class="col-md-5 banner-bottom-grid-right">
                     <div class="banner-bottom-grid-right-grid1">
-                        <h3 style="font-size: 1.5em;color: #fff">游戏简介：<span style="font-size:0.8em">{$game["gameInfo"]}</span></h3>
+                        <h3 style="font-size: 1.5em;color: #fff">游戏简介：<span style="font-size:0.8em">{$game.gameInfo}</span></h3>
                     </div>
                 </div>
                 <div class="recent-com">
@@ -245,12 +215,13 @@
                 </div>
             </div>
         </div>
+        {/volist}
     </div>
     <!-- //single -->
     <!-- single -->
     <div class="single" style="margin-top:-100px;">
         <div class="container">
-            <div class="banner-bottom-grids">
+            <div class="banner-bottom-grids" style="padding-top: 2em;">
             <div class="col-md-10 banner-bottom-grid-left">
                 <h6>最新资讯</h6>
                 <div class="banner-bottom-grid-left-grids">
@@ -298,41 +269,22 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Single Footer Widget -->
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="300ms">
-                            <div class="widget-title">
-                                <h4>Game Reviews</h4>
-                            </div>
-                            <div class="widget-content">
-                                <nav>
-                                    <ul>
-                                        <li><a href="#">Doom</a></li>
-                                        <li><a href="#">Grand Theft Auto</a></li>
-                                        <li><a href="#">Bloodborne</a></li>
-                                        <li><a href="#">God of war</a></li>
-                                        <li><a href="#">Persona 5</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-
+                    <div class="col-12 col-sm-6 col-lg-3"></div>
                     <!-- Single Footer Widget -->
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="500ms">
                             <div class="widget-title">
-                                <h4>Usefull Links</h4>
+                                <h4>友情链接</h4>
                             </div>
                             <div class="widget-content">
                                 <nav>
                                     <ul>
-                                        <li><a href="#">Testimanials</a></li>
-                                        <li><a href="#">Reviews</a></li>
-                                        <li><a href="#">New Games</a></li>
-                                        <li><a href="#">Forum</a></li>
-                                        <li><a href="#">Contact</a></li>
+                                        <li><a href="http://www.tgbus.com/">电玩巴士</a></li>
+                                        <li><a href="http://www.duowan.com/">多玩网</a></li>
+                                        <li><a href="https://www.gamersky.com/">游民星空</a></li>
+                                        <li><a href="https://www.3dmgame.com/">3DM游戏网</a></li>
+                                        <li><a href="http://www.ali213.net/">游侠网</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -343,16 +295,16 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="700ms">
                             <div class="widget-title">
-                                <h4>What’s new</h4>
+                                <h4>主编推荐游戏</h4>
                             </div>
                             <div class="widget-content">
                                 <nav>
                                     <ul>
-                                        <li><a href="#">Doom</a></li>
-                                        <li><a href="#">Grand Theft Auto</a></li>
-                                        <li><a href="#">Bloodborne</a></li>
-                                        <li><a href="#">God of war</a></li>
-                                        <li><a href="#">Persona 5</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=11">Doom</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=12">Grand Theft Auto</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=13">Bloodborne</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=14">God of war</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=15">Persona 5</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -378,10 +330,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Col
                         <div class="footer-nav">
                             <ul>
                                 <li><a href="index.html">Home</a></li>
-                                <li><a href="game-review.html">主机游戏</a></li>
-                                <li><a href="post.html">单机游戏</a></li>
-                                <li><a href="single-game-review.html">网游</a></li>
-                                <li><a href="single-game-review.html">手游</a></li>
+                                <li><a href="hostgame_index.html">主机游戏</a></li>
+                                <li><a href="singlegame_index.html">单机游戏</a></li>
+                                <li><a href="onlinegame_index.html">网游</a></li>
+                                <li><a href="mobliegame_index.html">手游</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>
