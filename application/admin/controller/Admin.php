@@ -62,10 +62,7 @@ class Admin extends Controller
     {
         return view();
     }
-    public function index_user()
-    {
-        return view();
-    }
+
     public function home(){
         $user = new User();
         $users = $user->select();
@@ -91,6 +88,7 @@ class Admin extends Controller
     }
     public function content1(){
         $request = Request::instance();
+        $game=new Game();
 
         if(null==$request->cookie('administrator')){
 
@@ -102,16 +100,15 @@ class Admin extends Controller
 
         $request = Request::instance();
 
-        #setcookie('userID',1);//测试使用
-
         if($request->has('type','get')){
 
             $type=$request->get('type');
+            $infoID=$info->max("infoID")+1;
 
             if($type==="add"){
-
-
-                $info->addInformation($request->post('infoID'), $request->post('gameID'), $request->post('infoTitle'), $request->cookie('userID'), $request->post('infoKey'), $request->post('infoContent'));
+                $gameInfo=$game->where("gameName",$request->post('gameName'))->find();
+                $gameID=$gameInfo['gameID'];
+                $info->addInformation($infoID, $gameID, $request->post('infoTitle'), $request->cookie('userID'), $request->post('infoKey'), $request->post('infoContent'));
 
             }else if($type==="change"){
 
@@ -217,14 +214,13 @@ class Admin extends Controller
             if($type == "add"){
                 $flag = 0;
                 $files = request()->file('img');
+                $gameID=$game->max('gameID')+1;
                 foreach ($files as $file){
                     echo $request->post('gameID');
-                    $imgInfo = $file->move(ROOT_PATH . 'public' . DS . 'uploads' . DS . $request->post('gameID'),$flag);
+                    $imgInfo = $file->move(ROOT_PATH . 'public' . DS . 'uploads' . DS . $gameID,$flag);
                     $flag = $flag + 1;
                 }
-                $game->addGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo1'),$request->post('gameType'),$request->post('gameType'),$request->post('gamePlat'));
-
-
+                $game->addGame($gameID,$request->post('gameName'),$request->post('gameInfo1'),$request->post('gameType'),$request->post('gameType'),$request->post('gamePlat'));
             }
             else if($type == "change"){
                 $game->changeGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo2'),$request->post('gameImg'),$request->post('gameType'),$request->post('gamePlat'));

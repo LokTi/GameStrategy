@@ -378,4 +378,10 @@ class Index extends Controller
         }
         return view();
     }
+    public function index_user()
+    {
+        
+        
+        return view();
+    }
 }
