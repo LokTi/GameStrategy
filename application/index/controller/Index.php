@@ -358,26 +358,33 @@ class Index extends Controller
         //鐑棬娓告垙
         $hotgames = $game->where('gameImg',2)->order('gameClick desc')->limit(5)->select();
         $this->assign('hotgames',$hotgames);
-        //瑙掕壊鎵紨娓告垙
-        $rpggames = $game->where('gameImg',2)->where("gameType = 'RPG'")->limit(5)->select();
+        //角色扮演游戏
+        $rpggames = $game->where("gameType LIKE '%RPG%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
         $this->assign('rpggames',$rpggames);
-        //鍗虫椂鎴樼暐娓告垙
-        $rtsgames = $game->where('gameImg',2)->where("gameType = 'RST'")->limit(5)->select();
+        //即时战略游戏
+        $rtsgames = $game->where("gameType LIKE '%RST%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
         $this->assign('rtsgames',$rtsgames);
-        //鍔ㄤ綔娓告垙
-        $actgames = $game->where('gameImg',2)->where("gameType = 'ACT'")->limit(5)->select();
+        //动作游戏
+        $actgames = $game->where("gameType LIKE '%ACT%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
         $this->assign('actgames',$actgames);
-        //绔為�熸父鎴�
-        $racgames = $game->where('gameImg',2)->where("gameType = 'RAC'")->limit(5)->select();
+        //竞速游戏
+        $racgames = $game->where("gameType LIKE '%RAC%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
         $this->assign('racgames',$racgames);
-        //灏勫嚮娓告垙
-        $fpsgames = $game->where('gameImg',2)->where("gameType = 'FPS'")->limit(5)->select();
+        //射击游戏
+        $fpsgames = $game->where("gameType LIKE '%FPS%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
         $this->assign('fpsgames',$fpsgames);
-        //鍐掗櫓娓告垙
-        $avggames = $game->where('gameImg',2)->where("gameType = 'AVG'")->limit(5)->select();
+        //冒险游戏
+        $avggames = $game->where("gameType LIKE '%AVG%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
         $this->assign('avggames',$avggames);
-        //浣撹偛娓告垙
-        $spggames = $game->where('gameImg',2)->where("gameType = 'SPG'")->limit(5)->select();
+        //体育游戏
+        $spggames = $game->where("gameType LIKE '%SPG%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
         $this->assign('spggames',$spggames);
 
         if($request->has("userID","cookie")){
@@ -408,7 +415,7 @@ class Index extends Controller
             }
             else{
                 echo "<script>
-                     alert('鐧婚檰澶辫触锛�');
+                     alert('登陆失败！');
                     </script>";
             }
         }
@@ -430,30 +437,30 @@ class Index extends Controller
                 if($password!==''){
                     if(null!=$userInfo){
                         echo "<script>
-                     alert('璇ョ敤鎴峰悕琚崰鐢紒');
+                     alert('该用户名被占用！');
                     </script>";
                     }else if($password!=$password1){
                         echo "<script>
-                     alert('璇疯緭鍏ョ浉鍚岀殑瀵嗙爜锛�');
+                     alert('请输入相同的密码');
                     </script>";
                     }else{
                         $userID=$user->max("userID")+1;
                         $user->addUser($userID, $userName, $password, 1, 1);
                         $imgInfo = $img->move(ROOT_PATH . 'public' . DS . 'uploads' . DS . 'userImg',$userID.".jpg");
                         echo "<script>
-                     alert('娉ㄥ唽鎴愬姛锛�');
+                     alert('注册成功！');
                     </script>";
                         Cookie::set("userID",$userInfo["userID"]);
                         $this->redirect("index/login");
                     }
                 }else{
                     echo "<script>
-                     alert('瀵嗙爜涓嶈兘涓虹┖锛�');
+                     alert('请输入密码！');
                     </script>";
                 }
             }else{
                 echo "<script>
-                     alert('鐢ㄦ埛鍚嶄笉鑳戒负绌猴紒');
+                     alert('请输入用户名！');
                     </script>";
             }
         }
