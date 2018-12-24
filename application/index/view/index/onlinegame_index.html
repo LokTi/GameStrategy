@@ -158,7 +158,7 @@
                                     <li><a>HELLEO:</a></li>
                                     <li><a href="#">{$userInfo["userName"]}</a>
                                         <ul class="dropdown">
-                                            <li><a href="#">管理个人信息</a></li>
+                                            <li><a href="{:url('index_user')}?userID={$userInfo['userID']}">管理个人信息</a></li>
                                             <li><a href="index.html?type=logout">注销</a></li>
                                         </ul>
                                     </li>
@@ -315,8 +315,8 @@
 	                        <div class="b-wrapper" class="b-link-stripe b-animate-go">
 		                            <h2 class="b-animate b-from-left ">
 		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">{$game.gameName}</div>
-		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gamePlat}</div>
-		                                <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
+                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gamePlat}</div>
+                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
 		                            </h2>
 	                        </div>
                         </a>
@@ -351,9 +351,9 @@
                         <img class="img-responsive" src="../../../../public/uploads/{$game.gameID}/1.jpg" alt=""  />
 	                        <div class="b-wrapper" class="b-link-stripe b-animate-go">
 		                            <h2 class="b-animate b-from-left ">
-		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gameName}</div>
-		                                <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">{$game.gameName}</div>
+                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gamePlat}</div>
+                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
 		                            </h2>
 	                        </div>
                         </a>
@@ -387,9 +387,9 @@
                         <img class="img-responsive" src="../../../../public/uploads/{$game.gameID}/1.jpg" alt=""  />
 	                        <div class="b-wrapper" class="b-link-stripe b-animate-go">
 		                            <h2 class="b-animate b-from-left ">
-		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gameName}</div>
-		                                <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">{$game.gameName}</div>
+                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gamePlat}</div>
+                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
 		                            </h2>
 	                        </div>
                         </a>
@@ -424,9 +424,9 @@
                         <img class="img-responsive" src="../../../../public/uploads/{$game.gameID}/1.jpg" alt=""  />
 	                        <div class="b-wrapper" class="b-link-stripe b-animate-go">
 		                            <h2 class="b-animate b-from-left ">
-		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gameName}</div>
-		                                <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">{$game.gameName}</div>
+                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gamePlat}</div>
+                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
 		                            </h2>
 	                        </div>
                         </a>
@@ -460,9 +460,9 @@
                         <img class="img-responsive" src="../../../../public/uploads/{$game.gameID}/1.jpg" alt=""  />
 	                        <div class="b-wrapper" class="b-link-stripe b-animate-go">
 		                            <h2 class="b-animate b-from-left ">
-		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">游戏名</div>
-		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gameName}</div>
-		                                <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
+		                                <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);line-height: 1.44;font-size: 2rem;text-transform: uppercase;padding-top: 50%;display: block;font-weight: 400;padding-left: 2rem;letter-spacing: 0.04em;word-wrap: break-word;">{$game.gameName}</div>
+                                        <div style="text-shadow: 0px 1px 0px rgba(0,0,0,0.32);letter-spacing: 0.04em;position: relative;width: 100%;line-height: 1.44;text-overflow: ellipsis;font-weight: 400;font-size: 1.5rem;text-transform: uppercase;display: block;padding-left: 2rem;color: #b2bcd8;word-wrap: break-word;">{$game.gamePlat}</div>
+                                        <p style="margin: 0.4rem 0;padding: 0;font-size: 1.2rem;line-height: 1.44;padding-left: 2rem;color: rgba(35, 204, 251, 1);">{$game.gameType}</p>
 		                            </h2>
 	                        </div>
                         </a>
@@ -601,7 +601,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Col
                                 <li><a href="hostgame_index.html">主机游戏</a></li>
                                 <li><a href="singlegame_index.html">单机游戏</a></li>
                                 <li><a href="onlinegame_index.html">网游</a></li>
-                                <li><a href="mobilegame_index.html">手游</a></li>
+                                <li><a href="mobliegame_index.html">手游</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>
