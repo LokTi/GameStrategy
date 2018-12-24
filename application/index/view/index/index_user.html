@@ -5,8 +5,10 @@
     <!-- 页面meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>运营商后台管理系统</title>
+    <title>Egames - 个人空间</title>
     <!-- Tell the browser to be responsive to screen width -->
+    <link rel="icon" href="../../../../public/img/core-img/favicon.ico">
+
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
 
 
@@ -108,27 +110,19 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu"  >
                     <li class="header">菜单</li>
-                    <li id="admin-index"><a href="index.html"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+                    <li id="admin-index"><a href="index_user.html"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
 				    <!-- 菜单 -->
 
                     <!-- 课程概况 -->
 				    <li class="treeview">
-				        <a href="#">
+				        <a href="content_1.html">
 				            <i class="fa fa-folder"></i>
-				            <span>资讯管理</span>
+				            <span>文章管理</span>
 				            <span class="pull-right-container">
 				       			<i class="fa fa-angle-left pull-right"></i>
 				   		 	</span>
 				        </a>
-				        <ul class="treeview-menu">
-
-				            <li id="admin-login">
-				                <a href="content_1.html" target="iframe">
-				                    <i class="fa fa-circle-o"></i>咨询增删改
-				                </a>
-				            </li>
-				        </ul>
 				    </li>
 
 
@@ -143,9 +137,8 @@
 
         <!-- 内容区域 -->
         <div class="content-wrapper" >
-			<iframe width="100%" id="iframe" name="iframe"	onload="SetIFrameHeight()"
-					frameborder="0" src="{:url('personal_page')}?userID={$user.userID}"></iframe>
-
+                <iframe width="100%" id="iframe" name="iframe"  onload="SetIFrameHeight()"
+                    frameborder="0" src="{:url('personal_bpage')}?userID={$user.userID}"></iframe>
         </div>
         <!-- 内容区域 /-->
 
