@@ -365,24 +365,32 @@ class Index extends Controller
         $this->assign('hotgames',$hotgames);
         //角色扮演游戏
         $rpggames = $game->where("gameType LIKE '%RPG%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
         $this->assign('rpggames',$rpggames);
         //即时战略游戏
-        $rtsgames = $game->where("gameType LIKE '%RTS%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
+        $rtsgames = $game->where("gameType LIKE '%RST%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
         $this->assign('rtsgames',$rtsgames);
         //动作游戏
         $actgames = $game->where("gameType LIKE '%ACT%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
         $this->assign('actgames',$actgames);
         //竞速游戏
         $racgames = $game->where("gameType LIKE '%RAC%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
         $this->assign('racgames',$racgames);
         //射击游戏
         $fpsgames = $game->where("gameType LIKE '%FPS%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
         $this->assign('fpsgames',$fpsgames);
         //冒险游戏
         $avggames = $game->where("gameType LIKE '%AVG%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
         $this->assign('avggames',$avggames);
         //体育游戏
         $spggames = $game->where("gameType LIKE '%SPG%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+
         $this->assign('spggames',$spggames);
 
         if($request->has("userID","cookie")){
@@ -439,7 +447,11 @@ class Index extends Controller
                     </script>";
                     }else if($password!=$password1){
                         echo "<script>
+<<<<<<< HEAD
                      alert('请输入相同的密码！');
+=======
+                     alert('请输入相同的密码');
+>>>>>>> branch 'master' of https://github.com/964089877/GameStrategy.git
                     </script>";
                     }else{
                         $userID=$user->max("userID")+1;
@@ -453,12 +465,20 @@ class Index extends Controller
                     }
                 }else{
                     echo "<script>
+<<<<<<< HEAD
                      alert('密码不能为空！');
+=======
+                     alert('请输入密码！');
+>>>>>>> branch 'master' of https://github.com/964089877/GameStrategy.git
                     </script>";
                 }
             }else{
                 echo "<script>
+<<<<<<< HEAD
                      alert('用户名不能为空！');
+=======
+                     alert('请输入用户名！');
+>>>>>>> branch 'master' of https://github.com/964089877/GameStrategy.git
                     </script>";
             }
         }

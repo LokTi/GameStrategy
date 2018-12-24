@@ -213,7 +213,7 @@ class Admin extends Controller
                     $flag = $flag + 1;
                 }
 
-                $game->addGame($gameID,$request->post('gameName'),$request->post('gameInfo1'),$request->post('gameType'),$request->post('gameType'),$request->post('gamePlat'));
+                $game->addGame($gameID,$request->post('gameName'),$request->post('gameInfo1'),$request->post('gameType'),$request->post('gameType'),$request->post('gamePlat'),$request->post("gameDate"));
 
             }
             else if($type == "change"){
