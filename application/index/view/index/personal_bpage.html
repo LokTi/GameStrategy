@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Egames - Gaming Magazine Template</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../../../public/img/core-img/favicon.ico">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../../../public/css/style1.css">
+
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+            function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="../../../../public/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../../../../public/css/style2.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+<body>
+	<!-- single -->
+    <div class="single">
+        <div class="container">
+            <div class="single-info">
+                <div class="recent-posts" style="border-bottom: 1px dotted #999;padding-bottom: 5em;margin: 0 0 4em;">
+                    <h4>{$user["userName"]}'s<span>Page</span></h4>
+                    <div class="recent-posts-grids">
+                        <div class="recent-posts-grid">
+                            <img src="{$img}" alt=" " class="img-responsive" />
+                            <div class="recent-posts-grid-pos" style="margin-top: 5%;">
+                                <p>Those who do not know how
+                                    to pursue pleasure rationally encounter consequences
+                                    but because those who do not know how
+                                    to pursue pleasure rationally encounter consequences.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 banner-bottom-grid-left">
+                    <h6>最新发表</h6>
+                    <div class="banner-bottom-grid-left-grids">
+                    	{volist name="infoNew" id="info"}
+                        <div class="banner-bottom-grid-left-grid">
+                            <div class="col-md-5 banner-bottom-grid-left-gridl">
+                                <img src="../../../../public/img/bg-img/2.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="col-md-7 banner-bottom-grid-left-gridr">
+                                <h3><a href="single.html">{$info.infoTitle}</a></h3>
+                                <p>"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        {/volist}
+                    </div>
+                </div>
+                <div class="col-md-4 banner-bottom-grid-right">
+
+                    <div class="banner-bottom-grid-right-grid1">
+                        <h3 style="font-size: 1.3em;color: #fff;line-height: 1.1em;">推荐资讯</h3>
+                        <ul style="margin-top:2em; ">
+                        	{volist name="infoHot" id="info"}
+                            <li><a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}</a></li>
+                            {/volist}
+                        </ul>
+                    </div>
+                </div>
+                <div class="recent-com">
+                    <div class="recent-com-grids">
+                        <div class="recent-com-grid">
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //single -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="../../../../public/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="../../../../public/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="../../../../public/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="../../../../public/js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="../../../../public/js/active.js"></script>
+
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+            });
+    </script>
+    <!-- //here ends scrolling icon -->
+</body>
+</html>

@@ -54,14 +54,6 @@ class Admin extends Controller
         $this->assign("loginTime",date('Y-m-d H:i:s',time()));
         return view();
     }
-    public function home1()
-    {
-        return view();
-    }
-    public function content_1()
-    {
-        return view();
-    }
 
     public function home(){
         $user = new User();
