@@ -124,10 +124,10 @@
                                         <ul class="dropdown">
                                             <li><a href="#hot">热门游戏</a></li>
                                             <li><a href="#new">新游上市</a></li>
-                                            <li><a href="#xbox">角色扮演类游戏</a></li>
-                                            <li><a href="#ps4">动作类游戏</a></li>
-                                            <li><a href="#wii">竞技类游戏</a></li>
-                                            <li><a href="#ns">休闲类游戏</a></li>
+                                            <li><a href="#rpg">角色扮演类游戏</a></li>
+                                            <li><a href="#act">动作类游戏</a></li>
+                                            <li><a href="#moba">竞技类游戏</a></li>
+                                            <li><a href="#xx">休闲类游戏</a></li>
                                         </ul>
                                     </li>
 
@@ -260,14 +260,14 @@
 
     <!-- ##### Enen Area Start ##### -->
     <section class="latest-articles-area section-padding-100-0 bg-img bg-pattern bg-fixed" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
-        <div class="container works bg-pattern">
+        <div class="container works bg-pattern" id = "hot">
         <div class="works" id="portfolio">
             <div class=" port-top">
                 <h3 class="port" style="color: #fff;">热门游戏</h3>
                 <div class="clearfix"> </div>
             </div>
             <div id="portfoliolist">
-              	{volist name = "hotgames" id = "game" mod="5"}
+              	{volist name = "hotgames" id = "game" mod="5" }
                 {eq name="mod" value="0"}<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;width: 46%;margin-left: 0;">{/eq}
                 {eq name="mod" value="1"}<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">{/eq}
                 {eq name="mod" value="2"}<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;float: right;border:0;">{/eq}
@@ -295,7 +295,7 @@
     <!-- ##### Enen Area End ##### -->
 
     <!-- ##### Enen Area Start ##### -->
-    <div class="egames-video-area section-padding-100 bg-pattern2">
+    <div class="egames-video-area section-padding-100 bg-pattern2" id = "new">
     <div class="container">
         <div class="works" id="portfolio">
             <div class=" port-top">
@@ -333,7 +333,7 @@
     <!-- ##### Enen Area Start ##### -->
         <section class="latest-articles-area section-padding-100-0 bg-img bg-pattern bg-fixed" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
     
-        <div class="container works bg-pattern">
+        <div class="container works bg-pattern" id = "rpg">
         <div class="works" id="portfolio">
             <div class=" port-top">
                 <h3 class="port" style="color: #fff;">角色扮演</h3>
@@ -368,7 +368,7 @@
     <!-- ##### Enen Area End ##### -->
 
     <!-- ##### Enen Area Start ##### -->
-    <div class="egames-video-area section-padding-100 bg-pattern2">
+    <div class="egames-video-area section-padding-100 bg-pattern2" id = "act">
     <div class="container">
         <div class="works" id="portfolio">
             <div class=" port-top">
@@ -406,7 +406,7 @@
     <!-- ##### Enen Area Start ##### -->
         <section class="latest-articles-area section-padding-100-0 bg-img bg-pattern bg-fixed" style="background-image: url(../../../../public/img/bg-img/5.jpg);">
     
-        <div class="container works bg-pattern">
+        <div class="container works bg-pattern" id = "moba">
         <div class="works" id="portfolio">
             <div class=" port-top">
                 <h3 class="port" style="color: #fff;">竞技游戏</h3>
@@ -441,11 +441,11 @@
     <!-- ##### Enen Area End ##### -->
 
     <!-- ##### Enen Area Start ##### -->
-    <div class="egames-video-area section-padding-100 bg-pattern2">
+    <div class="egames-video-area section-padding-100 bg-pattern2" id = "xx">
     <div class="container">
         <div class="works" id="portfolio">
             <div class=" port-top">
-                <h3 class="port">SPG（Sports games）：体育游戏</h3>
+                <h3 class="port">休闲类游戏</h3>
                 <div class="clearfix"> </div>
             </div>
             <div id="portfoliolist">
@@ -528,7 +528,7 @@
                 <div class="row">
                     <!-- Single Footer Widget -->
                     <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-70">
+                        <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="100ms">
                             <div class="widget-title">
                                 <a href="index.html"><img src="../../../../public/img/core-img/logo2.png" alt=""></a>
                             </div>
@@ -537,21 +537,22 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3"></div>
                     <!-- Single Footer Widget -->
                     <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-70">
+                        <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="500ms">
                             <div class="widget-title">
-                                <h4>Game Reviews</h4>
+                                <h4>友情链接</h4>
                             </div>
                             <div class="widget-content">
                                 <nav>
                                     <ul>
-                                        <li><a href="#">Doom</a></li>
-                                        <li><a href="#">Grand Theft Auto</a></li>
-                                        <li><a href="#">Bloodborne</a></li>
-                                        <li><a href="#">God of war</a></li>
-                                        <li><a href="#">Persona 5</a></li>
+                                        <li><a href="http://www.tgbus.com/">电玩巴士</a></li>
+                                        <li><a href="http://www.duowan.com/">多玩网</a></li>
+                                        <li><a href="https://www.gamersky.com/">游民星空</a></li>
+                                        <li><a href="https://www.3dmgame.com/">3DM游戏网</a></li>
+                                        <li><a href="http://www.ali213.net/">游侠网</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -560,38 +561,18 @@
 
                     <!-- Single Footer Widget -->
                     <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-70">
+                        <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="700ms">
                             <div class="widget-title">
-                                <h4>Usefull Links</h4>
+                                <h4>主编推荐游戏</h4>
                             </div>
                             <div class="widget-content">
                                 <nav>
                                     <ul>
-                                        <li><a href="#">Testimanials</a></li>
-                                        <li><a href="#">Reviews</a></li>
-                                        <li><a href="#">New Games</a></li>
-                                        <li><a href="#">Forum</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Footer Widget -->
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-70">
-                            <div class="widget-title">
-                                <h4>What’s new</h4>
-                            </div>
-                            <div class="widget-content">
-                                <nav>
-                                    <ul>
-                                        <li><a href="#">Doom</a></li>
-                                        <li><a href="#">Grand Theft Auto</a></li>
-                                        <li><a href="#">Bloodborne</a></li>
-                                        <li><a href="#">God of war</a></li>
-                                        <li><a href="#">Persona 5</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=11">Doom</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=12">Grand Theft Auto</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=13">Bloodborne</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=14">God of war</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=15">Persona 5</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -617,9 +598,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Col
                         <div class="footer-nav">
                             <ul>
                                 <li><a href="index.html">Home</a></li>
-                                <li><a href="game-review.html">Games</a></li>
-                                <li><a href="post.html">Articles</a></li>
-                                <li><a href="single-game-review.html">Reviews</a></li>
+                                <li><a href="hostgame_index.html">主机游戏</a></li>
+                                <li><a href="singlegame_index.html">单机游戏</a></li>
+                                <li><a href="onlinegame_index.html">网游</a></li>
+                                <li><a href="mobilegame_index.html">手游</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>

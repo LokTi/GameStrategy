@@ -131,7 +131,7 @@ class Admin extends Controller
         }
 
 
-        $list = $info->where('infoStatusReason',1)->paginate(3);
+        $list = $info->where('infoStatusReason',1)->paginate(8);
         $this->assign('list',$list);
 
         $infos=$info->where('infoStatusReason',1)->select();
@@ -189,7 +189,7 @@ class Admin extends Controller
 
         }
 
-        $list = $info->where('infoStatusReason',0)->paginate(3);
+        $list = $info->where('infoStatusReason',0)->paginate(8);
         $this->assign('list',$list);
 
         $infos=$info->where('infoStatusReason',0)->select();
@@ -220,10 +220,12 @@ class Admin extends Controller
                     $imgInfo = $file->move(ROOT_PATH . 'public' . DS . 'uploads' . DS . $gameID,$flag);
                     $flag = $flag + 1;
                 }
+
                 $game->addGame($gameID,$request->post('gameName'),$request->post('gameInfo1'),$request->post('gameType'),$request->post('gameType'),$request->post('gamePlat'));
+
             }
             else if($type == "change"){
-                $game->changeGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo2'),$request->post('gameImg'),$request->post('gameType'),$request->post('gamePlat'));
+                $game->changeGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo2'),$request->post('gameImg'),$request->post('gameType'),$request->post('gamePlat'),$request->post('gameDate'));
             }else if($type == "delete"){
                 $game->deleteGame($request->get('gameID'));
             }
@@ -231,7 +233,7 @@ class Admin extends Controller
 
         //分页
         $game = new Game();
-        $list = $game->paginate(3);
+        $list = $game->paginate(8);
         $this->assign('list',$list);
 
         //输出内容
