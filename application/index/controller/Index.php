@@ -13,7 +13,6 @@ use think\Cookie;
 
 class Index extends Controller
 {
-
     public function index()
     {
         $user=new User();
@@ -32,14 +31,13 @@ class Index extends Controller
         }
         return view();
     }
-
     public function information_page(){
 
         $request = Request::instance();
         $infoID = $request->get('infoID');
         $info = new Information();
-        $user = new User();
         $comment = new Comment();
+        $user=new User();
         $request=Request::instance();
 
         if($request->has("userID","cookie")){
@@ -50,29 +48,29 @@ class Index extends Controller
 
         if($request->has("type","get")){
             if($request->get("type")=="check"){
-                if($request->has("userID","cookie")){
+                if(null == $request->cookie('userID')){
+                    $this->redirect("index/login");
+                }else{
                     $userID = $request->cookie('userID');
                     $commentContent = $request->post('content');
                     $newComment = new Comment();
-                    $newComment->addComment( $request->get('infoID'), $userID, $commentContent);
-                }else{
-                    $this->error('请先登录！', 'login');
+                    $newComment->addComment( $infoID, $userID, $commentContent);
                 }
             }
         }
-
-        $info->clickInformation($infoID);
+        
+        $users = $user->select();
         $infos = $info->where('infoID',$infoID)->select();
         $comments = $comment->where('infoID',$infoID)->select();
         $latestInfos = $info->order('infoID desc')->limit(5)->select();
-        $users = $user->select();
         $this->assign('infos',$infos);
         $this->assign('latestInfos',$latestInfos);
         $this->assign('comments',$comments);
         $this->assign('users',$users);
-
        return view();
     }
+
+
 
     public function contact()
     {
@@ -86,6 +84,8 @@ class Index extends Controller
         }
         return view();
     }
+
+
 
     public function hostgame_index(){
 
@@ -111,10 +111,10 @@ class Index extends Controller
 
 
         //热门游戏
-        $hotgames = $game->where('gameImg',1)->order('gameClick desc')->limit(5)->select();
+        $hotgames = $game->limit(1,5)->select();
         $this->assign('hotgames',$hotgames);
         //新游上市
-        $newgames = $game->order('gameID desc')->where('gameImg',1)->limit(5)->select();
+        $newgames = $game->order('gameID desc')->where("gamePlat LIKE '%PS4%'")->limit(5)->select();
         $this->assign('newgames',$newgames);
         //XBOX热门
         $xboxgames = $game->where("gamePlat LIKE '%XBOX%'")->limit(5)->select();
@@ -131,7 +131,6 @@ class Index extends Controller
 
         return view();
     }
-
     public function personal_page()
     {
         $request = Request::instance();
@@ -168,7 +167,6 @@ class Index extends Controller
 
         return view();
     }
-
     public function onlinegame_index()
     {
         $user=new User();
@@ -192,27 +190,26 @@ class Index extends Controller
 
 
         //热门游戏
-        $hotgames = $game->where('gameImg',3)->order('gameClick desc')->limit(5)->select();
+        $hotgames = $game->limit(1,5)->select();
         $this->assign('hotgames',$hotgames);
         //新游上市
-        $newgames = $game->where('gameImg',3)->order('gameID desc')->limit(5)->select();
+        $newgames = $game->order('gameID desc')->limit(5)->select();
         $this->assign('newgames',$newgames);
         //角色扮演
-        $rpggames = $game->where('gameImg',3)->where("gameType = 'RPG'")->limit(5)->select();
+        $rpggames = $game->where("gameType = 'RPG'")->limit(5)->select();
         $this->assign('rpggames',$rpggames);
         //动作游戏
-        $actgames = $game->where('gameImg',3)->where("gameType = 'ACT'")->limit(5)->select();
+        $actgames = $game->where("gameType = 'ACT'")->limit(5)->select();
         $this->assign('actgames',$actgames);
         //竞技游戏
-        $mobagames = $game->where('gameImg',3)->where("gameType = 'MOBA'")->limit(5)->select();
+        $mobagames = $game->where("gameType = 'MOBA'")->limit(5)->select();
         $this->assign('mobagames',$mobagames);
         //休闲游戏
-        $fpsgames = $game->where('gameImg',3)->where("gameType = 'FPS'")->limit(5)->select();
+        $fpsgames = $game->where("gameType = 'FPS'")->limit(5)->select();
         $this->assign('fpsgames',$fpsgames);
 
         return view();
     }
-
     public function mobilegame_index()
     {
         $game = new Game();
@@ -264,7 +261,6 @@ class Index extends Controller
         }
         return view();
     }
-
     public function game_page()
     {
         $request=Request::instance();
@@ -286,8 +282,11 @@ class Index extends Controller
         }
 
         //游戏讯息
-        $gameinfo = $game->where('gameID',$gameID)->select();
+        $gameinfo = $game->where('gameID',$gameID)->find();
+        $gameImg_PATH = "../../../../public/uploads/".$gameinfo["gameID"]."/0.jpg";
         $this->assign('game',$gameinfo);
+        $this->assign('games',$gameinfo);
+        $this->assign('img',$gameImg_PATH);
 
         //热门攻略
         $inforHot = $info->where("gameID",$gameID)->order('infoClick desc')->limit(5)->select();
@@ -296,7 +295,7 @@ class Index extends Controller
         //最新发表
         $infoNew = $info->where("gameID",$gameID)->order('infoDate desc')->limit(5)->select();
         $this->assign('infoNew',$infoNew);
-
+        
         return view();
     }
 
@@ -319,28 +318,28 @@ class Index extends Controller
 
 
         //热门游戏
-        $hotgames = $game->where('gameImg',2)->order('gameClick desc')->limit(5)->select();
+        $hotgames = $game->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(1,5)->select();
         $this->assign('hotgames',$hotgames);
         //角色扮演游戏
-        $rpggames = $game->where('gameImg',2)->where("gameType = 'RPG'")->limit(5)->select();
+        $rpggames = $game->where("gameType LIKE '%RPG%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
         $this->assign('rpggames',$rpggames);
         //即时战略游戏
-        $rtsgames = $game->where('gameImg',2)->where("gameType = 'RST'")->limit(5)->select();
+        $rtsgames = $game->where("gameType LIKE '%RTS%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
         $this->assign('rtsgames',$rtsgames);
         //动作游戏
-        $actgames = $game->where('gameImg',2)->where("gameType = 'ACT'")->limit(5)->select();
+        $actgames = $game->where("gameType LIKE '%ACT%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
         $this->assign('actgames',$actgames);
         //竞速游戏
-        $racgames = $game->where('gameImg',2)->where("gameType = 'RAC'")->limit(5)->select();
+        $racgames = $game->where("gameType LIKE '%RAC%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
         $this->assign('racgames',$racgames);
         //射击游戏
-        $fpsgames = $game->where('gameImg',2)->where("gameType = 'FPS'")->limit(5)->select();
+        $fpsgames = $game->where("gameType LIKE '%FPS%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
         $this->assign('fpsgames',$fpsgames);
         //冒险游戏
-        $avggames = $game->where('gameImg',2)->where("gameType = 'AVG'")->limit(5)->select();
+        $avggames = $game->where("gameType LIKE '%AVG%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
         $this->assign('avggames',$avggames);
         //体育游戏
-        $spggames = $game->where('gameImg',2)->where("gameType = 'SPG'")->limit(5)->select();
+        $spggames = $game->where("gameType LIKE '%SPG%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
         $this->assign('spggames',$spggames);
 
         if($request->has("userID","cookie")){
@@ -350,7 +349,6 @@ class Index extends Controller
         }
         return view();
     }
-
     public function login()
     {
         $user=new User();
@@ -377,7 +375,6 @@ class Index extends Controller
         }
         return view();
     }
-
     public function register()
     {
         $user=new User();
@@ -422,19 +419,10 @@ class Index extends Controller
         }
         return view();
     }
-
     public function index_user()
     {
-        $request = Request::instance();
-        $user = new User();
-        $userID = $request->get('userID');
-
-        //连接个人主页
-        $userInfo = $user->where("userID",$userID)->find();
-        $this->assign("user",$userInfo);
-
-        $this->assign("loginTime",date('Y-m-d H:i:s',time()));
-
+        
+        
         return view();
     }
 }
