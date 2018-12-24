@@ -38,7 +38,6 @@ class Index extends Controller
         $info = new Information();
         $user = new User();
         $comment = new Comment();
-        $user=new User();
         $request=Request::instance();
 
         if($request->has("userID","cookie")){
@@ -49,13 +48,13 @@ class Index extends Controller
 
         if($request->has("type","get")){
             if($request->get("type")=="check"){
-                if(null == $request->cookie('userID')){
-                    $this->redirect("index/login");
-                }else{
+                if($request->has("userID","cookie")){
                     $userID = $request->cookie('userID');
                     $commentContent = $request->post('content');
                     $newComment = new Comment();
-                    $newComment->addComment( $infoID, $userID, $commentContent);
+                    $newComment->addComment( $request->get('infoID'), $userID, $commentContent);
+                }else{
+                    $this->error('请先登录！', 'login');
                 }
             }
         }

@@ -168,8 +168,18 @@
                                 <a href="{:url('personal_page')}?userID={$comment.userID}"><img src="../../../../public/img/bg-img/10.jpg" alt=" " class="img-responsive"/></a>
                             </div>
                             <div class="col-xs-10 recent-com-grid-right">
-                                <h5><a href="{:url('personal_page')}?userID={$comment.userID}"></a></h5>
-                                <h5 style="color:#94b9b2">用户ID:{$comment.userID}</h5>
+                                <h5>
+                               <a href="{:url('personal_page')}?userID={$comment.userID}">
+                               {volist name = "users" id = "user"}
+                                	{eq name="$user.userID" value="$comment.userID"}<a>{$user.userName}</a>{/eq}
+                                {/volist}
+                               </a>
+                                </h5>
+                                <h5 style="color:#94b9b2">
+                                
+                                
+                                       {$comment.userID}
+                                </h5>
                                 <p>{$comment.commentContent}</p>
                             </div>
                             <div class="clearfix"> </div>
@@ -182,7 +192,7 @@
                     <h4>Leave a <span>Comment</span></h4>
                     <div class="leave-comm-grids">
                         <form action="{:url('index/information_page')}?type=check&infoID={$infos[0]['infoID']}" method="post">
-                            <textarea placeholder="Message..."  id="content"></textarea>
+                            <textarea placeholder="Message..."  name="content"></textarea>
                             <input type="submit" value="Submit Comment" >
                         </form>
                     </div>
@@ -289,11 +299,11 @@
                             <div class="widget-content">
                                 <nav>
                                     <ul>
-                                        <li><a href="#">Doom</a></li>
-                                        <li><a href="#">Grand Theft Auto</a></li>
-                                        <li><a href="#">Bloodborne</a></li>
-                                        <li><a href="#">God of war</a></li>
-                                        <li><a href="#">Persona 5</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=11">Doom</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=12">Grand Theft Auto</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=13">Bloodborne</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=14">God of war</a></li>
+                                        <li><a href="{:url('information_page')}?infoID=15">Persona 5</a></li>
                                     </ul>
                                 </nav>
                             </div>
