@@ -176,24 +176,15 @@
         <div class="container">
             <div class="single-info">
                 <div class="recent-posts" style="border-bottom: 1px dotted #999;padding-bottom: 5em;margin: 0 0 4em;">
-                    <h4>Recent <span>Page</span></h4>
+                    <h4>{$user["userName"]}'s<span>Page</span></h4>
                     <div class="recent-posts-grids">
                         <div class="recent-posts-grid">
-                            <img src="../../../../public/img/bg-img/26.jpg" alt=" " class="img-responsive" />
-                            <div class="recent-posts-grid-pos">
-                                <a href="#" style="color: #20d8da">James Carlson</a>
+                            <img src="{$img}" alt=" " class="img-responsive" />
+                            <div class="recent-posts-grid-pos" style="margin-top: 5%;">
                                 <p>Those who do not know how
                                     to pursue pleasure rationally encounter consequences
                                     but because those who do not know how
                                     to pursue pleasure rationally encounter consequences.</p>
-                                <div class="social">
-                                    <ul>
-                                        <li><a href="#" class="link facebook"><span></span></a></li>
-                                        <li><a href="#" class="link twitter"><span></span></a></li>
-                                        <li><a href="#" class="link google-plus"><span></span></a></li>
-                                        <li><a href="#" class="link dribble"><span></span></a></li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -201,39 +192,28 @@
                 <div class="col-md-8 banner-bottom-grid-left">
                     <h6>最新发表</h6>
                     <div class="banner-bottom-grid-left-grids">
+                    	{volist name="infoNew" id="info"}
                         <div class="banner-bottom-grid-left-grid">
                             <div class="col-md-5 banner-bottom-grid-left-gridl">
-                                <img src="images/5.jpg" alt=" " class="img-responsive" />
+                                <img src="../../../../public/img/bg-img/2.jpg" alt=" " class="img-responsive" />
                             </div>
                             <div class="col-md-7 banner-bottom-grid-left-gridr">
-                                <h3><a href="single.html">the <i>country</i> is strong with a strong <span>Combatant.</span></a></h3>
+                                <h3><a href="single.html">{$info.infoTitle}</a></h3>
                                 <p>"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
-                        <div class="banner-bottom-grid-left-grid">
-                            <div class="col-md-5 banner-bottom-grid-left-gridl">
-                                <img src="images/6.jpg" alt=" " class="img-responsive" />
-                                <div class="banner-bottom-grid-left-gridl-pos">
-                                </div>
-                            </div>
-                            <div class="col-md-7 banner-bottom-grid-left-gridr">
-                                <h3><a href="single.html">the war is <i>terrible</i> our aim is to  <span>prevent</span> it.</a></h3>
-                                <p>"Nor again is there anyone who loves or pursues or desires to obtain pain of itself.</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
+                        {/volist}
                     </div>
                 </div>
                 <div class="col-md-4 banner-bottom-grid-right">
+
                     <div class="banner-bottom-grid-right-grid1">
                         <h3 style="font-size: 1.3em;color: #fff;line-height: 1.1em;">推荐资讯</h3>
                         <ul style="margin-top:2em; ">
-                            <li><a href="single.html">Sed ut perspiciatis unde omnis iste natus.</a></li>
-                            <li><a href="single.html">Neque porro quisquam est, qui dolorem.</a></li>
-                            <li><a href="single.html">Quis autem vel eum iure reprehenderit qui.</a></li>
-                            <li><a href="single.html">Excepteur sint cupidatat non proident.</a></li>
-                            <li><a href="single.html">Ut enim ad minim veniam, quis exercitation.</a></li>
+                        	{volist name="infoHot" id="info"}
+                            <li><a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}</a></li>
+                            {/volist}
                         </ul>
                     </div>
                 </div>
@@ -259,7 +239,7 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="100ms">
                             <div class="widget-title">
-                                <a href="index.html"><img src="img/core-img/logo2.png" alt=""></a>
+                                <a href="index.html"><img src="../../../../public/img/core-img/logo2.png" alt=""></a>
                             </div>
                             <div class="widget-content">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam ut interdum ultricies.</p>
@@ -371,10 +351,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Col
     <script src="../../../../public/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="../../../../public/js/active.js"></script>
-
-    <!-- for bootstrap working -->
-    <script src="js/bootstrap.js"></script>
-    <!-- //for bootstrap working -->
 
     <!-- here stars scrolling icon -->
     <script type="text/javascript">

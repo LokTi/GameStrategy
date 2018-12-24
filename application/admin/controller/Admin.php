@@ -54,6 +54,18 @@ class Admin extends Controller
         $this->assign("loginTime",date('Y-m-d H:i:s',time()));
         return view();
     }
+    public function home1()
+    {
+        return view();
+    }
+    public function content_1()
+    {
+        return view();
+    }
+    public function index_user()
+    {
+        return view();
+    }
     public function home(){
         $user = new User();
         $users = $user->select();
@@ -190,7 +202,7 @@ class Admin extends Controller
         return view();
     }
 
-    
+
 
     public function content3(){
 
@@ -211,7 +223,7 @@ class Admin extends Controller
                     $flag = $flag + 1;
                 }
                 $game->addGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo1'),$request->post('gameType'),$request->post('gameType'),$request->post('gamePlat'));
-                
+
 
             }
             else if($type == "change"){
