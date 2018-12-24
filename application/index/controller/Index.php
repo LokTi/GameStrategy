@@ -449,7 +449,7 @@ class Index extends Controller
                     </script>";
                     }else if($password!=$password1){
                         echo "<script>
-                     alert('请输入相同的密码');
+                     alert('请输入相同的密码！');
                     </script>";
                     }else{
                         $userID=$user->max("userID")+1;
@@ -463,12 +463,12 @@ class Index extends Controller
                     }
                 }else{
                     echo "<script>
-                     alert('请输入密码！');
+                     alert('密码不能为空！');
                     </script>";
                 }
             }else{
                 echo "<script>
-                     alert('请输入用户名！');
+                     alert('用户名不能为空！');
                     </script>";
             }
         }
