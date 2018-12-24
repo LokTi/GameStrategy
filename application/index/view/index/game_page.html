@@ -19,9 +19,9 @@
 
     <link href="../../../../public/css/style2.css" rel="stylesheet" type="text/css" media="all" />
      	 	<link href="../../../../public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
-    
+
  	<link href="../../../../public/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
- 	
+
 </head>
 
 <body>
@@ -59,7 +59,7 @@
                             <div class="login-area">
                                 {if !isset($_COOKIE["userID"])}
                             		<a href='login.html'><span>Login / Register</span> <i class='fa fa-lock' aria-hidden='true'></i></a>
-                           		{/if}                            
+                           		{/if}
                            	</div>
                         </div>
                     </div>
@@ -173,13 +173,13 @@
                     <h4 style="margin-left: 15%;">Recent <span>Page</span></h4>
                     <div class="recent-posts-grids">
                         <div class="recent-posts-grid">
-                            <img src="../../../../public/img/bg-img/26.jpg" alt=" " class="img-responsive" style="position: absolute;margin-left: 15%;" />
+                            <img src="{$img}" alt=" " class="img-responsive" style="position: absolute;margin-left: 15%;" />
                             <div class="recent-posts-grid-pos" style="margin-top: 7%;width: 50%;left: 33%;">
-                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">游戏名 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">sdafa</span></a><br/>
-                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">译名 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">sdafa</span></a><br/>
-                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">发行时间 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">sdafa</span></a><br/>
-                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">类型 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">sdafa</span></a><br/>
-                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">平台 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">sdafa</span></a><br/>
+                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">游戏名 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">{$game["gameName"]}</span></a><br/>
+                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">译名 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">{$game["gameSubname"]}</span></a><br/>
+                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">发行时间 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">{$game["gameDate"]}</span></a><br/>
+                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">类型 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">{$game["gameType"]}</span></a><br/>
+                                <a style="color: #fff;word-wrap:break-word;font-weight: 400">平台 ：<span style="color: rgba(23, 162, 184, 1);font-size: 0.9em">{$game["gamePlat"]}</span></a><br/>
                             </div>
                         </div>
                     </div>
@@ -192,11 +192,11 @@
         <div class="container">
             <div class="single-info">
                 <div class="recent-posts" style="padding-bottom: 5em;margin: 0 0 0em;">
-                   
+
                 </div>
                 <div class="col-md-6 banner-bottom-grid-left">
                     <div class="banner-bottom-grid-left-grids">
-                        <!-- 轮播 --> 
+                        <!-- 轮播 -->
     					<div >
     					 	<div class="container-fluid" >
         						<div class="row-fluid">
@@ -228,12 +228,12 @@
         						</div>
     						</div>
     					</div>
-                        <!-- //轮播 --> 
+                        <!-- //轮播 -->
                     </div>
                 </div>
                 <div class="col-md-5 banner-bottom-grid-right">
                     <div class="banner-bottom-grid-right-grid1">
-                        <h3 style="font-size: 1.5em;color: #fff">游戏简介：<span style="font-size:0.8em">瞎几把搞</span></h3>
+                        <h3 style="font-size: 1.5em;color: #fff">游戏简介：<span style="font-size:0.8em">{$game["gameInfo"]}</span></h3>
                     </div>
                 </div>
                 <div class="recent-com">
@@ -247,7 +247,7 @@
         </div>
     </div>
     <!-- //single -->
-    <!-- single --> 
+    <!-- single -->
     <div class="single" style="margin-top:-100px;">
         <div class="container">
             <div class="banner-bottom-grids">
@@ -256,11 +256,9 @@
                 <div class="banner-bottom-grid-left-grids">
                     <div class="banner-bottom-grid-right-grid1">
                         <ul>
-                            <li><a href="single.html">资讯</a></li>
-                            <li><a href="single.html">Neque porro quisquam est, qui dolorem.</a></li>
-                            <li><a href="single.html">Quis autem vel eum iure reprehenderit qui.</a></li>
-                            <li><a href="single.html">Excepteur sint cupidatat non proident.</a></li>
-                            <li><a href="single.html">Ut enim ad minim veniam, quis exercitation.</a></li>
+                        	{volist name="infoNew" id="info"}
+                            <li><a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}</a></li>
+                            {/volist}
                         </ul>
                     </div>
                 </div>
@@ -270,11 +268,9 @@
                 <div class="banner-bottom-grid-left-grids">
                     <div class="banner-bottom-grid-right-grid1">
                         <ul>
-                            <li><a href="single.html">资讯</a></li>
-                            <li><a href="single.html">Neque porro quisquam est, qui dolorem.</a></li>
-                            <li><a href="single.html">Quis autem vel eum iure reprehenderit qui.</a></li>
-                            <li><a href="single.html">Excepteur sint cupidatat non proident.</a></li>
-                            <li><a href="single.html">Ut enim ad minim veniam, quis exercitation.</a></li>
+                        	{volist name="infoNew" id="info"}
+                            <li><a href="{:url('information_page')}?infoID={$info.infoID}">{$info.infoTitle}</a></li>
+                            {/volist}
                         </ul>
                     </div>
                 </div>
@@ -404,7 +400,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Col
     <!-- Bootstrap js -->
     <script src="../../../../public/js/bootstrap/bootstrap.min.js"></script>
     <script src="../../../../public/bootstrap/js/bootstrap.min.js"></script>
-    
+
     <!-- All Plugins js -->
     <script src="../../../../public/js/plugins/plugins.js"></script>
     <!-- Active js -->
