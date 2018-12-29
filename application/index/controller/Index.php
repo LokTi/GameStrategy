@@ -18,6 +18,7 @@ class Index extends Controller
     {
         $user=new User();
         $request=Request::instance();
+        $game = new Game();
 
         if($request->has("type","get")){
             if($request->get("type")=="logout"){
@@ -30,6 +31,10 @@ class Index extends Controller
             $userInfo=$user->where("userID",$userID)->find();
             $this->assign("userInfo",$userInfo);
         }
+
+        $games = $game->order('gameClick DESC')->limit(5)->select();
+        $this->assign('hotgames',$games);
+
         return view();
     }
 
@@ -529,5 +534,33 @@ class Index extends Controller
         $this->assign('list',$list);
 
         return  view();
+    }
+
+    public function Allgame()
+    {
+        $game = new Game();
+
+        $hotgames = $game->order('gameClick DESC')->limit(5)->select();
+        $newgames = $game->order('gameID DESC')->limit(5)->select();
+        $this->assign('hotgames',$hotgames);
+        $this->assign('newgames',$newgames);
+
+        $list = $game->paginate(8);
+        $this->assign('list',$list);
+        return view();
+    }
+
+    public function news(){
+        $user = new User();
+        $request = Request::instance();
+        if($request->has("userID","cookie")){
+            $userID=$request->cookie("userID");
+            $userInfo=$user->where("userID",$userID)->find();
+            $this->assign("userInfo",$userInfo);
+        }
+        $info = new Information();
+        $list = $info->paginate(5);
+        $this->assign('list',$list);
+        return view();
     }
 }

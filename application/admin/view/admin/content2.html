@@ -31,8 +31,13 @@
                         <div class="table-box">
                             <div class="pull-right">
                             	<form class="form-inline definewidth m20" action="./content2?type=search" method="post">
-								    <font color="#777777"><strong>资讯ID：</strong></font>
-								    <input type="text" name="infoTitle" id="infoTitle"class="abc input-default" placeholder="" value="">&nbsp;&nbsp;
+								    <font color="#777777"><strong>资讯范围：</strong></font>
+								     <select name="time">
+										<option value = 1>7天以前</option>
+										<option value = 2>最近7天</option>
+										<option value = 3>最近3天</option>
+										<option value = 4>今天</option>
+									</select> 
 								    <button type="submit" class="btn btn-default">查询</button>
 								</form>
                             </div>
