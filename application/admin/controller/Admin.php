@@ -100,7 +100,7 @@ class Admin extends Controller
             if($type==="add"){
                 $gameInfo=$game->where("gameName",$request->post('gameName'))->find();
                 $gameID=$gameInfo['gameID'];
-                $info->addInformation($infoID, $gameID, $request->post('infoTitle'), $request->cookie('userID'), $request->post('infoKey'), $request->post('infoContent'));
+                $info->addInformation1($infoID, $gameID, $request->post('infoTitle'), $request->cookie('userID'), $request->post('infoKey'), $request->post('infoContent'));
 
             }else if($type==="change"){
 
@@ -115,6 +115,10 @@ class Admin extends Controller
                 $infos=$info->where('infoStatusReason',1)->where("infoTitle",$request->post('infoTitle'))->select();
 
                 $this->assign('infos',$infos);
+
+                $list = $info->where('infoStatusReason',1)->where("infoTitle",$request->post('infoTitle'))->paginate(8);
+
+                $this->assign('list',$list);
 
                 return view();
 
@@ -148,7 +152,6 @@ class Admin extends Controller
         $request = Request::instance();
 
 
-
         if($request->has('type','get')){
 
             $type=$request->get('type');
@@ -156,6 +159,7 @@ class Admin extends Controller
             if($request->has('infoID','get')){
 
                 $infoID=$request->get('infoID');
+
 
                 if($type==="allow"){
 
@@ -174,6 +178,10 @@ class Admin extends Controller
                 $infos=$info->where('infoStatusReason',0)->where("infoTitle",$request->post('infoTitle'))->select();
 
                 $this->assign('infos',$infos);
+
+                $list = $info->where('infoStatusReason',0)->where("infoTitle",$request->post('infoTitle'))->paginate(8);
+
+                $this->assign('list',$list);
 
                 return view();
 
@@ -217,9 +225,21 @@ class Admin extends Controller
 
             }
             else if($type == "change"){
-                $game->changeGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo2'),$request->post('gameImg'),$request->post('gameType'),$request->post('gamePlat'),$request->post('gameDate'));
+                $game->changeGame($request->post('gameID'),$request->post('gameName'),$request->post('gameInfo2'),$request->post('gameImg'),$request->post('gameType'),$request->post('gamePlat'));
             }else if($type == "delete"){
                 $game->deleteGame($request->get('gameID'));
+            }else if($type==="search"){
+
+                $games=$game->where("gameName",$request->post('gameName'))->select();
+
+                $this->assign('games',$games);
+
+                $list=$game->where("gameName",$request->post('gameName'))->paginate(8);
+
+                $this->assign('list',$list);
+
+                return view();
+
             }
         }
 

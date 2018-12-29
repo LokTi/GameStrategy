@@ -56,7 +56,7 @@ class Index extends Controller
                     $newComment = new Comment();
                     $newComment->addComment( $request->get('infoID'), $userID, $commentContent);
                 }else{
-                    $this->error('璇峰厛鐧诲綍锛�', 'login');
+                    $this->error('用户未登录！', 'login');
                 }
             }
         }
@@ -100,10 +100,10 @@ class Index extends Controller
             $userInfo=$user->where("userID",$userID)->find();
             $this->assign("userInfo",$userInfo);
         }
-        $infosh1 = $info->limit(1)->select();
-        $infosh2 = $info->order('infoClick desc')->limit(1)->select();
-        $infos1 = $info->order('infoDate desc')->limit(2,4)->select();
-        $infos2 = $info->order('infoClick desc')->limit(6,4)->select();
+        $infosh1 = $info->where('infoStatusReason',1)->limit(1)->select();
+        $infosh2 = $info->where('infoStatusReason',1)->order('infoClick desc')->limit(1)->select();
+        $infos1 = $info->where('infoStatusReason',1)->limit(2,4)->select();
+        $infos2 = $info->where('infoStatusReason',1)->limit(6,4)->select();
         $this->assign('infosh1',$infosh1);
         $this->assign('infosh2',$infosh2);
         $this->assign('infos1',$infos1);
@@ -160,11 +160,11 @@ class Index extends Controller
         $this->assign('img',$userImg_PATH);
 
         //推荐文章
-        $inforHot = $info->where('userID',$userID_p)->order('infoClick desc')->limit(5)->select();
+        $inforHot = $info->where('userID',$userID_p)->where('infoStatusReason',1)->order('infoClick desc')->limit(5)->select();
         $this->assign('infoHot',$inforHot);
 
         //最新发表
-        $infoNew = $info->where('userID',$userID_p)->order('infoDate desc')->limit(2)->select();
+        $infoNew = $info->where('userID',$userID_p)->where('infoStatusReason',1)->order('infoDate desc')->limit(2)->select();
         $this->assign('infoNew',$infoNew);
 
         return view();
@@ -197,11 +197,11 @@ class Index extends Controller
         $this->assign('img',$userImg_PATH);
 
         //鎺ㄨ崘鏂囩珷
-        $inforHot = $info->where('userID',$userID_p)->order('infoClick desc')->limit(5)->select();
+        $inforHot = $info->where('userID',$userID_p)->where('infoStatusReason',1)->order('infoClick desc')->limit(5)->select();
         $this->assign('infoHot',$inforHot);
 
         //鏈�鏂板彂琛�
-        $infoNew = $info->where('userID',$userID_p)->order('infoDate desc')->limit(2)->select();
+        $infoNew = $info->where('userID',$userID_p)->where('infoStatusReason',1)->order('infoDate desc')->limit(2)->select();
         $this->assign('infoNew',$infoNew);
 
         return view();
@@ -219,10 +219,10 @@ class Index extends Controller
             $userInfo=$user->where("userID",$userID)->find();
             $this->assign("userInfo",$userInfo);
         }
-        $infosh1 = $info->limit(1)->select();
-        $infosh2 = $info->order('infoClick desc')->limit(1)->select();
-        $infos1 = $info->limit(2,4)->select();
-        $infos2 = $info->limit(6,4)->select();
+        $infosh1 = $info->where('infoStatusReason',1)->limit(1)->select();
+        $infosh2 = $info->where('infoStatusReason',1)->order('infoClick desc')->limit(1)->select();
+        $infos1 = $info->where('infoStatusReason',1)->limit(2,4)->select();
+        $infos2 = $info->where('infoStatusReason',1)->limit(6,4)->select();
         $this->assign('infosh1',$infosh1);
         $this->assign('infosh2',$infosh2);
         $this->assign('infos1',$infos1);
@@ -256,10 +256,10 @@ class Index extends Controller
         $game = new Game();
         $info = new Information();
 
-        $infosh1 = $info->limit(1)->select();
-        $infosh2 = $info->order('infoClick desc')->limit(1)->select();
-        $infos1 = $info->limit(2,4)->select();
-        $infos2 = $info->limit(6,4)->select();
+        $infosh1 = $info->where('infoStatusReason',1)->limit(1)->select();
+        $infosh2 = $info->where('infoStatusReason',1)->order('infoClick desc')->limit(1)->select();
+        $infos1 = $info->where('infoStatusReason',1)->limit(2,4)->select();
+        $infos2 = $info->where('infoStatusReason',1)->limit(6,4)->select();
         $this->assign('infosh1',$infosh1);
         $this->assign('infosh2',$infosh2);
         $this->assign('infos1',$infos1);
@@ -325,19 +325,21 @@ class Index extends Controller
             $this->assign("userInfo",$userInfo);
         }
 
+        $game->clickGame($gameID);
+
         //游戏讯息
         $gameinfo = $game->where('gameID',$gameID)->select();
         $this->assign('game',$gameinfo);
 
 
         //热门攻略
-        $inforHot = $info->where("gameID",$gameID)->order('infoClick desc')->limit(5)->select();
+        $inforHot = $info->where("gameID",$gameID)->where('infoStatusReason',1)->order('infoClick desc')->limit(5)->select();
         $this->assign('infoHot',$inforHot);
 
         //最新发表
-        $infoNew = $info->where("gameID",$gameID)->order('infoDate desc')->limit(5)->select();
+        $infoNew = $info->where("gameID",$gameID)->where('infoStatusReason',1)->order('infoDate desc')->limit(5)->select();
         $this->assign('infoNew',$infoNew);
-        
+
         return view();
     }
 
@@ -348,10 +350,10 @@ class Index extends Controller
         $game = new Game();
         $info = new Information();
 
-        $infosh1 = $info->limit(1)->select();
-        $infosh2 = $info->order('infoClick desc')->limit(1)->select();
-        $infos1 = $info->limit(2,4)->select();
-        $infos2 = $info->limit(6,4)->select();
+        $infosh1 = $info->where('infoStatusReason',1)->limit(1)->select();
+        $infosh2 = $info->where('infoStatusReason',1)->order('infoClick desc')->limit(1)->select();
+        $infos1 = $info->where('infoStatusReason',1)->limit(2,4)->select();
+        $infos2 = $info->where('infoStatusReason',1)->limit(6,4)->select();
         $this->assign('infosh1',$infosh1);
         $this->assign('infosh2',$infosh2);
         $this->assign('infos1',$infos1);
@@ -369,7 +371,7 @@ class Index extends Controller
         $this->assign('rpggames',$rpggames);
         //即时战略游戏
 
-        $rtsgames = $game->where("gameType LIKE '%RST%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
+        $rtsgames = $game->where("gameType LIKE '%RTS%'")->where('gamePlat','not in',['ANDROID/IOS','ANDROID','IOS'])->limit(5)->select();
 
         $this->assign('rtsgames',$rtsgames);
         //动作游戏
@@ -447,11 +449,7 @@ class Index extends Controller
                     </script>";
                     }else if($password!=$password1){
                         echo "<script>
-<<<<<<< HEAD
                      alert('请输入相同的密码！');
-=======
-                     alert('请输入相同的密码');
->>>>>>> branch 'master' of https://github.com/964089877/GameStrategy.git
                     </script>";
                     }else{
                         $userID=$user->max("userID")+1;
@@ -465,20 +463,12 @@ class Index extends Controller
                     }
                 }else{
                     echo "<script>
-<<<<<<< HEAD
                      alert('密码不能为空！');
-=======
-                     alert('请输入密码！');
->>>>>>> branch 'master' of https://github.com/964089877/GameStrategy.git
                     </script>";
                 }
             }else{
                 echo "<script>
-<<<<<<< HEAD
                      alert('用户名不能为空！');
-=======
-                     alert('请输入用户名！');
->>>>>>> branch 'master' of https://github.com/964089877/GameStrategy.git
                     </script>";
             }
         }
@@ -491,7 +481,7 @@ class Index extends Controller
         $user = new User();
         $userID = $request->cookie('userID');
 
-        //杩炴帴涓汉涓婚〉
+        //连接主页
         $userInfo = $user->where("userID",$userID)->find();
         $this->assign("user",$userInfo);
 
@@ -505,6 +495,7 @@ class Index extends Controller
         $request = Request::instance();
         $info = new Information();
         $userID = $request->cookie('userID');
+        $game = new Game();
 
         if($request->has('type','get')){
 
@@ -526,17 +517,14 @@ class Index extends Controller
 
             }else if($type==="search"){
 
-                $infos=$info->where('infoStatusReason',1)->where("infoTitle",$request->post('infoTitle'))->select();
-
-                $this->assign('infos',$infos);
-
-                return view();
+                $list=$info->where("infoTitle",$request->post('infoTitle'))->paginate(8);
+                $this->assign('list',$list);
+                return  view();
 
             }
 
         }
 
-        //鏂囩珷
         $list = $info->where("userID",$userID)->paginate(8);
         $this->assign('list',$list);
 
