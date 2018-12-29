@@ -174,13 +174,24 @@ class Admin extends Controller
             }
 
             else if($type==="search"){
+                $now = date('Y-m-d', time());
+                if($request->post("time") == 1){
+                    $infos=$info->where('infoStatusReason',0)->where("infoDate - '$now' >= 7")->select();
+                    $list = $info->where('infoStatusReason',0)->where("infoDate - '$now' >= 7")->paginate(8);
+                }else if($request->post("time") == 2){
+                    $infos=$info->where('infoStatusReason',0)->where("infoDate - '$now' < 7")->select();
+                    $list = $info->where('infoStatusReason',0)->where("infoDate - '$now' < 7")->paginate(8);
+                }else if($request->post("time") == 3){
+                    $infos=$info->where('infoStatusReason',0)->where("infoDate - '$now' < 3")->select();
+                    $list = $info->where('infoStatusReason',0)->where("infoDate - '$now' < 3")->paginate(8);
+                }else if($request->post("time") == 4){
+                    $infos=$info->where('infoStatusReason',0)->where("infoDate - '$now' < 1")->select();
+                    $list = $info->where('infoStatusReason',0)->where("infoDate - '$now' < 1")->paginate(8);
+                }
 
-                $infos=$info->where('infoStatusReason',0)->where("infoTitle",$request->post('infoTitle'))->select();
+                
 
                 $this->assign('infos',$infos);
-
-                $list = $info->where('infoStatusReason',0)->where("infoTitle",$request->post('infoTitle'))->paginate(8);
-
                 $this->assign('list',$list);
 
                 return view();
@@ -188,7 +199,7 @@ class Admin extends Controller
             }
 
         }
-
+        
         $list = $info->where('infoStatusReason',0)->paginate(8);
         $this->assign('list',$list);
 
