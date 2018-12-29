@@ -86,7 +86,7 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="index.html">首页</a></li>
                                     <li><a href="hostgame_index.html">主机游戏</a>
 
                                     </li>
@@ -99,7 +99,7 @@
                                     <li><a href="mobilegame_index.html">手游</a>
 
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="contact.html">联系</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -139,37 +139,22 @@
     <div class="hero-area">
         <!-- Hero Post Slides -->
         <div class="hero-post-slides owl-carousel">
-
+        	{volist name="hotgames" id="game"}
             <!-- Single Slide -->
-            <div class="single-slide bg-img bg-overlay" style="background-image: url(../../../../public/img/bg-img/1.jpg);">
+            <div class="single-slide bg-img bg-overlay" style="background-image: url(../../../../public/uploads/{$game.gameID}/1.jpg);">
                 <!-- Blog Content -->
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-lg-9">
                             <div class="blog-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="400ms">The Power of Gaming</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt.</p>
+                                <h2 data-animation="fadeInUp" data-delay="400ms">{$game.gameName}</h2>
+                                <p data-animation="fadeInUp" data-delay="700ms">{$game.gameInfo}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Single Slide -->
-            <div class="single-slide bg-img bg-overlay" style="background-image: url(img/bg-img/2.jpg);">
-                <!-- Blog Content -->
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12 col-lg-9">
-                            <div class="blog-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="400ms">The Power of Gaming</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            {/volist}
         </div>
     </div>
     <!-- ##### Hero Area End ##### -->
@@ -188,7 +173,7 @@
             <div class="row">
                 <div class="col-12">
                     <!-- Title -->
-                    <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">This Month’s Pick</h2>
+                    <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">本月推荐</h2>
                 </div>
             </div>
 
@@ -196,13 +181,13 @@
                 <div class="col-12">
                     <ul class="nav nav-tabs wow fadeInUp" data-wow-delay="300ms" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="popular-tab" data-toggle="tab" href="#popular" role="tab" aria-controls="popular" aria-selected="true">Popular</a>
+                            <a class="nav-link active" id="popular-tab" data-toggle="tab" href="#popular" role="tab" aria-controls="popular" aria-selected="true">最受欢迎</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="latest-tab" data-toggle="tab" href="#latest" role="tab" aria-controls="latest" aria-selected="false">Latest</a>
+                            <a class="nav-link" id="latest-tab" data-toggle="tab" href="#latest" role="tab" aria-controls="latest" aria-selected="false">最新上市</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="editor-tab" data-toggle="tab" href="#editor" role="tab" aria-controls="editor" aria-selected="false">Editor’s Pick</a>
+                            <a class="nav-link" id="editor-tab" data-toggle="tab" href="#editor" role="tab" aria-controls="editor" aria-selected="false">编辑推荐</a>
                         </li>
                     </ul>
                 </div>
@@ -300,7 +285,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/54.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/54.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Persona 5</a>
                             <div class="meta-data">
@@ -318,7 +303,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/50.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/50.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Grand Theft Auto V</a>
                             <div class="meta-data">
@@ -330,7 +315,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/51.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/51.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Doom</a>
                             <div class="meta-data">
@@ -342,7 +327,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/52.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/52.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">God of War</a>
                             <div class="meta-data">
@@ -354,7 +339,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/53.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/53.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Bloodborne</a>
                             <div class="meta-data">
@@ -366,7 +351,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/54.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/54.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Persona 5</a>
                             <div class="meta-data">
@@ -378,7 +363,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/52.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/52.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">God of War</a>
                             <div class="meta-data">
@@ -390,7 +375,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/53.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/53.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Bloodborne</a>
                             <div class="meta-data">
@@ -402,7 +387,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/54.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/54.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Persona 5</a>
                             <div class="meta-data">
@@ -420,7 +405,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/50.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/50.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Grand Theft Auto V</a>
                             <div class="meta-data">
@@ -432,7 +417,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/51.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/51.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Doom</a>
                             <div class="meta-data">
@@ -444,7 +429,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/52.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/52.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">God of War</a>
                             <div class="meta-data">
@@ -456,7 +441,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/53.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/53.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Bloodborne</a>
                             <div class="meta-data">
@@ -468,7 +453,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/54.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/54.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Persona 5</a>
                             <div class="meta-data">
@@ -480,7 +465,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/52.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/52.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">God of War</a>
                             <div class="meta-data">
@@ -492,7 +477,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/53.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/53.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Bloodborne</a>
                             <div class="meta-data">
@@ -504,7 +489,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="img/bg-img/54.jpg" alt="">
+                        <img src="../../../../public/img/bg-img/54.jpg" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Persona 5</a>
                             <div class="meta-data">
@@ -527,12 +512,12 @@
                 <div class="col-12 col-lg-8">
                     <div class="mb-100">
                         <!-- Title -->
-                        <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">Latest Articles</h2>
+                        <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">最新资讯</h2>
 
                         <!-- *** Single Articles Area *** -->
                         <div class="single-articles-area style-2 d-flex flex-wrap mb-30 wow fadeInUp" data-wow-delay="300ms">
                             <div class="article-thumbnail">
-                                <img src="img/bg-img/6.jpg" alt="">
+                                <img src="../../../../public/img/bg-img/6.jpg" alt="">
                             </div>
                             <div class="article-content">
                                 <a href="single-post.html" class="post-title">Sony’s new releases for 2018</a>
@@ -547,7 +532,7 @@
                         <!-- *** Single Articles Area *** -->
                         <div class="single-articles-area style-2 d-flex flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms">
                             <div class="article-thumbnail">
-                                <img src="img/bg-img/7.jpg" alt="">
+                                <img src="../../../../public/img/bg-img/7.jpg" alt="">
                             </div>
                             <div class="article-content">
                                 <a href="single-post.html" class="post-title">10 Tips to be a better gamer</a>
@@ -562,7 +547,7 @@
                         <!-- *** Single Articles Area *** -->
                         <div class="single-articles-area style-2 d-flex flex-wrap mb-30 wow fadeInUp" data-wow-delay="700ms">
                             <div class="article-thumbnail">
-                                <img src="img/bg-img/8.jpg" alt="">
+                                <img src="../../../../public/img/bg-img/8.jpg" alt="">
                             </div>
                             <div class="article-content">
                                 <a href="single-post.html" class="post-title">Microsoft has some new tips</a>
@@ -578,11 +563,11 @@
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <!-- Title -->
-                    <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">This week’s deal</h2>
+                    <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">周促销</h2>
 
                     <!-- Single Widget Area -->
                     <div class="single-widget-area add-widget wow fadeInUp" data-wow-delay="300ms">
-                        <a href="#"><img src="img/bg-img/add.png" alt=""></a>
+                        <a href="#"><img src="../../../../public/img/bg-img/add.png" alt=""></a>
                         <!-- Side Img -->
                         <img src="img/bg-img/side-img.png" class="side-img" alt="">
                     </div>
@@ -669,12 +654,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Col
                         <!-- Footer Nav -->
                         <div class="footer-nav">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="index.html">首页</a></li>
                                 <li><a href="hostgame_index.html">主机游戏</a></li>
                                 <li><a href="singlegame_index.html">单机游戏</a></li>
                                 <li><a href="onlinegame_index.html">网游</a></li>
                                 <li><a href="mobliegame_index.html">手游</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="contact.html">联系</a></li>
                             </ul>
                         </div>
                     </div>
