@@ -547,7 +547,20 @@ class Index extends Controller
 
         $list = $game->paginate(8);
         $this->assign('list',$list);
+        return view();
+    }
 
+    public function news(){
+        $user = new User();
+        $request = Request::instance();
+        if($request->has("userID","cookie")){
+            $userID=$request->cookie("userID");
+            $userInfo=$user->where("userID",$userID)->find();
+            $this->assign("userInfo",$userInfo);
+        }
+        $info = new Information();
+        $list = $info->paginate(5);
+        $this->assign('list',$list);
         return view();
     }
 }
